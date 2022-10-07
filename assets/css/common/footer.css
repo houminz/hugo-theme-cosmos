@@ -1,0 +1,10 @@
+.footer {
+    margin-top: 0;
+}
+
+.footer-inner {
+    box-sizing: border-box;
+    margin: 0 auto;
+    text-align: center;
+    width: 700px;
+}

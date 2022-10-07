@@ -1,0 +1,29 @@
+
+.go-back a {
+    display: inline-block;
+    margin-top: 3em;
+    padding: 10px;
+    color: #1B1A1A;
+    font-weight: 700;
+    border: solid 2px #e7e7e7;
+    text-decoration: none;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.go-back a:hover {
+    border-color: #1B1A1A;
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        padding: 50px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 48px;
+    }
+}

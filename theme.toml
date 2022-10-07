@@ -3,16 +3,16 @@
 
 name = "Cosmos"
 license = "MIT"
-licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE"
-description = ""
-homepage = "http://example.com/"
+licenselink = "https://github.com/SimpCosm/hugo-theme-cosmos/blob/master/LICENSE"
+description = "A new life style Hugo theme in cosmos"
+homepage = "https://houmin.cc/hugo-theme-cosmos"
 tags = []
 features = []
 min_version = "0.41.0"
 
 [author]
-  name = ""
-  homepage = ""
+  name = "Houmin Wei"
+  homepage = "https://github.com/SimpCosm"
 
 # If porting an existing theme
 [original]
