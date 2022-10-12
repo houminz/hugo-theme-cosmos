@@ -16,6 +16,6 @@ min_version = "0.41.0"
 
 # If porting an existing theme
 [original]
-  name = ""
-  homepage = ""
-  repo = ""
+  name = "PaperMod"
+  homepage = "https://adityatelange.github.io/hugo-PaperMod"
+  repo = "https://github.com/adityatelange/hugo-PaperMod"

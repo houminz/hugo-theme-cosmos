@@ -1,0 +1,20 @@
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-tap-highlight-color: transparent;
+    overflow-y: scroll;
+}
+
+
+ul {
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
