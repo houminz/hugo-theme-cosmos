@@ -1,10 +1,56 @@
-<!DOCTYPE html>
-<html>
-{{- partial "head.html" . -}}
-<body>
-  {{- partial "header.html" . -}}
-  {{- partial "post.html" . -}}
-  {{- partial "footer.html" . -}}
-</body>
-</html>
+{{- define "main" }}
 
+<article class="post-single">
+    <link itemprop="mainEntityOfPage" href="{{.RelPermalink}}">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="image" content="{{ .Title }}">
+        <meta itemprop="name" content="{{ .Author }}">
+        <meta itemprop="description" content="{{ .Description }}">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="{{ .Title }}">
+    </span>
+
+    <header class="post-header">
+        {{ partial "breadcrumbs.html" . }}
+        <h1 class="post-title">
+            {{ .Title }}
+            {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
+        </h1>
+
+        {{- if .Description }}
+        <div class="post-description">
+            {{ .Description }}
+        </div>
+        {{- end }}
+
+        {{- if not (.Param "hideMeta") }}
+        <div class="post-meta">
+            {{ partial "post/date.html" .}}
+            {{ partial "post/author.html" .}}
+            {{ partial "post/category.html" .}}
+        </div>
+        {{- end }}
+    </header>
+
+    {{- $isHidden := .Params.cover.hidden | default site.Params.cover.hiddenInSingle | default site.Params.cover.hidden }}
+    // {{- partial "cover.html" (dict "cxt" . "IsHome" false "isHidden" $isHidden) }}
+
+    <div class="post-body" itemprop="articleBody">
+        {{ .Content }}
+    </div>
+
+    <footer class="post-footer">
+        {{ partial "post/tags.html" .}}
+        {{- partial "post/prenext.html" . }}
+
+        {{- if (.Param "comments") }}
+        {{- partial "comments.html" . }}
+        {{- end }}
+    </footer>
+
+</article>
+
+{{- end }}{{/* end main */}}

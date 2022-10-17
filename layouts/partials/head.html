@@ -1,31 +1,28 @@
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{ $title := print .Site.Title " | " .Title }}
-    {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
-    <title>{{ $title }}</title>
+{{ $title := print .Site.Title " | " .Title }}
+{{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
+<title>{{ $title }}</title>
 
-    {{- /* Styles */}}
+{{- /* Styles */}}
 
-    {{- /* includes */}}
-    {{- $includes := slice }}
-    {{- $includes = $includes | append (" " | resources.FromString "assets/css/includes-blank.css")}}
-    {{- $includes_all := $includes | resources.Concat "assets/css/includes.css" }}
+{{- /* includes */}}
+{{- $includes := slice }}
+{{- $includes = $includes | append (" " | resources.FromString "assets/css/includes-blank.css")}}
+{{- $includes_all := $includes | resources.Concat "assets/css/includes.css" }}
 
-    {{- $license := (resources.Get "css/core/license.css") }}
-    {{- $basic := (resources.Get "css/core/basic.css") }}
-    {{- $vars := (resources.Get "css/core/theme-vars.css") }}
+{{- $license := (resources.Get "css/core/license.css") }}
+{{- $basic := (resources.Get "css/core/basic.css") }}
+{{- $vars := (resources.Get "css/core/theme-vars.css") }}
 
-    {{- $common := (resources.Match "css/common/*.css") | resources.Concat "assets/css/common.css" }}
+{{- $common := (resources.Match "css/common/*.css") | resources.Concat "assets/css/common.css" }}
 
-    {{- /* order is important */}}
-    {{- $core := (slice $common $includes_all) | resources.Concat "assets/css/core.css" | resources.Minify }}
+{{- /* order is important */}}
+{{- $core := (slice $common $includes_all) | resources.Concat "assets/css/core.css" | resources.Minify }}
 
-    {{- /* bundle all required css */}}
-    {{- $stylesheet := (slice $license $core $basic $vars) | resources.Concat "assets/css/stylesheet.css"  }}
-    <link crossorigin="anonymous" href="{{ $stylesheet.RelPermalink }}" rel="preload stylesheet" as="style">
+{{- /* bundle all required css */}}
+{{- $stylesheet := (slice $license $core $basic $vars) | resources.Concat "assets/css/stylesheet.css"  }}
+<link crossorigin="anonymous" href="{{ $stylesheet.RelPermalink }}" rel="preload stylesheet" as="style">
 
-    {{- /* Styles end here */}}
-
-</head>
+{{- /* Styles end here */}}

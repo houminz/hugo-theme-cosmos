@@ -12,7 +12,7 @@
 {{ end}}
 {{ $end := $.Scratch.Get "end"}}
 
-{{ $over := sub  $tps $end }}
+{{ $over := sub $tps $end }}
 
 {{ if lt $over 0}}
 {{ $begin := add $begin $over}}
@@ -21,15 +21,21 @@
 {{ $begin := $.Scratch.Get "begin"}}
 
 <nav class="pagination">
-    {{ if $pag.HasPrev }}<a class="extend prev" rel="prev" href="{{ $pag.Prev.URL  }}"><i class="fa fa-angle-left"></i></a>{{ end }}
+    {{ if $pag.HasPrev }}
+    <a class="extend prev" rel="prev" href="{{ $pag.Prev.URL  }}"></a>
+    {{ end }}
+
     {{ range $p := $pag.Pagers }}
-    {{ if and (ge $p.PageNumber $begin) (le $p.PageNumber $end) }}
-    {{ if eq $p $pag }}
-    <span class="page-number current">{{ $p.PageNumber }}</span>
-    {{ else }}
-    <a class="page-number" href="{{ $p.URL  }}">{{ $p.PageNumber }}</a>
+        {{ if and (ge $p.PageNumber $begin) (le $p.PageNumber $end) }}
+            {{ if eq $p $pag }}
+            <span class="page-number current">{{ $p.PageNumber }}</span>
+            {{ else }}
+            <a class="page-number" href="{{ $p.URL  }}">{{ $p.PageNumber }}</a>
+            {{ end }}
+        {{ end }}
     {{ end }}
+
+    {{ if $pag.HasNext }}
+    <a class="extend next" rel="next" href="{{ $pag.Next.URL }}"></a>
     {{ end }}
-    {{ end }}
-    {{ if $pag.HasNext }}<a class="extend next" rel="next" href="{{ $pag.Next.URL }}"><i class="fa fa-angle-right"></i></a>{{ end }}
 </nav>

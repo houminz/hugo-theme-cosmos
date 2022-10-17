@@ -1,7 +1,6 @@
-{{ if isset .Params "tags" }}
-    <div class="post-tags">
-        {{ range .Params.tags }}
-        <a href="/tags/{{ . | urlize | lower }}" rel="tag" title="{{ . }}">#{{ . }}#</a>
-        {{ end }}
-    </div>
-{{ end }}
+{{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
+<ul class="post-tags">
+    {{- range ($.GetTerms $tags) }}
+    <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+    {{- end }}
+</ul>
