@@ -18,3 +18,6 @@ a {
     text-decoration: none;
 }
 
+article, figure, footer, header, main, nav, section, table {
+    display: block;
+}
