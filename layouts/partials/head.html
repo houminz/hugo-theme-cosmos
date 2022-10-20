@@ -27,3 +27,11 @@
 <link crossorigin="anonymous" href="{{ $stylesheet.RelPermalink }}" rel="preload stylesheet" as="style">
 
 {{- /* Styles end here */}}
+
+{{- /* Math Support */}}
+
+{{ if or .Params.math .Site.Params.math }}
+{{ partial "math.html" . }}
+{{ end }}
+
+{{- /* Math Support end here */}}
