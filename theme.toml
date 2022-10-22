@@ -6,9 +6,17 @@ license = "MIT"
 licenselink = "https://github.com/SimpCosm/hugo-theme-cosmos/blob/master/LICENSE"
 description = "A new life style Hugo theme in cosmos"
 homepage = "https://houmin.cc/hugo-theme-cosmos"
-tags = []
-features = []
 min_version = "0.41.0"
+
+tags = [
+  "blog",
+  "minimalist",
+]
+
+features = [
+  "blog",
+  "scroll-to-top"
+]
 
 [author]
   name = "Houmin Wei"

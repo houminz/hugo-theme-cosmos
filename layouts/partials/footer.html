@@ -36,3 +36,7 @@
         {{- end }}
     </div>
 </footer>
+
+{{- if (not site.Params.disableScrollToTop) }}
+{{- partial "back2top.html" . }}
+{{- end }}
