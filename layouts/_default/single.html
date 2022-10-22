@@ -38,6 +38,8 @@
     {{- $isHidden := .Params.cover.hidden | default site.Params.cover.hiddenInSingle | default site.Params.cover.hidden }}
     // {{- partial "cover.html" (dict "cxt" . "IsHome" false "isHidden" $isHidden) }}
 
+    {{- partial "toc.html" . }}
+
     <div class="post-content" itemprop="articleBody">
         {{ .Content }}
     </div>
