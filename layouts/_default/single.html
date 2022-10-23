@@ -49,10 +49,10 @@
     {{- partial "reward.html" . }}
 
     <footer class="post-footer">
-        {{ partial "post/tags.html" .}}
+        {{- partial "post/tags.html" .}}
         {{- partial "post/prenext.html" . }}
 
-        {{- if (.Param "comments") }}
+        {{- if and (.Site.Params.utteranc.enable) (not (.Param "disableComments")) }}
         {{- partial "comments.html" . }}
         {{- end }}
     </footer>
