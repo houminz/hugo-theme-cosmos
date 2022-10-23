@@ -44,6 +44,8 @@
         {{ .Content }}
     </div>
 
+    {{- partial "reward.html" . }}
+
     <footer class="post-footer">
         {{ partial "post/tags.html" .}}
         {{- partial "post/prenext.html" . }}
