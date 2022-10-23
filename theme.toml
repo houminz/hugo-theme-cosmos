@@ -15,6 +15,7 @@ tags = [
 
 features = [
   "blog",
+  "favicon",
   "scroll-to-top"
 ]
 
