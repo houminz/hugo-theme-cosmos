@@ -1,0 +1,136 @@
+.post-preview {
+    max-width: 780px;
+    height: 200px;
+    margin: 1em auto;
+    position: relative;
+    display: flex;
+    background: var(--entry);
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25), 0 0 2px rgba(0, 0, 0, .25);
+}
+
+.post-preview img {
+    margin-top: 0px;
+    width: 20%;
+    border-radius: 0 15px 15px 0;
+}
+
+.post-preview-image {
+    height: 200px;
+    width: 20%;
+    float: right;
+    border-radius: 0 15px 15px 0;
+}
+
+.post-preview-meta {
+    width: 80%;
+    padding: 23px;
+}
+
+.post-preview-middle {
+    line-height: 28px;
+}
+
+.post-preview-title {
+    font-size: 22px;
+    margin: 0 !important;
+}
+
+.post-preview-title a {
+    text-decoration: none;
+}
+
+.post-preview-date {
+    font-size: 14px;
+    color: #999;
+}
+
+.post-preview-excerpt {
+    font-size: 14px;
+    line-height: 1.825;
+}
+
+.post-preview-excerpt p {
+    display: inline;
+    margin: 0;
+}
+
+@media (max-width: 550px) {
+    .post-preview {
+        width: 95%;
+    }
+
+    .post-preview-excerpt {
+        display: none;
+    }
+
+    .post-preview-middle {
+        line-height: 19px;
+    }
+}
+
+.rating {
+    display: block;
+    line-height: 15px;
+}
+
+.rating-star {
+    display: inline-block;
+    width: 75px;
+    height: 15px;
+    background-repeat: no-repeat;
+    background-image: url("/image/douban_star.png");
+    overflow: hidden;
+}
+
+.allstar10 {
+    background-position: 0px 0px;
+}
+
+.allstar9 {
+    background-position: 0px -15px;
+}
+
+.allstar8 {
+    background-position: 0px -30px;
+}
+
+.allstar7 {
+    background-position: 0px -45px;
+}
+
+.allstar6 {
+    background-position: 0px -60px;
+}
+
+.allstar5 {
+    background-position: 0px -75px;
+}
+
+.allstar4 {
+    background-position: 0px -90px;
+}
+
+.allstar3 {
+    background-position: 0px -105px;
+}
+
+.allstar2 {
+    background-position: 0px -120px;
+}
+
+.allstar1 {
+    background-position: 0px -135px;
+}
+
+.allstar0 {
+    background-position: 0px -150px;
+}
+
+
+.rating-average {
+    color: #777;
+    display: inline-block;
+    font-size: 13px;
+    margin-left: 10px;
+}
