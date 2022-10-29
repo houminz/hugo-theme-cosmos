@@ -1,18 +1,6 @@
 {{- define "main" }}
 
 <article class="post-single">
-    <link itemprop="mainEntityOfPage" href="{{.RelPermalink}}">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <meta itemprop="image" content="{{ .Title }}">
-        <meta itemprop="name" content="{{ .Author }}">
-        <meta itemprop="description" content="{{ .Description }}">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="{{ .Title }}">
-    </span>
-
     <header class="post-header">
         {{ partial "breadcrumbs.html" . }}
         <h1 class="post-title">
@@ -34,9 +22,6 @@
         </div>
         {{- end }}
     </header>
-
-    {{- $isHidden := .Params.cover.hidden | default site.Params.cover.hiddenInSingle | default site.Params.cover.hidden }}
-    // {{- partial "cover.html" (dict "cxt" . "IsHome" false "isHidden" $isHidden) }}
 
     {{- partial "toc.html" . }}
 
