@@ -37,7 +37,7 @@
         {{- partial "post/tags.html" .}}
         {{- partial "post/prenext.html" . }}
 
-        {{- if and (.Site.Params.utteranc.enable) (not (.Param "disableComments")) }}
+        {{- if and (.Site.Params.giscuss.enable) (not (.Param "disableComments")) }}
         {{- partial "comments.html" . }}
         {{- end }}
     </footer>
