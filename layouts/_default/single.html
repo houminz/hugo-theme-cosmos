@@ -1,6 +1,6 @@
 {{- define "main" }}
 
-<article class="post-single">
+<article class="post">
     <header class="post-header">
         {{ partial "breadcrumbs.html" . }}
         <h1 class="post-title">
@@ -23,15 +23,14 @@
         {{- end }}
     </header>
 
-    {{- partial "toc.html" . }}
+    {{- partial "post/toc.html" . }}
 
     <div class="post-content" itemprop="articleBody">
         {{ .Content }}
     </div>
 
-    {{- partial "copyright.html" . }}
-
-    {{- partial "reward.html" . }}
+    {{- partial "post/copyright.html" . }}
+    {{- partial "post/reward.html" . }}
 
     <footer class="post-footer">
         {{- partial "post/tags.html" .}}
