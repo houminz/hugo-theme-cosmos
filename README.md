@@ -30,4 +30,13 @@ If you are interested in fixing issues and contributing directly to this theme. 
 
 ## Specail Thanks
 
-- [KaTeX](https://katex.org/)
+- [KaTeX](https://katex.org)
+- [PrismJS](https://prismjs.com)
+- [MetingJS](https://github.com/metowolf/MetingJS)
+- [APlayer](https://github.com/DIYgod/APlayer)
+- [jQuery](https://jquery.com)
+- [emgithub](https://github.com/yusanshi/emgithub)
+- [PhotoSwipe](https://photoswipe.com)
+- [giscus](https://giscus.app)
+- [MermaidJS](https://mermaid.js.org)
+- [fancybox](https://github.com/fancyapps/fancybox)
