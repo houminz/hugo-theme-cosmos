@@ -143,55 +143,6 @@
     font-weight: normal;
 }
 
-.post-footer {
-    margin-top: 56px;
-}
-
-.post-tags li {
-    display: inline-block;
-    margin-inline-end: 3px;
-    margin-bottom: 5px;
-}
-
-.post-tags a,
-.share-buttons,
-.paginav {
-    border-radius: var(--radius);
-    background: var(--tags-bg);
-    border: 1px solid var(--border);
-}
-
-.post-tags a {
-    display: block;
-    padding-inline-start: 14px;
-    padding-inline-end: 14px;
-    color: var(--secondary);
-    font-size: 14px;
-    line-height: 34px;
-    background: var(--tags-bg);
-}
-
-.post-tags a:hover,
-.paginav a:hover {
-    background: var(--border);
-}
-
-.share-buttons {
-    margin: 14px 0;
-    padding-inline-start: var(--radius);
-    display: flex;
-    justify-content: center;
-    overflow-x: auto;
-}
-
-.share-buttons a {
-    margin-top: 10px;
-}
-
-.share-buttons a:not(:last-of-type) {
-    margin-inline-end: 12px;
-}
-
 h1:hover .anchor,
 h2:hover .anchor,
 h3:hover .anchor,
@@ -203,43 +154,6 @@ h6:hover .anchor {
     margin-inline-start: 8px;
     font-weight: 500;
     user-select: none;
-}
-.paginav {
-    margin: 10px 0;
-    display: flex;
-    line-height: 30px;
-    border-radius: var(--radius);
-}
-
-.paginav a {
-    padding-inline-start: 14px;
-    padding-inline-end: 14px;
-    border-radius: var(--radius);
-}
-
-.paginav .title {
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-size: small;
-    color: var(--secondary);
-}
-
-.paginav .prev,
-.paginav .next {
-    width: 50%;
-}
-
-.paginav span:hover:not(.title) {
-    box-shadow: 0 1px 0;
-}
-
-.paginav .next {
-    margin-inline-start: auto;
-    text-align: right;
-}
-
-[dir="rtl"] .paginav .next {
-    text-align: left;
 }
 
 h1>a>svg {

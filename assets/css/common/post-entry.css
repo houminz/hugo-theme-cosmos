@@ -19,10 +19,6 @@
     -webkit-line-clamp: 2;
 }
 
-.post-footer {
-    color: var(--secondary);
-    font-size: 13px;
-}
 
 .entry-header h2 {
     font-size: 24px;
