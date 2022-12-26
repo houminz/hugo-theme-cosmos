@@ -2,7 +2,7 @@
 
 const Cosmos = {};
 
-Cosmos.back2Top = function() {
+Cosmos.back2top = function() {
     const displayBack2Top = 200;
     var back2top = document.getElementById("back2top");
     window.onscroll = function () {

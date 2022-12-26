@@ -1,4 +1,4 @@
 document.addEventListener("DOMContentLoaded", function(event) {
-    Cosmos.back2Top();
+    Cosmos.back2top();
     Cosmos.toc();
 });
