@@ -1,9 +1,9 @@
-.top-link {
+.back2top {
     font-size: 12px;
     color: var(--secondary);
 }
 
-.top-link {
+.back2top {
     visibility: hidden;
     position: fixed;
     bottom: 60px;
@@ -17,16 +17,16 @@
     transition: visibility 0.5s, opacity 0.8s linear;
 }
 
-.top-link,
-.top-link svg {
+.back2top,
+.back2top svg {
     filter: drop-shadow(0px 0px 0px var(--theme));
 }
 
-.top-link:hover {
+.back2top:hover {
     color: var(--primary);
 }
 
-.top-link:focus,
+.back2top:focus,
 #theme-toggle:focus {
     outline: 0;
 }
