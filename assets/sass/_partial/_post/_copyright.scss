@@ -1,7 +1,7 @@
 .post-copyright {
     padding: 10px;
-    background-color: rgba(181,181,181,.1);
-    border: 1px solid #e1e1e1;
+    background-color: $copyright-backgroud;
+    border: 1px solid $light-gray;
     border-left: solid;
     margin-top: 3em
 }
@@ -11,12 +11,12 @@
 }
 
 .post-copyright .copyright-item a {
-    color: #c05b4d;
+    color: $theme-color;
     word-wrap: break-word
 }
 
 .post-copyright .copyright-item a:hover {
-    border-bottom: 1px solid #c05b4d
+    border-bottom: 1px solid $content-link-border;
 }
 
 .post-copyright .copyright-item .item-title {
