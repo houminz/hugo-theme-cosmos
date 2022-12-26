@@ -1,35 +1,6 @@
-.page-header,
-.post-header {
-    margin: 24px auto var(--content-gap) auto;
-}
-
-.post-title {
-    margin-bottom: 2px;
-    font-size: 40px;
-}
-
 .post-description {
     margin-top: 10px;
     margin-bottom: 5px;
-}
-
-.post-meta,
-.breadcrumbs {
-    color: var(--secondary);
-    font-size: 14px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.post-meta .i18n_list li {
-    display: inline-flex;
-    list-style: none;
-    margin: auto 3px;
-    box-shadow: 0 1px 0 var(--secondary);
-}
-
-.breadcrumbs a {
-    font-size: 16px;
 }
 
 .post-content {
