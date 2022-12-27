@@ -12,8 +12,6 @@
 {{- $includes = $includes | append (" " | resources.FromString "assets/css/includes-blank.css")}}
 {{- $includes_all := $includes | resources.Concat "assets/css/includes.css" }}
 
-{{- $license := (resources.Get "css/core/license.css") }}
-{{- $basic := (resources.Get "css/core/basic.css") }}
 {{- $media := (resources.Get "css/core/zmedia.css") }}
 {{- $vars := (resources.Get "css/core/theme-vars.css") }}
 
@@ -23,7 +21,7 @@
 {{- $core := (slice $common $includes_all $media) | resources.Concat "assets/css/core.css" | resources.Minify }}
 
 {{- /* bundle all required css */}}
-{{- $stylesheet := (slice $license $core $basic $vars) | resources.Concat "assets/css/stylesheet.css"  }}
+{{- $stylesheet := (slice $core $vars) | resources.Concat "assets/css/stylesheet.css"  }}
 <link crossorigin="anonymous" href="{{ $stylesheet.RelPermalink }}" rel="preload stylesheet" as="style">
 
 {{- /* Styles end here */}}

@@ -8,18 +8,6 @@
     border: 1px solid var(--border);
 }
 
-.post-body {
-    margin: 8px 0;
-    color: var(--secondary);
-    font-size: 14px;
-    line-height: 1.6;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-}
-
-
 .entry-header h2 {
     font-size: 24px;
     line-height: 1.3;

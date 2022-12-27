@@ -1,0 +1,362 @@
+// ==============================
+// Post content
+// ==============================
+
+.post-content {
+  word-wrap: break-word;
+
+  @for $i from 1 through 6 {
+    h#{$i} {
+      font-weight: 400;
+      font-family: $global-serif-font-family;
+
+      .anchor {
+        float: left;
+        line-height: 1;
+        margin-left: -20px;
+        padding-right: 4px;
+
+        &:hover {
+          border-bottom: initial;
+        }
+
+        .icon-link {
+          visibility: hidden;
+          font-size: 16px;
+          display: contents;
+
+          &:before {
+            vertical-align: middle;
+          }
+        }
+      }
+
+      &:hover {
+        .icon-link {
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  a {
+    color: $theme-color;
+    word-break: break-all;
+
+    &:hover {
+      border-bottom: $content-link-border;
+    }
+
+    &.fancybox {
+      border: 0;
+    }
+  }
+
+  blockquote {
+    margin: 2em 0;
+    padding: 10px 20px;
+    position: relative;
+    color: rgba(#34495e, 0.8);
+    background-color: $content-blockquote-backgroud;
+    border-left: $content-blockquote-border-left;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
+
+    p {
+      margin: 0;
+    }
+  }
+
+  img {
+    display: inline-block;
+    max-width: 100%;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+
+    > table {
+      max-width: 100%;
+      margin: 10px 0;
+      border-spacing: 0;
+      box-shadow: 2px 2px 3px rgba(0,0,0,.125);
+
+      thead {
+        background: $deputy-color;
+      }
+
+      th, td {
+        padding: 5px 15px;
+        border: 1px double $content-table-border-color;
+      }
+
+      tr:hover {
+        background-color: $deputy-color;
+      }
+    }
+  }
+
+  @import 'code';
+  @import 'notice';
+
+  .post-summary {
+    margin-bottom: 1em;
+  }
+
+  .read-more {
+    .read-more-link {
+      color: $theme-color;
+      font-size: 1.1em;
+      font-family: $global-serif-font-family;
+
+      &:hover {
+        border-bottom: $post-readMore-border-bottom;
+      }
+    }
+  }
+
+  kbd {
+    display: inline-block;
+    padding: 0.25em;
+    background-color: #fafafa;
+    border: 1px solid #dbdbdb;
+    border-bottom-color: #b5b5b5;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #b5b5b5;
+    font-size: 0.8em;
+    line-height: 1.25;
+    font-family: "SFMono-Regular","Liberation Mono","Roboto Mono",Menlo,Monaco,Consolas,"Courier New",Courier,monospace;
+    color: #4a4a4a;
+  }
+
+  dl dt::after {
+    content: ':';
+  }
+
+  figure {
+    &.center {
+      text-align: center;
+    }
+
+    &.right {
+      text-align: right;
+    }
+
+    &.left {
+      text-align: left;
+    }
+
+    figcaption h4 {
+      color: #b5b5b5;
+      font-size: 0.9rem;
+    }
+  }
+
+  hr {
+    margin: 1rem 0;
+    position: relative;
+    border-top: 2px dashed $theme-color;
+    border-bottom: none;
+  }
+
+  .footnote-ref {
+    > a {
+      font-weight: bold;
+      margin-left: 3px;
+
+      &:before {
+        content: "[";
+      }
+
+      &:after {
+        content: "]";
+      }
+    }
+  }
+
+  .task-list {
+    list-style: none;
+    padding-left: 1.5rem;
+  }
+
+  .align-center {
+    text-align: center;
+  }
+
+  .align-right {
+    text-align: right;
+  }
+
+  .align-left {
+    text-align: left;
+  }
+
+  .MJXc-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-right: 1px;
+  }
+}
+
+// TODO
+.post-description {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+    margin: 24px 0 16px;
+}
+
+.post-content h1 {
+    margin: 40px auto 32px;
+    font-size: 40px;
+}
+
+.post-content h2 {
+    margin: 32px auto 24px;
+    font-size: 32px;
+}
+
+.post-content h3 {
+    font-size: 24px;
+}
+
+.post-content h4 {
+    font-size: 16px;
+}
+
+.post-content h5 {
+    font-size: 14px;
+}
+
+.post-content h6 {
+    font-size: 12px;
+}
+
+.post-content a,
+
+.post-content a code {
+    margin: auto 0;
+    border-radius: 0;
+    box-shadow: 0 -1px 0 var(--primary) inset;
+}
+
+.post-content del {
+    text-decoration: none;
+    background: linear-gradient(to right, var(--primary) 100%, transparent 0) 0 50%/1px 1px repeat-x;
+}
+
+.post-content dl,
+.post-content ol,
+.post-content p,
+.post-content figure,
+.post-content ul {
+    margin-bottom: var(--content-gap);
+}
+
+.post-content ol,
+.post-content ul {
+    padding-inline-start: 20px;
+}
+
+.post-content li {
+    margin-top: 5px;
+}
+
+.post-content li p {
+    margin-bottom: 0;
+}
+
+.post-content dl {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.post-content dt {
+    width: 25%;
+    font-weight: 700;
+}
+
+.post-content dd {
+    width: 75%;
+    margin-inline-start: 0;
+    padding-inline-start: 10px;
+}
+
+.post-content dd ~ dd,
+.post-content dt ~ dt {
+    margin-top: 10px;
+}
+
+.post-content table {
+    margin-bottom: 32px;
+}
+
+.post-content blockquote {
+    margin: 20px 0;
+    padding: 0 14px;
+    border-inline-start: 3px solid var(--primary);
+}
+
+.post-content hr {
+    margin: 30px 0;
+    height: 2px;
+    background: var(--tertiary);
+    border: 0;
+}
+
+.post-content iframe {
+    max-width: 100%;
+}
+
+.post-content img {
+    border-radius: 4px;
+    margin: 1rem 0;
+}
+
+.post-content img[src*="#center"] {
+    margin: 1rem auto;
+}
+
+.post-content figure.align-center {
+    text-align: center;
+}
+
+.post-content figure > figcaption {
+    color: var(--primary);
+    font-size: 16px;
+    font-weight: bold;
+    margin: 8px 0 16px;
+}
+
+.post-content figure > figcaption > p {
+    color: var(--secondary);
+    font-size: 14px;
+    font-weight: normal;
+}
+
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+    display: inline-flex;
+    color: var(--secondary);
+    margin-inline-start: 8px;
+    font-weight: 500;
+    user-select: none;
+}
+
+h1>a>svg {
+    display: inline;
+}
+
+img.in-text {
+    display: inline;
+    margin: auto;
+}
