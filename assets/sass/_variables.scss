@@ -356,3 +356,32 @@ $copyright-backgroud: $black !default;
 $tags-backgroud: $black !default;
 
 $radius: 8px;
+
+// Notice config
+$notice-root-color: #444;
+$notice-root-background-color: #eff;
+$notice-title-color: #fff;
+$notice-title-background-color: #7bd;
+$notice-warning-title-color: #c33;
+$notice-warning-content-color: #fee;
+$notice-info-title-color: #fb7;
+$notice-info-content-color: #fec;
+$notice-note-title-color: #6be;
+$notice-note-content-color: #e7f2fa;
+$notice-tip-title-color: #5a5;
+$notice-tip-content-color: #efe;
+
+@media (prefers-color-scheme:dark){
+    $notice-root-color: #ddd;
+    $notice-root-background-color: #eff;
+    $notice-title-color: #fff;
+    $notice-title-background-color: #7bd;
+    $notice-warning-title-color: #800;
+    $notice-warning-content-color: #400;
+    $notice-info-title-color: #a50;
+    $notice-info-content-color: #420;
+    $notice-note-title-color: #069;
+    $notice-note-content-color: #023;
+    $notice-tip-title-color: #363;
+    $notice-tip-content-color: #121;
+}

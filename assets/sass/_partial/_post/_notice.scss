@@ -1,0 +1,62 @@
+.notice{
+    padding:18px;
+    line-height:24px;
+    margin-bottom:24px;
+    border-radius:4px;
+    color: $notice-root-color;
+    background: $notice-root-background-color;
+}
+.notice p:last-child{
+    margin-bottom:0
+}
+.notice-title{
+    margin:-18px -18px 12px;
+    padding:4px 18px;
+    border-radius:4px 4px 0 0;
+    font-weight:700;
+    color: $notice-title-color;
+    background: $notice-title-background-color;
+}
+
+.notice.warning .notice-title{
+    background: $notice-warning-title-color;
+}
+.notice.warning{
+    background: $notice-warning-content-color;
+}
+
+.notice.info .notice-title{
+    background: $notice-info-title-color;
+}
+.notice.info{
+    background: $notice-info-content-color;
+}
+
+.notice.note .notice-title{
+    background: $notice-note-title-color;
+}
+.notice.note{
+    background: $notice-note-content-color;
+}
+
+.notice.tip .notice-title{
+    background: $notice-tip-title-color;
+}
+.notice.tip{
+    background: $notice-tip-content-color;
+}
+
+.icon-notice{
+    display:inline-flex;
+    align-self:center;
+    margin-right:8px
+}
+.icon-notice img,.icon-notice svg{
+    height:1em;
+    width:1em;
+    fill:currentColor
+}
+.icon-notice img,.icon-notice.baseline svg{
+    top:.125em;
+    position:relative
+}
