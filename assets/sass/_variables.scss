@@ -328,24 +328,12 @@ $terms-link-margin: 5px 10px !default;
 // Font size of the terms count
 $terms-count-font-size: 12px !default;
 
-/*
-    --gap: 24px;
-    --content-gap: 20px;
-    --nav-width: 1024px;
-    --main-width: 720px;
-    --header-height: 60px;
-    --footer-height: 60px;
-    --radius: 8px;
-    --theme: rgb(29, 30, 32);
-    --entry: rgb(46, 46, 51);
-    --primary: rgb(218, 218, 219);
-    --secondary: rgb(155, 156, 157);
-    --tertiary: rgb(65, 66, 68);
-    --content: rgb(196, 196, 197);
-    --tags-bg: rgb(46, 46, 51);
-    --code-bg: rgb(0, 43, 54);
-    --border: rgb(51, 51, 51);
-*/
+$global-gap: 24px !default;
+$global-content-gap: 20px !default;
+$global-nav-width: 1024px !default;
+$global-main-width: 720px !default;
+$global-header-height: 60px !default;
+$global-footer-height: 60px !default;
 
 // Background color of the copyright.
 // TODO: need to unify for the theme
@@ -353,7 +341,7 @@ $copyright-backgroud: $black !default;
 
 // Background color of the tags.
 // TODO: need to unify for the theme
-$tags-backgroud: $black !default;
+$tags-background: $black !default;
 
 $radius: 8px;
 

@@ -21,8 +21,8 @@
     border-radius: 4px;
     -webkit-transition-duration: .4s;
     transition-duration: .4s;
-    background-color: var(--tags-bg);
-    color: var(--content);
+    background-color: $tags-background;
+    color: $theme-color;
     margin: 0 auto;
     padding: 0 25px
 }
