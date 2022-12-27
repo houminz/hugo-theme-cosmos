@@ -12,6 +12,10 @@
     {{ if .Site.Params.katex }}
         {{- partial "helper/external" (dict "Context" . "Namespace" "KaTeX") -}}
     {{ end }}
+
+    {{ if .Site.Params.meting }}
+        {{- partial "helper/external" (dict "Context" . "Namespace" "Meting") -}}
+    {{ end }}
 {{- end -}}
 
 <!-- custom js -->

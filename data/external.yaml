@@ -29,3 +29,19 @@ KaTeX:
     integrity: sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05
     type: script
     defer: true
+
+Meting:
+  - src: https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css
+    integrity: sha256-uqQQGnDcmRKvhKwc5Vm4XT1GQ2oV6t1U0NR2N9tV+BQ=
+    type: style
+    defer: true
+
+  - src: https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js
+    integrity: sha256-6Y7CJDaltoeNgk+ZftgCD9jLgmGv4xKUo8nQ0HgAwVo=
+    type: script
+    defer: true
+
+  - src: https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js
+    integrity: sha256-lOUP+l9qLbMTaCYKLNdL6sBZF+8JZrFxXmXrVbzSgj0=
+    type: script
+    defer: true
