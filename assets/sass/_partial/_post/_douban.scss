@@ -4,7 +4,7 @@
     margin: 1em auto;
     position: relative;
     display: flex;
-    background: var(--entry);
+    background: $global-background;
     border-radius: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .25), 0 0 2px rgba(0, 0, 0, .25);
 }
