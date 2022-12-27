@@ -15,7 +15,7 @@
 
 {{- partial "favicon.html" . }}
 
-<!-- Styles -->
+<!-- styles -->
 {{ $style := resources.Get "scss/main.scss" | toCSS | minify | fingerprint }}
 <link href="{{ $style.RelPermalink }}" rel="stylesheet">
 
@@ -23,3 +23,6 @@
 {{ range .Site.Params.customCSS -}}
 <link rel="stylesheet" href="{{ "/css/" | relURL }}{{ . }}">
 {{ end }}
+
+<!-- external js and css -->
+{{ partial "scripts.html" . }}
