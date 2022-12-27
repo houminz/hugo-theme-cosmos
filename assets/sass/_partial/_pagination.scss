@@ -1,0 +1,47 @@
+// ==============================
+// Pagination
+// ==============================
+
+.pagination {
+  display: flex;
+  margin: $pagination-margin;
+  @include clearfix;
+
+  .prev,
+  .next {
+    font-weight: 600;
+    font-size: $pagination-font-size;
+    font-family: $global-serif-font-family;
+    transition-property: transform;
+    transition-timing-function: ease-out;
+    transition-duration: 0.3s;
+  }
+
+  .prev {
+    float: left;
+
+    &:hover {
+      color: $theme-color;
+      transform: translateX(-4px);
+    }
+  }
+
+  .next {
+    float: right;
+    margin-inline-start: auto;
+
+    &:hover {
+      color: $theme-color;
+      transform: translateX(4px);
+    }
+  }
+
+  a {
+    color: $theme-color;
+    font-size: 13px;
+    line-height: 36px;
+    background: $global-background;
+    border-radius: calc(36px / 2);
+    padding: 0 16px;
+  }
+}
