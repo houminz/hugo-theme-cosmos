@@ -1,17 +1,17 @@
+<!-- borrowed from https://stackoverflow.com/questions/25491465/bootstrap-tab-without-jquery -->
 <nav>
-	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+	<div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
 
 		{{ $tabTotal := .Get "tabTotal" }}
-		{{ $tabRightAlign := .Get "tabRightAlign" }}
 		{{ $tabName := .Scratch.Get "tabName" }}
 		{{ $tabID := .Scratch.Get "tabID" }}
 
 		{{ range $i, $sequence := (seq $tabTotal) }}
-
-		<a class="nav-item nav-link {{ if eq $i 0 }} active {{ end }}{{ if in $tabRightAlign (add 1 $i) }} ml-auto {{ end }}"
-		   id="nav-{{ (index $tabID $i) }}" data-toggle="tab" href="#{{ (index $tabID $i) }}"
-		   role="tab" aria-controls="nav-home" aria-selected="true">{{ (replaceRE "(\\s)" "" (index $tabName $i)) }}</a>
-
+		<li>
+			<a class="nav-item {{ if eq $i 0 }} active {{ end }}" id="{{ (index $tabID $i) }}" href="javascript:void(0);">
+				{{ (replaceRE "(\\s)" "" (index $tabName $i)) }}
+			</a>
+		</li>
 		{{ end }}
 
 	</div>
@@ -22,13 +22,3 @@
 	{{ .Inner }}
 
 </div>
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-	  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
