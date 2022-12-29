@@ -234,6 +234,12 @@ $global-font-family: Arial !default;
 // Serif font family of the site.
 $global-serif-font-family: Athelas, STHeiti, Microsoft Yahei, serif !default;
 
+// Font size of the logo.
+$logo-font-size: 40px !default;
+
+// Font family of the logo.
+$logo-font-family: 'Chancery', cursive, LiSu, sans-serif !default;
+
 // ============================================================================
 // =============================== Global =====================================
 // ============================================================================
@@ -284,14 +290,16 @@ $header-padding: 20px 20px !default;
 // ============================================================================
 // =============================== Menu =======================================
 // ============================================================================
+$menu-padding: 15px 25px !default;
+
 // Margin of menu item.
-$menu-item-margin-left: 10px !default;
+$menu-item-margin-left: 20px !default;
 
 // Margin of menu item in mobile.
 $menu-item-mobile-margin: 5px !default;
 
 // Font size of menu item link.
-$menu-link-font-size: 18px !default;
+$menu-link-font-size: 25px !default;
 
 // Height of the mobile header.
 $mobile-navbar-height: 50px !default;
