@@ -33,7 +33,7 @@
     margin: 10px 0;
     display: flex;
     line-height: 30px;
-    border-radius: $radius;
+    border-radius: $global-radius;
 
     margin: 1em 0;
     @include clearfix;
@@ -41,7 +41,7 @@
     a {
       padding-inline-start: 14px;
       padding-inline-end: 14px;
-      border-radius: $radius;
+      border-radius: $global-radius;
     }
 
     .title {

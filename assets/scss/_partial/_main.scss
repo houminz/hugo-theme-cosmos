@@ -1,9 +1,10 @@
 .main {
     position: relative;
     min-height: calc(100vh) - $global-header-height - $global-footer-height;
-    max-width: $global-main-width + $global-gap * 2;
+    max-width: $global-body-width;
     margin: auto;
     padding: $global-gap;
+    background: $theme-content-bg-color;
 }
 
 .post-entry {
@@ -11,7 +12,7 @@
     margin-bottom: $global-gap;
     padding: $global-gap;
     background: $global-background;
-    border-radius: $radius;
+    border-radius: $global-radius;
     transition: transform 0.1s;
     border: 1px solid;
 }

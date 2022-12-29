@@ -1,103 +1,289 @@
-// ==============================
+// ============================================================================
 // Variables
-// ==============================
+// ============================================================================
 
-// ========== Theme Color ========== //
-// Config here to change theme color
-// Default | Mint Green | Cobalt Blue | Hot Pink | Dark Violet
-$theme-color-config: 'Default';
+// ============================================================================
+// =============================== Color ======================================
+// ============================================================================
 
-// Default theme color map
-$theme-color-map: (
-  'Default': #c05b4d #f8f5ec,
-  'Mint Green': #16982B #f5f5f5,
-  'Cobalt Blue': #0047AB #f0f2f5,
-  'Hot Pink': #FF69B4 #f8f5f5,
-  'Dark Violet': #9932CC #f5f4fa
-);
-
-// Check theme color config.
-// if it does not exist, use default theme color.
-@if not(map-has-key($theme-color-map, $theme-color-config)) {
-  $theme-color-config: 'Default';
+// scss-docs-start color-functions
+// Tint a color: mix a color with white
+@function tint-color($color, $weight) {
+  @return mix(white, $color, $weight);
 }
-$theme-color-list: map-get($theme-color-map, $theme-color-config);
+
+// Shade a color: mix a color with black
+@function shade-color($color, $weight) {
+  @return mix(black, $color, $weight);
+}
+
+// scss-docs-start gray-color-variables
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+// scss-docs-end gray-color-variables
+
+// scss-docs-start color-variables
+$blue:    #0d6efd !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #d63384 !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #198754 !default;
+$teal:    #20c997 !default;
+$cyan:    #0dcaf0 !default;
+// scss-docs-end color-variables
+
+// The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7.
+// See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast
+$min-contrast-ratio:   4.5 !default;
+
+// Customize the light and dark text colors for use in our color contrast function.
+$color-contrast-dark:      $black !default;
+$color-contrast-light:     $white !default;
+
+// fusv-disable
+$blue-100: tint-color($blue, 80%) !default;
+$blue-200: tint-color($blue, 60%) !default;
+$blue-300: tint-color($blue, 40%) !default;
+$blue-400: tint-color($blue, 20%) !default;
+$blue-500: $blue !default;
+$blue-600: shade-color($blue, 20%) !default;
+$blue-700: shade-color($blue, 40%) !default;
+$blue-800: shade-color($blue, 60%) !default;
+$blue-900: shade-color($blue, 80%) !default;
+
+$indigo-100: tint-color($indigo, 80%) !default;
+$indigo-200: tint-color($indigo, 60%) !default;
+$indigo-300: tint-color($indigo, 40%) !default;
+$indigo-400: tint-color($indigo, 20%) !default;
+$indigo-500: $indigo !default;
+$indigo-600: shade-color($indigo, 20%) !default;
+$indigo-700: shade-color($indigo, 40%) !default;
+$indigo-800: shade-color($indigo, 60%) !default;
+$indigo-900: shade-color($indigo, 80%) !default;
+
+$purple-100: tint-color($purple, 80%) !default;
+$purple-200: tint-color($purple, 60%) !default;
+$purple-300: tint-color($purple, 40%) !default;
+$purple-400: tint-color($purple, 20%) !default;
+$purple-500: $purple !default;
+$purple-600: shade-color($purple, 20%) !default;
+$purple-700: shade-color($purple, 40%) !default;
+$purple-800: shade-color($purple, 60%) !default;
+$purple-900: shade-color($purple, 80%) !default;
+
+$pink-100: tint-color($pink, 80%) !default;
+$pink-200: tint-color($pink, 60%) !default;
+$pink-300: tint-color($pink, 40%) !default;
+$pink-400: tint-color($pink, 20%) !default;
+$pink-500: $pink !default;
+$pink-600: shade-color($pink, 20%) !default;
+$pink-700: shade-color($pink, 40%) !default;
+$pink-800: shade-color($pink, 60%) !default;
+$pink-900: shade-color($pink, 80%) !default;
+
+$red-100: tint-color($red, 80%) !default;
+$red-200: tint-color($red, 60%) !default;
+$red-300: tint-color($red, 40%) !default;
+$red-400: tint-color($red, 20%) !default;
+$red-500: $red !default;
+$red-600: shade-color($red, 20%) !default;
+$red-700: shade-color($red, 40%) !default;
+$red-800: shade-color($red, 60%) !default;
+$red-900: shade-color($red, 80%) !default;
+
+$orange-100: tint-color($orange, 80%) !default;
+$orange-200: tint-color($orange, 60%) !default;
+$orange-300: tint-color($orange, 40%) !default;
+$orange-400: tint-color($orange, 20%) !default;
+$orange-500: $orange !default;
+$orange-600: shade-color($orange, 20%) !default;
+$orange-700: shade-color($orange, 40%) !default;
+$orange-800: shade-color($orange, 60%) !default;
+$orange-900: shade-color($orange, 80%) !default;
+
+$yellow-100: tint-color($yellow, 80%) !default;
+$yellow-200: tint-color($yellow, 60%) !default;
+$yellow-300: tint-color($yellow, 40%) !default;
+$yellow-400: tint-color($yellow, 20%) !default;
+$yellow-500: $yellow !default;
+$yellow-600: shade-color($yellow, 20%) !default;
+$yellow-700: shade-color($yellow, 40%) !default;
+$yellow-800: shade-color($yellow, 60%) !default;
+$yellow-900: shade-color($yellow, 80%) !default;
+
+$green-100: tint-color($green, 80%) !default;
+$green-200: tint-color($green, 60%) !default;
+$green-300: tint-color($green, 40%) !default;
+$green-400: tint-color($green, 20%) !default;
+$green-500: $green !default;
+$green-600: shade-color($green, 20%) !default;
+$green-700: shade-color($green, 40%) !default;
+$green-800: shade-color($green, 60%) !default;
+$green-900: shade-color($green, 80%) !default;
+
+$teal-100: tint-color($teal, 80%) !default;
+$teal-200: tint-color($teal, 60%) !default;
+$teal-300: tint-color($teal, 40%) !default;
+$teal-400: tint-color($teal, 20%) !default;
+$teal-500: $teal !default;
+$teal-600: shade-color($teal, 20%) !default;
+$teal-700: shade-color($teal, 40%) !default;
+$teal-800: shade-color($teal, 60%) !default;
+$teal-900: shade-color($teal, 80%) !default;
+
+$cyan-100: tint-color($cyan, 80%) !default;
+$cyan-200: tint-color($cyan, 60%) !default;
+$cyan-300: tint-color($cyan, 40%) !default;
+$cyan-400: tint-color($cyan, 20%) !default;
+$cyan-500: $cyan !default;
+$cyan-600: shade-color($cyan, 20%) !default;
+$cyan-700: shade-color($cyan, 40%) !default;
+$cyan-800: shade-color($cyan, 60%) !default;
+$cyan-900: shade-color($cyan, 80%) !default;
+
+// scss-docs-start theme-color-variables
+$primary:       $blue !default;
+$secondary:     $gray-600 !default;
+$success:       $teal !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $gray-100 !default;
+$gray:          $gray-500 !default
+$dark:          $gray-900 !default;
+// scss-docs-end theme-color-variables
+
+$success-text:            $teal-600 !default;
+$info-text:               $cyan-700 !default;
+$warning-text:            $yellow-700 !default;
+$danger-text:             $red-600 !default;
+$light-text:              $gray-600 !default;
+$dark-text:               $gray-700 !default;
+
+$success-bg-subtle:       $teal-100 !default;
+$info-bg-subtle:          $cyan-100 !default;
+$warning-bg-subtle:       $yellow-100 !default;
+$danger-bg-subtle:        $red-100 !default;
+$light-bg-subtle:         mix($gray-100, $white) !default;
+$dark-bg-subtle:          $gray-400 !default;
+
+$success-border-subtle:   $green-200 !default;
+$info-border-subtle:      $cyan-200 !default;
+$warning-border-subtle:   $yellow-200 !default;
+$danger-border-subtle:    $red-200 !default;
+$light-border-subtle:     $gray-200 !default;
+$dark-border-subtle:      $gray-500 !default;
+
+// Notice config
+$notice-title-color: $white;
+$notice-info-title-bg: $info;
+$notice-info-content-bg: $info-bg-subtle;
+$notice-tip-title-bg: $success;
+$notice-tip-content-bg: $success-bg-subtle;
+$notice-warning-title-bg: $warning;
+$notice-warning-content-bg: $warning-bg-subtle;
+$notice-important-title-bg: $danger;
+$notice-important-content-bg: $danger-bg-subtle;
 
 // Default theme color of the site.
-$theme-color: nth($theme-color-list, 1) !default;
+$theme-color: $cyan-600 !default;
+$theme-bg-color: $yellow-100 !default;
+$theme-content-bg-color: $yellow-200 !default;
 
 // Deputy theme color of the site.
-$deputy-color: nth($theme-color-list, 2) !default;
+$deputy-color: $teal-100 !default;
 
+// Background color of the copyright.
+// TODO: need to unify for the theme
+$copyright-backgroud: $theme-bg-color !default;
 
-// ========== Color ========== //
-$black: #0a0a0a !default;
-$white: #fefefe !default;
-$light-gray: #e6e6e6 !default;
-$gray: #cacaca !default;
-$dark-gray: #8a8a8a !default;
+// Background color of the tags.
+// TODO: need to unify for the theme
+$tags-background: $theme-bg-color !default;
 
+// Color of the code background.
+$code-background: $deputy-color !default;
 
-// ========== Global ========== //
-// Text color of the body.
-$global-font-color: #34495e !default;
-
+// ============================================================================
+// =============================== Font =======================================
+// ============================================================================
 // Font size attribute applied to '<html>' and '<body>'.
 $global-font-size: 16px !default;
 
-// Global width of '<body>'.
-$global-body-width: 800px !default;
-
-// Padding of container main
-$global-container-padding: 0 20px !default;
+// Text color of the body.
+$global-font-color: $black !default;
 
 // Default line height for all type. `$global-lineheight` is 24px while `$global-font-size` is 16px.
 $global-lineheight: 1.5 !default;
 
 // Font family of the site.
-$global-font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif !default;
+$global-font-family: Arial !default;
 
 // Serif font family of the site.
 $global-serif-font-family: Athelas, STHeiti, Microsoft Yahei, serif !default;
 
+// ============================================================================
+// =============================== Global =====================================
+// ============================================================================
+
+// Global width of '<body>'.
+$global-body-width: 800px !default;
+$global-nav-width: 1024px !default;
+$global-header-height: 60px !default;
+$global-footer-height: 60px !default;
+$global-gap: 24px !default;
+$global-radius: 8px;
+
+// Padding of container main
+$global-container-padding: 0 20px !default;
+
 // Background color of the site.
-$global-background: $white !default;
+$global-background: $theme-bg-color !default;
 
 // Headings font size of the site.
 $global-headings: (
-  h1: 26px,
-  h2: 24px,
-  h3: 20px,
-  h4: 16px,
-  h5: 14px,
-  h6: 14px
+        h1: 26px,
+        h2: 24px,
+        h3: 20px,
+        h4: 16px,
+        h5: 14px,
+        h6: 14px
 ) !default;
 
+// ========== General Terms ========== //
+// Font size of the terms title.
+$terms-title-size: 18px !default;
 
-// ========== Header ========== //
+// Border bottom of the terms title.
+$terms-title-border-bottom: 2px solid $theme-color !default;
+
+// Margin of the terms link.
+$terms-link-margin: 5px 10px !default;
+
+// Font size of the terms count
+$terms-count-font-size: 12px !default;
+
+// ============================================================================
+// =============================== Header =====================================
+// ============================================================================
 // Padding of the site header.
 $header-padding: 20px 20px !default;
 
-// Font family: Chancery
-@font-face {
-  font-family: 'Chancery';
-  src: url('../fonts/chancery/apple-chancery-webfont.eot');
-  src: local('Apple Chancery'), url('../fonts/chancery/apple-chancery-webfont.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/chancery/apple-chancery-webfont.woff2') format('woff2'),
-  url('../fonts/chancery/apple-chancery-webfont.woff') format('woff'),
-  url('../fonts/chancery/apple-chancery-webfont.ttf') format('truetype'),
-  url('../fonts/chancery/apple-chancery-webfont.svg#apple-chancery') format('svg');
-  font-weight: lighter;
-  font-style: normal;
-  font-display: swap;
-}
-
-// Font size of the logo.
-$logo-font-size: 48px !default;
-
-// Font family of the logo.
-$logo-font-family: 'Chancery', cursive, LiSu, sans-serif !default;
-
+// ============================================================================
+// =============================== Menu =======================================
+// ============================================================================
 // Margin of menu item.
 $menu-item-margin-left: 10px !default;
 
@@ -110,6 +296,9 @@ $menu-link-font-size: 18px !default;
 // Height of the mobile header.
 $mobile-navbar-height: 50px !default;
 
+// ============================================================================
+// =============================== Post =======================================
+// ============================================================================
 // ========== Post ========== //
 // Margin bottom of post list.
 $post-list-margin-bottom: 20px !default;
@@ -118,7 +307,7 @@ $post-list-margin-bottom: 20px !default;
 $post-padding: 1.5em 0 !default;
 
 // Border top of the post + post.
-$post-border: 1px solid $light-gray !default;
+$post-border: 1px solid $gray-200 !default;
 
 // Font size of post title.
 $post-title-font-size: 27px !default;
@@ -130,7 +319,7 @@ $post-title-font-weight: 400 !default;
 $post-meta-margin-top: 5px !default;
 
 // Font color of the post meta.
-$post-meta-font-color: $dark-gray !default;
+$post-meta-font-color: $gray-600 !default;
 
 // Border bottom of the read more link when hover it.
 $post-readMore-border-bottom: 1px solid $theme-color !default;
@@ -139,7 +328,7 @@ $post-readMore-border-bottom: 1px solid $theme-color !default;
 $post-footer-margin-top: 20px !default;
 
 // Border top of post footer.
-$post-footer-border-top: 1px solid $light-gray !default;
+$post-footer-border-top: 1px solid $gray-200 !default;
 
 // Padding of the post tags.
 $post-tags-padding: 15px 0 !default;
@@ -147,8 +336,25 @@ $post-tags-padding: 15px 0 !default;
 // Font size of post pagination.
 $post-nav-font-size: 18px !default;
 
+// ========== Content ========== //
+// Headings anchor.
+$content-headings-anchor: "" !default;
 
-// ========== TOC ========== //
+// Border bottom of the link when hover it.
+$content-link-border: 1px solid $theme-color !default;
+
+// Background color of the blockquote.
+$content-blockquote-backgroud: rgba($theme-color, 0.05) !default;
+
+// Border left of the blockquote.
+$content-blockquote-border-left: 3px solid rgba($theme-color, 0.3) !default;
+
+// Border color of the table.
+$content-table-border-color: darken($deputy-color, 3%) !default;
+
+// ============================================================================
+// =============================== TOC ========================================
+// ============================================================================
 // Width of the post toc.
 $post-toc-width: 200px !default;
 
@@ -170,22 +376,9 @@ $post-toc-list-style: square !default;
 // Max screen media of the post toc.
 $toc-max-sreen-width: 2 * $post-toc-width + $post-toc-margin-left !default;
 
-// ========== Content ========== //
-// Headings anchor.
-$content-headings-anchor: "" !default;
-
-// Border bottom of the link when hover it.
-$content-link-border: 1px solid $theme-color !default;
-
-// Background color of the blockquote.
-$content-blockquote-backgroud: rgba($theme-color, 0.05) !default;
-
-// Border left of the blockquote.
-$content-blockquote-border-left: 3px solid rgba($theme-color, 0.3) !default;
-
-// Border color of the table.
-$content-table-border-color: darken($deputy-color, 3%) !default;
-
+// ============================================================================
+// =============================== Code =======================================
+// ============================================================================
 // ========== Code ========== //
 // Color of the code.
 $code-color: #c7254e !default;
@@ -195,80 +388,80 @@ $code-font-size: 0.9em !default;
 
 // Font family of the code.
 $code-font-family: Consolas, Monaco, Menlo, "DejaVu Sans Mono",
- "Bitstream Vera Sans Mono", "Courier New", monospace !default;
+"Bitstream Vera Sans Mono", "Courier New", monospace !default;
 
 // Color of code highlight, solarized.
 $code-highlight-color: (
-  comment: #93a1a1,
-  keyword: #859900,
-  number: #2aa198,
-  title: #268bd2,
-  attribute: #b58900,
-  symbol: #cb4b16,
-  built_in: #dc322f,
-  formula: #eee8d5
+        comment: #93a1a1,
+        keyword: #859900,
+        number: #2aa198,
+        title: #268bd2,
+        attribute: #b58900,
+        symbol: #cb4b16,
+        built_in: #dc322f,
+        formula: #eee8d5
 ) !default;
 
 // Code type list.
 $code-type-list: (
   // Custom code type
-  language-bash: "Bash",
-  language-c: "C",
-  language-cs: "C#",
-  language-cpp: "C++",
-  language-css: "CSS",
-  language-coffeescript: "CoffeeScript",
-  language-html: "HTML",
-  language-xml: "XML",
-  language-http: "HTTP",
-  language-json: "JSON",
-  language-java: "Java",
-  language-js: "JavaScript",
-  language-javascript: "JavaScript",
-  language-makefile: "Makefile",
-  language-markdown: "Markdown",
-  language-objectivec: "Objective-C",
-  language-php: "PHP",
-  language-perl: "Perl",
-  language-python: "Python",
-  language-ruby: "Ruby",
-  language-sql: "SQL",
-  language-shell: "Shell",
+        language-bash: "Bash",
+        language-c: "C",
+        language-cs: "C#",
+        language-cpp: "C++",
+        language-css: "CSS",
+        language-coffeescript: "CoffeeScript",
+        language-html: "HTML",
+        language-xml: "XML",
+        language-http: "HTTP",
+        language-json: "JSON",
+        language-java: "Java",
+        language-js: "JavaScript",
+        language-javascript: "JavaScript",
+        language-makefile: "Makefile",
+        language-markdown: "Markdown",
+        language-objectivec: "Objective-C",
+        language-php: "PHP",
+        language-perl: "Perl",
+        language-python: "Python",
+        language-ruby: "Ruby",
+        language-sql: "SQL",
+        language-shell: "Shell",
 
-  language-erlang: "Erlang",
-  language-go: "Go",
-  language-go-html-template: "Go HTML Template",
-  language-groovy: "Groovy",
-  language-haskell: "Haskell",
-  language-kotlin: "Kotlin",
-  language-clojure: "Clojure",
-  language-less: "Less",
-  language-lisp: "Lisp",
-  language-lua: "Lua",
-  language-matlab: "Matlab",
-  language-rust: "Rust",
-  language-scss: "Scss",
-  language-scala: "Scala",
-  language-swift: "Swift",
-  language-typescript: "TypeScript",
-  language-yml: "YAML",
-  language-yaml: "YAML",
-  language-toml: "TOML",
-  language-diff: "Diff"
+        language-erlang: "Erlang",
+        language-go: "Go",
+        language-go-html-template: "Go HTML Template",
+        language-groovy: "Groovy",
+        language-haskell: "Haskell",
+        language-kotlin: "Kotlin",
+        language-clojure: "Clojure",
+        language-less: "Less",
+        language-lisp: "Lisp",
+        language-lua: "Lua",
+        language-matlab: "Matlab",
+        language-rust: "Rust",
+        language-scss: "Scss",
+        language-scala: "Scala",
+        language-swift: "Swift",
+        language-typescript: "TypeScript",
+        language-yml: "YAML",
+        language-yaml: "YAML",
+        language-toml: "TOML",
+        language-diff: "Diff"
 ) !default;
 
-// Color of the code background.
-$code-background: #FFFFFF !default;
-
-
-// ========== Pagination ========== //
+// ============================================================================
+// =============================== Pagination =================================
+// ============================================================================
 // Margin of the pagination.
 $pagination-margin: 2em 0 !default;
 
 // Font size of the pagination (Without post, post pagination see line 140).
 $pagination-font-size: 20px !default;
 
-
+// ============================================================================
+// =============================== Footer =====================================
+// ============================================================================
 // ========== Footer ========== //
 // Margin top of the footer.
 $footer-margin-top: 2em !default;
@@ -282,101 +475,11 @@ $social-icon-font-size: 30px !default;
 // Margin of the copyright.
 $copyright-margin: 10px 0 !default;
 
+// ============================================================================
+// =============================== Nav ========================================
+// ============================================================================
 
-// ========== Archive ========== //
-// Margin of the archive.
-$archive-margin: 2em 0px !default;
-
-// Max width of the archive.
-$archive-max-width: 550px !default;
-
-// Font size of the archive name.
-$archive-name-font-size: 30px !default;
-
-// Font size of the collection title.
-$collection-title-font-size: 28px !default;
-
-// Padding of the archive post.
-$archive-post-padding: 3px 20px !default;
-
-// Padding of the archive post in mobile.
-$archive-post-mobile-padding: 5px 10px !default;
-
-// Font size of the archive post time in mobile.
-$archive-post-mobile-time-font-size: 13px !default;
-
-// Border left of the archive post, use $archive-post-hover-border-left when hover it.
-$archive-post-border-left: 1px solid $gray !default;
-$archive-post-hover-border-left: 3px solid $theme-color !default;
-
-// Transition of the archive post when hover it.
-$archive-post-hover-transition: 0.2s ease-out !default;
-
-// Transform of the archive post when hover it.
-$archive-post-hover-transform: translateX(4px) !default;
-
-// ========== General Terms ========== //
-// Font size of the terms title.
-$terms-title-size: 18px !default;
-
-// Border bottom of the terms title.
-$terms-title-border-bottom: 2px solid $theme-color !default;
-
-// Margin of the terms link.
-$terms-link-margin: 5px 10px !default;
-
-// Font size of the terms count
-$terms-count-font-size: 12px !default;
-
-$global-gap: 24px !default;
-$global-content-gap: 20px !default;
-$global-nav-width: 1024px !default;
-$global-main-width: 720px !default;
-$global-header-height: 60px !default;
-$global-footer-height: 60px !default;
-
-// Background color of the copyright.
-// TODO: need to unify for the theme
-$copyright-backgroud: $black !default;
-
-// Background color of the tags.
-// TODO: need to unify for the theme
-$tags-background: $black !default;
-
-$radius: 8px;
-
-// Notice config
-$notice-root-color: #444;
-$notice-root-background-color: #eff;
-$notice-title-color: #fff;
-$notice-title-background-color: #7bd;
-$notice-warning-title-color: #c33;
-$notice-warning-content-color: #fee;
-$notice-info-title-color: #fb7;
-$notice-info-content-color: #fec;
-$notice-note-title-color: #6be;
-$notice-note-content-color: #e7f2fa;
-$notice-tip-title-color: #5a5;
-$notice-tip-content-color: #efe;
-
-@media (prefers-color-scheme:dark){
-    $notice-root-color: #ddd;
-    $notice-root-background-color: #eff;
-    $notice-title-color: #fff;
-    $notice-title-background-color: #7bd;
-    $notice-warning-title-color: #800;
-    $notice-warning-content-color: #400;
-    $notice-info-title-color: #a50;
-    $notice-info-content-color: #420;
-    $notice-note-title-color: #069;
-    $notice-note-content-color: #023;
-    $notice-tip-title-color: #363;
-    $notice-tip-content-color: #121;
-}
-
-// TODO
-$post-content-width: 720px;
-
+// Navs
 $border-radius:               .375rem !default;
 $border-radius-sm:            .25rem !default;
 $border-radius-lg:            .5rem !default;
@@ -385,7 +488,7 @@ $border-radius-2xl:           2rem !default;
 $border-radius-pill:          50rem !default;
 
 $component-active-color:      $white !default;
-$component-active-bg:         $code-background !default;
+$component-active-bg:         $dark !default;
 
 $link-color:                              $theme-color !default;
 $link-decoration:                         underline !default;
@@ -394,8 +497,6 @@ $link-hover-color:                        shift-color($link-color, $link-shade-p
 $link-hover-decoration:                   null !default;
 
 $prefix: cosmos- !default;
-
-// Navs
 
 // scss-docs-start nav-variables
 $nav-link-padding-y:                .5rem !default;
@@ -419,5 +520,3 @@ $nav-pills-border-radius:           $border-radius !default;
 $nav-pills-link-active-color:       $component-active-color !default;
 $nav-pills-link-active-bg:          $component-active-bg !default;
 // scss-docs-end nav-variables
-
-

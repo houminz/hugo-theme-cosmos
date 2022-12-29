@@ -3,8 +3,6 @@
     line-height:24px;
     margin-bottom:24px;
     border-radius:4px;
-    color: $notice-root-color;
-    background: $notice-root-background-color;
 }
 .notice p:last-child{
     margin-bottom:0
@@ -15,35 +13,34 @@
     border-radius:4px 4px 0 0;
     font-weight:700;
     color: $notice-title-color;
-    background: $notice-title-background-color;
 }
 
 .notice.warning .notice-title{
-    background: $notice-warning-title-color;
+    background: $notice-warning-title-bg;
 }
 .notice.warning{
-    background: $notice-warning-content-color;
+    background: $notice-warning-content-bg;
 }
 
 .notice.info .notice-title{
-    background: $notice-info-title-color;
+    background: $notice-info-title-bg;
 }
 .notice.info{
-    background: $notice-info-content-color;
+    background: $notice-info-content-bg;
 }
 
-.notice.note .notice-title{
-    background: $notice-note-title-color;
+.notice.important .notice-title{
+    background: $notice-important-title-bg;
 }
-.notice.note{
-    background: $notice-note-content-color;
+.notice.important{
+    background: $notice-important-content-bg;
 }
 
 .notice.tip .notice-title{
-    background: $notice-tip-title-color;
+    background: $notice-tip-title-bg;
 }
 .notice.tip{
-    background: $notice-tip-content-color;
+    background: $notice-tip-content-bg;
 }
 
 .icon-notice{

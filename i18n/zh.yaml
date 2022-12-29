@@ -47,8 +47,8 @@
 
 - id: warning
   translation: "警告"
-- id: note
-  translation: "注释"
+- id: important
+  translation: "重要"
 - id: info
   translation: "信息"
 - id: tip

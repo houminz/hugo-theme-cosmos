@@ -47,8 +47,8 @@
 
 - id: warning
   translation: "Warning"
-- id: note
-  translation: "Note"
+- id: important
+  translation: "Important"
 - id: info
   translation: "Info"
 - id: tip
