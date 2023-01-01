@@ -1,0 +1,58 @@
+{{ $showLeftSidebar := true }}
+{{ $bookSection := default "docs" .Site.Params.bookSection  }}
+{{ if eq $bookSection "*" }} {{/* Backward compatibility */}}
+    {{ $bookSection = "/" }}
+    {{ $showLeftSidebar = true }}
+{{ else }}
+    {{ $showLeftSidebar = eq $bookSection .Section }}
+{{ end }}
+
+{{ if $showLeftSidebar }}
+<aside id="sidebar">
+    <div id="header-wrapper">
+        <div id="header">
+            <a href="{{ "/" | relLangURL }}" class="logo">
+            {{- if .Site.Params.logoTitle -}}
+            {{ .Site.Params.logoTitle }}
+            {{- else -}}
+            {{ .Site.Title }}
+            {{- end -}}
+            </a>
+        </div>
+    </div>
+    <div id="content-wrapper">
+        <ul class="topics">
+            {{ with .Site.GetPage $bookSection }}
+            {{ template "book-section-children" (dict "Section" . "CurrentPage" $ ) }}
+            {{ end }}
+        </ul>
+    </div>
+</aside>
+{{- end }}
+
+{{ define "book-section-children" }}{{/* (dict "Section" .Section "CurrentPage" .CurrentPage) */}}
+{{ range (where .Section.Pages "Params.bookhidden" "ne" true) }}
+{{ if .IsSection }}
+{{ $current := eq $.CurrentPage . }}
+{{- if eq .Section "about" -}}
+{{- else -}}
+<li data-nav-id="{{ .RelPermalink }}" class="dd-item {{ if $current }}active{{ end }}">
+    <a href="{{ .RelPermalink }}">
+        {{- partial "sidebar/title" .Page -}}
+    </a>
+    <ul>
+        {{ template "book-section-children" (dict "Section" . "CurrentPage" $.CurrentPage) }}
+    </ul>
+</li>
+{{- end -}}
+{{ else if and .IsPage .Content }}
+{{ $current := eq $.CurrentPage . }}
+{{ $ancestor := .IsAncestor $.CurrentPage }}
+<li data-nav-id="{{ .RelPermalink }}" class="dd-item {{ if $current }}active{{ end }}">
+    <a href="{{ .Page.RelPermalink }}">
+        {{- partial "sidebar/title" .Page -}}
+    </a>
+</li>
+{{ end }}
+{{ end }}
+{{ end }}

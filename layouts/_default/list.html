@@ -1,51 +1,19 @@
 {{- define "main" }}
 
-{{- $pages := .Sections  }}
-
-{{- if and .IsHome site.Params.enableHomeProfile }}
-  {{- partial "home.html" -}}
-{{- else if or .IsSection (and .IsHome (not site.Params.enableHomeProfile)) }}
-  {{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
-  {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true"  }}
-  {{ $isHomeWithoutProfile := (and .IsHome (not site.Params.enableHomeProfile)) }}
-  {{ $isMainSection := (and .IsSection (in site.Params.mainSections .Section)) }}
-  {{ if or $isHomeWithoutProfile $isMainSection }}
-    {{- $paginator := .Paginate $pages }}
-    {{- range $index, $page := $paginator.Pages }}
-    <article class="post-entry">
-      {{- $isHidden := (site.Params.cover.hidden | default site.Params.cover.hiddenInList) }}
-      {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
-      <header class="entry-header">
-        <h2>
-          {{- .Title }}
-          {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
-        </h2>
-      </header>
-      {{- if (ne (.Param "hideSummary") true) }}
-      <div class="entry-content">
-        <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
-      </div>
-      {{- end }}
-      {{- if not (.Param "hideMeta") }}
-      <footer class="entry-footer">
-        {{ partial "post/date.html" .}}
-        {{ partial "post/author.html" .}}
-        {{ partial "post/category.html" .}}
-      </footer>
-      {{- end }}
-      <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
-    </article>
-    {{- end }}
-
-    <footer class="page-footer">
-      {{ partial "pagination.html" . }}
-    </footer>
-  {{ else if in site.Params.bookSections .Section }}
+  {{- if eq site.Params.bookSection "*" }}
     {{- partial "post/article.html" . -}}
-  {{- end }}
-
-{{- end }}
-
-
+  {{- else }}
+    {{- if and .IsHome site.Params.enableHomeProfile }}
+      {{- partial "home.html" -}}
+    {{- else if or .IsSection (and .IsHome (not site.Params.enableHomeProfile)) }}
+        {{ $isHomeWithoutProfile := (and .IsHome (not site.Params.enableHomeProfile)) }}
+        {{ $isMainSection := (and .IsSection (in site.Params.mainSections .Section)) }}
+        {{ if or $isHomeWithoutProfile $isMainSection }}
+          {{- partial "post/entries.html" . -}}
+        {{ else if eq site.Params.bookSection .Section }}
+          {{- partial "post/article.html" . -}}
+        {{- end -}}
+    {{- end -}}
+  {{- end -}}
 
 {{- end }}{{- /* end main */ -}}

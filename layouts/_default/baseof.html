@@ -10,7 +10,7 @@
 {{- print "list" -}}
 {{- end -}}
 " id="top">
-    {{- partial "sidebar/main.html" . }}
+    {{- partial "sidebar/left.html" . }}
     <main class="main">
         {{- partialCached "header.html" . .Page -}}
         {{- block "main" . }}{{ end }}
