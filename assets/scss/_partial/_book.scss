@@ -1,0 +1,91 @@
+#sidebar {
+  display: flex;
+  flex-basis: auto;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  font-size: 15.25px;
+  height: 100%;
+  left: 0;
+  line-height: 1.574;
+  min-height: 100%;
+  min-width: 300px;
+  max-width: 300px;
+  position: fixed;
+  width: 300px;
+  z-index: 80;
+}
+
+#header-wrapper {
+  border-bottom-style: solid;
+  border-bottom-width: 4px;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+}
+
+#header a {
+  display: inline-block;
+}
+
+#content-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* fill rest of vertical space */
+  overflow: hidden;
+  position: relative; /* PS */
+  z-index: 100;
+  background: $gray-200;
+}
+
+#sidebar ul.topics {
+  margin: 0 1rem;
+}
+
+#sidebar ul.topics li {
+  position: relative;
+}
+
+#sidebar ul.topics > li > ul > li:last-child {
+  padding-bottom: 1rem;
+}
+
+#sidebar ul.topics ul ul {
+  padding-bottom: 0;
+}
+
+#sidebar ul.topics li.parent > ul,
+#sidebar ul.topics li.active > ul,
+#sidebar ul.topics li.alwaysopen > ul {
+  display: block;
+}
+
+#sidebar ul.topics > li > a {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+#sidebar ul.topics > li > ul > li > a {
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#sidebar ul li a {
+  display: block;
+  padding: 2px 0;
+}
+
+#sidebar ul li > a,
+#sidebar ul li > button {
+  padding: 4px 0;
+}
+
+#sidebar ul li li {
+  padding-left: 1rem;
+}

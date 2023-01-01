@@ -10,11 +10,12 @@
 {{- print "list" -}}
 {{- end -}}
 " id="top">
-<main class="main">
-    {{- partialCached "header.html" . .Page -}}
-    {{- block "main" . }}{{ end }}
-    {{ partialCached "footer.html" . .Layout .Kind -}}
-</main>
+    {{- partial "sidebar/main.html" . }}
+    <main class="main">
+        {{- partialCached "header.html" . .Page -}}
+        {{- block "main" . }}{{ end }}
+        {{ partialCached "footer.html" . .Layout .Kind -}}
+    </main>
 
 </body>
 
