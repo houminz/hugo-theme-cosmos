@@ -561,3 +561,30 @@ $nav-pills-border-radius:           $border-radius !default;
 $nav-pills-link-active-color:       $component-active-color !default;
 $nav-pills-link-active-bg:          $component-active-bg !default;
 // scss-docs-end nav-variables
+
+
+$menu-width: 18rem !default;
+
+// Used in layout
+$padding-2: 0.125rem !default;
+$padding-4: 0.25rem !default;
+$padding-8: 0.5rem !default;
+$padding-16: 1rem !default;
+$padding-24: 1.5rem !default;
+$padding-32: 2rem !default;
+$padding-48: 3rem !default;
+$padding-64: 4rem !default;
+$padding-96: 6rem !default;
+
+$body-min-width: 20rem !default;
+
+$font-size-base: 16px !default;
+$font-size-12: 0.75rem !default;
+$font-size-14: 0.875rem !default;
+$font-size-16: 1rem !default;
+$font-size-20: 1.25rem !default;
+$font-size-24: 1.5rem !default;
+$font-size-32: 2rem !default;
+$font-size-64: 4rem !default;
+$font-size-96: 6rem !default;
+$font-size-128: 8rem !default;

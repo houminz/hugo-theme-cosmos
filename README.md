@@ -38,3 +38,5 @@ If you are interested in fixing issues and contributing directly to this theme. 
 - [PhotoSwipe](https://photoswipe.com)
 - [giscus](https://giscus.app)
 - [MermaidJS](https://mermaid.js.org)
+- [MarkMap](https://markmap.js.org)
+- [FuseJS](https://fusejs.io)
