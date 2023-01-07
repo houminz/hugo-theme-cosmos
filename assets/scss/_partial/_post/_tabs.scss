@@ -1,112 +1,46 @@
-// Borrowed from bootstrap
+// {{< tabs >}}
+.tabs {
+	margin-top: $padding-16;
+	margin-bottom: $padding-16;
 
-// Base class
-//
-// Kickstart any navigation component with a set of style resets. Works with
-// `<nav>`s, `<ul>`s or `<ol>`s.
+	border: $padding-2 solid $gray-200;
+	border-radius: $border-radius;
 
-.nav {
-	// scss-docs-start nav-css-vars
-	--#{$prefix}nav-link-padding-x: #{$nav-link-padding-x};
-	--#{$prefix}nav-link-padding-y: #{$nav-link-padding-y};
-	//@include rfs($nav-link-font-size, --#{$prefix}nav-link-font-size);
-	--#{$prefix}nav-link-font-weight: #{$nav-link-font-weight};
-	--#{$prefix}nav-link-color: #{$nav-link-color};
-	--#{$prefix}nav-link-hover-color: #{$nav-link-hover-color};
-	--#{$prefix}nav-link-disabled-color: #{$nav-link-disabled-color};
-	// scss-docs-end nav-css-vars
+	overflow: hidden;
 
 	display: flex;
 	flex-wrap: wrap;
-	padding-left: 0;
-	margin-bottom: 0;
-	list-style: none;
-}
 
-//
-// Tabs
-//
-
-.nav-tabs {
-	// scss-docs-start nav-tabs-css-vars
-	--#{$prefix}nav-tabs-border-width: #{$nav-tabs-border-width};
-	--#{$prefix}nav-tabs-border-color: #{$nav-tabs-border-color};
-	--#{$prefix}nav-tabs-border-radius: #{$nav-tabs-border-radius};
-	--#{$prefix}nav-tabs-link-hover-border-color: #{$nav-tabs-link-hover-border-color};
-	--#{$prefix}nav-tabs-link-active-color: #{$nav-tabs-link-active-color};
-	--#{$prefix}nav-tabs-link-active-bg: #{$nav-tabs-link-active-bg};
-	--#{$prefix}nav-tabs-link-active-border-color: #{$nav-tabs-link-active-border-color};
-	// scss-docs-end nav-tabs-css-vars
-
-	border-bottom: var(--#{$prefix}nav-tabs-border-width) solid var(--#{$prefix}nav-tabs-border-color);
-
-	.nav-link {
-		margin-bottom: calc(-1 * var(--#{$prefix}nav-tabs-border-width)); // stylelint-disable-line function-disallowed-list
-		background: none;
-		border: var(--#{$prefix}nav-tabs-border-width) solid transparent;
-		//@include border-top-radius(var(--#{$prefix}nav-tabs-border-radius));
-
-		&:hover,
-		&:focus {
-			// Prevents active .nav-link tab overlapping focus outline of previous/next .nav-link
-			isolation: isolate;
-			border-color: var(--#{$prefix}nav-tabs-link-hover-border-color);
-		}
-
-		&.disabled,
-		&:disabled {
-			color: var(--#{$prefix}nav-link-disabled-color);
-			background-color: transparent;
-			border-color: transparent;
-		}
+	label {
+		display: inline-block;
+		padding: $padding-8 $padding-16;
+		border-bottom: $padding-2 transparent;
+		cursor: pointer;
 	}
 
-	.nav-link.active,
-	.nav-item.show .nav-link {
-		color: var(--#{$prefix}nav-tabs-link-active-color);
-		background-color: var(--#{$prefix}nav-tabs-link-active-bg);
-		border-color: var(--#{$prefix}nav-tabs-link-active-border-color);
-	}
-
-	.dropdown-menu {
-		// Make dropdown border overlap tab border
-		margin-top: calc(-1 * var(--#{$prefix}nav-tabs-border-width)); // stylelint-disable-line function-disallowed-list
-		// Remove the top rounded corners here since there is a hard edge above the menu
-		//@include border-top-radius(0);
-	}
-}
-
-
-//
-// Justified variants
-//
-
-
-.nav-justified {
-	> .nav-link,
-	.nav-item {
-		flex-basis: 0;
-		flex-grow: 1;
-		text-align: center;
-	}
-}
-
-.nav-justified {
-	.nav-item .nav-link {
-		width: 100%; // Make sure button will grow
-	}
-}
-
-
-// Tabbable tabs
-//
-// Hide tabbable panes to start, show them when `.active`
-
-.tab-content {
-	> .tab-pane {
+	.tabs-content {
+		order: 999; //Move content blocks to the end
+		width: 100%;
+		border-top: $padding-2 solid $gray-200;
+		padding: $padding-16;
 		display: none;
 	}
-	> .active {
+
+	input[type="radio"]:checked + label {
+		border-bottom: $padding-2 solid $red-200;
+	}
+	input[type="radio"]:checked + label + .tabs-content {
 		display: block;
 	}
+	input[type="radio"]:focus + label {
+		@include outline;
+	}
+}
+
+input.toggle {
+	height: 0;
+	width: 0;
+	overflow: hidden;
+	opacity: 0;
+	position: absolute
 }

@@ -1,16 +1,3 @@
-
-// {{< columns >}}
-.columns {
-  margin-left: -$padding-16;
-  margin-right: -$padding-16;
-
-  > div {
-    margin: $padding-16 0;
-    min-width: $body-min-width / 2;
-    padding: 0 $padding-16;
-  }
-}
-
 // {{< details >}}
 details {
   display: block;

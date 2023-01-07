@@ -1,9 +1,13 @@
-{{ $tabName := .Get "tabName" }}
-{{ $tabID := delimit (shuffle (slice "a" "b" "c" "d" "e" "f")) "" }}
-{{ .Parent.Scratch.Add "tabName" (slice $tabName) }}
-{{ .Parent.Scratch.Add "tabID" (slice $tabID) }}
+{{ if .Parent }}
+{{ $name := .Get 0 }}
+{{ $group := printf "tabs-%s" (.Parent.Get 0) }}
 
-<div class="tab-pane {{ if eq .Ordinal 0 }}active{{ end }}" id="{{ $tabID }}" role="tabpanel">
-    {{ $.Inner | markdownify }}
-</div>
+{{ if not (.Parent.Scratch.Get $group) }}
+{{ .Parent.Scratch.Set $group slice }}
+{{ end }}
+
+{{ .Parent.Scratch.Add $group (dict "Name" $name "Content" .Inner) }}
+{{ else }}
+{{ errorf "%q: 'tab' shortcode must be inside 'tabs' shortcode" .Page.Path }}
+{{ end}}
 

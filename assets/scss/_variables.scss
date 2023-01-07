@@ -522,46 +522,12 @@ $archive-post-hover-transform: translateX(4px) !default;
 
 // Navs
 $border-radius:               .375rem !default;
-$border-radius-sm:            .25rem !default;
-$border-radius-lg:            .5rem !default;
-$border-radius-xl:            1rem !default;
-$border-radius-2xl:           2rem !default;
-$border-radius-pill:          50rem !default;
-
-$component-active-color:      $white !default;
-$component-active-bg:         $dark !default;
 
 $link-color:                              $theme-color !default;
 $link-decoration:                         underline !default;
 $link-shade-percentage:                   20% !default;
 $link-hover-color:                        shift-color($link-color, $link-shade-percentage) !default;
 $link-hover-decoration:                   null !default;
-
-$prefix: cosmos- !default;
-
-// scss-docs-start nav-variables
-$nav-link-padding-y:                .5rem !default;
-$nav-link-padding-x:                1rem !default;
-$nav-link-font-size:                null !default;
-$nav-link-font-weight:              null !default;
-$nav-link-color:                    var(--#{$prefix}link-color) !default;
-$nav-link-hover-color:              var(--#{$prefix}link-hover-color) !default;
-$nav-link-transition:               color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out !default;
-$nav-link-disabled-color:           var(--#{$prefix}secondary-color) !default;
-
-$nav-tabs-border-color:             var(--#{$prefix}border-color) !default;
-$nav-tabs-border-width:             var(--#{$prefix}border-width) !default;
-$nav-tabs-border-radius:            var(--#{$prefix}border-radius) !default;
-$nav-tabs-link-hover-border-color:  var(--#{$prefix}secondary-bg) var(--#{$prefix}secondary-bg) $nav-tabs-border-color !default;
-$nav-tabs-link-active-color:        var(--#{$prefix}emphasis-color) !default;
-$nav-tabs-link-active-bg:           var(--#{$prefix}body-bg) !default;
-$nav-tabs-link-active-border-color: var(--#{$prefix}border-color) var(--#{$prefix}border-color) $nav-tabs-link-active-bg !default;
-
-$nav-pills-border-radius:           $border-radius !default;
-$nav-pills-link-active-color:       $component-active-color !default;
-$nav-pills-link-active-bg:          $component-active-bg !default;
-// scss-docs-end nav-variables
-
 
 $menu-width: 18rem !default;
 
@@ -577,14 +543,3 @@ $padding-64: 4rem !default;
 $padding-96: 6rem !default;
 
 $body-min-width: 20rem !default;
-
-$font-size-base: 16px !default;
-$font-size-12: 0.75rem !default;
-$font-size-14: 0.875rem !default;
-$font-size-16: 1rem !default;
-$font-size-20: 1.25rem !default;
-$font-size-24: 1.5rem !default;
-$font-size-32: 2rem !default;
-$font-size-64: 4rem !default;
-$font-size-96: 6rem !default;
-$font-size-128: 8rem !default;

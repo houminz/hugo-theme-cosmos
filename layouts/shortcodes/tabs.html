@@ -1,24 +1,15 @@
-<!-- borrowed from https://stackoverflow.com/questions/25491465/bootstrap-tab-without-jquery -->
-<nav>
-	<div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
+{{ if .Inner }}{{ end }}
+{{ $id := .Get 0 }}
+{{ $group := printf "tabs-%s" $id }}
 
-		{{ $tabTotal := .Get "tabTotal" }}
-		{{ $tabName := .Scratch.Get "tabName" }}
-		{{ $tabID := .Scratch.Get "tabID" }}
-
-		{{ range $i, $sequence := (seq $tabTotal) }}
-		<li>
-			<a class="nav-item {{ if eq $i 0 }} active {{ end }}" id="{{ (index $tabID $i) }}" href="javascript:void(0);">
-				{{ (replaceRE "(\\s)" "" (index $tabName $i)) }}
-			</a>
-		</li>
-		{{ end }}
-
+<div class="tabs">
+	{{- range $index, $tab := .Scratch.Get $group -}}
+	<input type="radio" class="toggle" name="{{ $group }}" id="{{ printf "%s-%d" $group $index }}" {{ if not $index }}checked="checked"{{ end }} />
+	<label for="{{ printf "%s-%d" $group $index }}">
+	{{- $tab.Name -}}
+	</label>
+	<div class="tabs-content">
+		{{- .Content | $.Page.RenderString -}}
 	</div>
-</nav>
-
-<div class="tab-content" id="nav-tab-content">
-
-	{{ .Inner }}
-
+	{{- end -}}
 </div>
