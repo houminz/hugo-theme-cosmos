@@ -21,6 +21,22 @@ MarkMap:
     type: script
     defer: true
 
+ECharts:
+  - src: https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js
+    integrity: sha256-IF32ooP8NPIzQg/fs7lVHpwG92JcCPE1TZAEyFSgGZU=
+    type: script
+
+EChartsMap:
+  - src: https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js
+    integrity: sha256-gfuWPAoFfnPsyjIkcWLiB2Ik2d4/YOYoRQ6Bzh/pDk4=
+    type: script
+  - src: https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js
+    integrity: sha256-bnY2CMt6Di+lcevKMSf20QlABohTtbQEwjT+svW+FeY=
+    type: script
+  - src: https://cdn.jsdelivr.net/npm/echarts-gl@2.0.9/dist/echarts-gl.min.js
+    integrity: sha256-v7obh7jDwG5cftd0EAJYbHR7AOTv2qkgd9FcLcchvaA=
+    type: script
+
 Mermaid:
   - src: https://cdn.jsdelivr.net/npm/mermaid@9.3.0/dist/mermaid.min.js
     integrity: sha256-QdTG1YTLLTwD3b95jLqFxpQX9uYuJMNAtVZgwKX4oYU=

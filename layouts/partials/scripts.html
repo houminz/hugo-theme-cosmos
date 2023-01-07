@@ -24,6 +24,14 @@
         {{- partial "helper/external" (dict "Context" . "Namespace" "Mermaid") -}}
     {{ end }}
 
+    {{ if .Site.Params.echarts.enable }}
+        {{- partial "helper/external" (dict "Context" . "Namespace" "ECharts") -}}
+    {{ end }}
+
+    {{ if .Site.Params.echarts.map }}
+        {{- partial "helper/external" (dict "Context" . "Namespace" "EChartsMap") -}}
+    {{ end }}
+
     {{ if .Site.Params.meting }}
         {{- partial "helper/external" (dict "Context" . "Namespace" "Meting") -}}
     {{ end }}

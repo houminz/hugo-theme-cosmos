@@ -1,0 +1,16 @@
+{{- if .Site.Params.echarts.enable -}}
+
+{{ $width := .Get "width" | default "100%" }}
+{{ $height := .Get "height" | default "400px" }}
+{{ $randomId := printf "echarts-%d" ($.Page.Scratch.Get "echartsId" | default 0) }}
+{{ $.Page.Scratch.Add "echartsId" 1 -}}
+
+{{ $script := printf "var myChart = echarts.init(document.getElementById('%s')); %s myChart.setOption(option);" $randomId .Inner }}
+
+<div class="echarts" id={{ $randomId }} style="width:{{- $width -}};height: {{- $height -}};"></div>
+
+<script type="text/javascript">
+    {{ $script | safeJS }}
+</script>
+
+{{- end -}}
