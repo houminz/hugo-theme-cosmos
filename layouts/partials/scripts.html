@@ -1,6 +1,8 @@
 {{ $cosmos := resources.Get "js/cosmos.js" }}
 {{ $main := resources.Get "js/main.js" }}
-{{ $js := slice $cosmos $main | resources.Concat "js/main.js" | minify | fingerprint }}
+{{ $jsDouban := resources.Get "js/douban.js" | resources.ExecuteAsTemplate "js/douban.js" . -}}
+{{ $jsMarkmap := resources.Get "js/markmap.js" | resources.ExecuteAsTemplate "js/markmap.js" . -}}
+{{ $js := slice $cosmos $main $jsMarkmap $jsDouban| resources.Concat "js/main.js" | minify | fingerprint }}
 <script type="text/javascript" src="{{ $js.RelPermalink }}"></script>
 
 <!-- core -->
@@ -13,6 +15,10 @@
         {{- partial "helper/external" (dict "Context" . "Namespace" "KaTeX") -}}
     {{ end }}
 
+    {{ if .Site.Params.markmap.enable }}
+        {{- partial "helper/external" (dict "Context" . "Namespace" "MarkMap") -}}
+    {{ end }}
+
     {{ if .Site.Params.meting }}
         {{- partial "helper/external" (dict "Context" . "Namespace" "Meting") -}}
     {{ end }}
@@ -22,3 +28,12 @@
 {{ range .Site.Params.customJS -}}
 <script src="{{ "/js/" | relURL }}{{ . }}"></script>
 {{ end }}
+
+{{ if .Site.Params.markmap.enable -}}
+<style>
+    .markmap > svg {
+        width: 100%;
+        height: 300px;
+    }
+</style>
+{{ end -}}
