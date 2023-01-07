@@ -21,6 +21,12 @@ MarkMap:
     type: script
     defer: true
 
+Mermaid:
+  - src: https://cdn.jsdelivr.net/npm/mermaid@9.3.0/dist/mermaid.min.js
+    integrity: sha256-QdTG1YTLLTwD3b95jLqFxpQX9uYuJMNAtVZgwKX4oYU=
+    type: script
+    defer: true
+
 KaTeX:
   - src: https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css
     integrity: sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X

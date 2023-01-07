@@ -2,7 +2,8 @@
 {{ $main := resources.Get "js/main.js" }}
 {{ $jsDouban := resources.Get "js/douban.js" | resources.ExecuteAsTemplate "js/douban.js" . -}}
 {{ $jsMarkmap := resources.Get "js/markmap.js" | resources.ExecuteAsTemplate "js/markmap.js" . -}}
-{{ $js := slice $cosmos $main $jsMarkmap $jsDouban| resources.Concat "js/main.js" | minify | fingerprint }}
+{{ $jsMermaid := resources.Get "js/mermaid.js" | resources.ExecuteAsTemplate "js/mermaid.js" . -}}
+{{ $js := slice $cosmos $main $jsMarkmap $jsMermaid $jsDouban| resources.Concat "js/main.js" | minify | fingerprint }}
 <script type="text/javascript" src="{{ $js.RelPermalink }}"></script>
 
 <!-- core -->
@@ -17,6 +18,10 @@
 
     {{ if .Site.Params.markmap.enable }}
         {{- partial "helper/external" (dict "Context" . "Namespace" "MarkMap") -}}
+    {{ end }}
+
+    {{ if .Site.Params.mermaid.enable }}
+        {{- partial "helper/external" (dict "Context" . "Namespace" "Mermaid") -}}
     {{ end }}
 
     {{ if .Site.Params.meting }}
