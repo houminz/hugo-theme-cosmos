@@ -12,7 +12,7 @@
         {{- partial "helper/external" (dict "Context" . "Namespace" "PhotoSwipe") -}}
     {{ end }}
 
-    {{ if .Site.Params.katex }}
+    {{ if .Site.Params.katex.enable }}
         {{- partial "helper/external" (dict "Context" . "Namespace" "KaTeX") -}}
     {{ end }}
 
