@@ -5,13 +5,14 @@
 @import "_common/animation";
 
 @import "_base";
+@import "_mobile";
 @import "_partial/back2top";
 @import "_partial/header";
 @import "_partial/post";
 @import "_partial/footer";
+@import "_partial/entries";
 @import "_partial/pagination";
 @import "_partial/404";
-@import "_partial/main";
 @import "_partial/terms";
 @import "_partial/archives";
-@import "_partial/book";
+@import "_partial/sidebar";

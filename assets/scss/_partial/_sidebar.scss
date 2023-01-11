@@ -1,0 +1,58 @@
+aside {
+  display: block;
+}
+
+.sidebar nav, .post {
+  transition: .2s ease-in-out;
+  transition-property: transform,margin-left,opacity;
+  will-change: transform,margin-left;
+}
+
+.sidebar {
+  flex: 0 0 $menu-width;
+
+  nav {
+    width: $menu-width;
+    padding: $padding-16 $padding-32 $padding-16 0;
+
+    > ul > li > * {
+      font-weight: normal;
+    }
+
+    > :first-child,
+    > :first-child > :first-child {
+      margin-top: 0;
+    }
+
+    section {
+      margin-top: $padding-32;
+    }
+  }
+
+  &__list {
+    padding-left: 1em;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    user-select: none;
+
+    ul {
+      padding-left: $padding-16;
+    }
+
+    li {
+      margin: $padding-8 0;
+    }
+
+    svg.gdoc-icon {
+      margin-right: $padding-4;
+    }
+  }
+
+  &--main > ul > li > span,
+  &--main > ul > li > span > a,
+  &--main > ul > li > label,
+  &--main > ul > li > label > a {
+    font-weight: bold;
+  }
+}

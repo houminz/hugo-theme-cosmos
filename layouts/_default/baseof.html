@@ -9,13 +9,16 @@
 {{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`)) -}}
 {{- print "list" -}}
 {{- end -}}
-" id="top">
-    {{- partial "sidebar/left.html" . }}
-    <main class="main">
-        {{- partialCached "header.html" . .Page -}}
+">
+    {{- partialCached "header.html" . .Page -}}
+
+    <input type="checkbox" class="hidden" id="menu-control" />
+    <input type="checkbox" class="hidden" id="menu-header-control" />
+
+    <main class="container flex flex-even" id="main">
         {{- block "main" . }}{{ end }}
-        {{ partialCached "footer.html" . .Layout .Kind -}}
     </main>
+    {{ partialCached "footer.html" . .Layout .Kind -}}
 
 </body>
 

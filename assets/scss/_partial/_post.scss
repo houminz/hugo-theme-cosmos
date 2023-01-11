@@ -2,13 +2,9 @@
 // Post
 // ==============================
 
-.posts {
-  margin-bottom: $post-list-margin-bottom;
-  border-bottom: $post-border;
-}
-
 .post {
   padding: $post-padding;
+  width: 100%;
 
   & + .post {
     border-top: $post-border;

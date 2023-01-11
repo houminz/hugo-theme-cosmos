@@ -1,6 +1,7 @@
 {{- define "main" }}
 
   {{- if eq site.Params.bookSection "*" }}
+    {{- partial "sidebar/left.html" . -}}
     {{- partial "post/article.html" . -}}
   {{- else }}
     {{- if and .IsHome site.Params.enableHomeProfile }}
@@ -11,6 +12,7 @@
         {{ if or $isHomeWithoutProfile $isMainSection }}
           {{- partial "post/entries.html" . -}}
         {{ else if eq site.Params.bookSection .Section }}
+          {{- partial "sidebar/left.html" . -}}
           {{- partial "post/article.html" . -}}
         {{- end -}}
     {{- end -}}

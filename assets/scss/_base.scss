@@ -145,8 +145,11 @@ a {
 }
 
 .container {
+  width: 100%;
+  max-width: $container-max-width;
   margin: 0 auto;
-  width: $global-body-width;
+  padding: $padding-16;
+  background: $theme-content-bg-color;
 }
 
 @include max-screen() {

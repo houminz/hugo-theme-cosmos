@@ -1,0 +1,10 @@
+@media screen and (max-width: $sm-breakpoint) {
+  .gdoc-nav {
+    margin-left: -$menu-width;
+    font-size: $font-size-base;
+
+    &__control {
+      display: inline-block;
+    }
+  }
+}
