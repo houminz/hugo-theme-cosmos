@@ -1,0 +1,6 @@
+.idea
+.DS_Store
+
+exampleSite/public/
+exampleSite/resources/
+exampleSite/.hugo_build.lock

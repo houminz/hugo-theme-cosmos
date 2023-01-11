@@ -58,7 +58,7 @@ jobs:
           HUGO_ENV: production
           HUGO_BASEURL: ${{ secrets.BASE_URL }}
         working-directory: exampleSite
-        run: hugo --buildDrafts --gc --verbose --enableGitInfo --themesDir ../..
+        run: hugo --buildDrafts --gc --verbose --enableGitInfo --themesDir ../.. --theme hugo-theme-cosmos
       - name: Install coscmd
         run: sudo pip install coscmd
       - name: Configure coscmd
