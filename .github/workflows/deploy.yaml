@@ -1,0 +1,72 @@
+name: Deploy Hugo Cosmos Demo to COS
+
+on:
+  push:
+    paths-ignore:
+      - "images/**"
+      - "LICENSE"
+      - "README.md"
+    branches:
+      - master
+      - main
+  workflow_dispatch:
+    # manual run
+    inputs:
+      hugoVersion:
+        description: "Hugo Version"
+        required: false
+        default: "0.109.0"
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+# Default to bash
+defaults:
+  run:
+    shell: bash
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: "0.109.0"
+    steps:
+      - name: Check version
+        if: ${{ github.event.inputs.hugoVersion }}
+        run: export HUGO_VERSION="${{ github.event.inputs.hugoVersion }}"
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: master
+      - name: Run Hugo
+        env:
+          # For maximum backward compatibility with Hugo modules
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
+          HUGO_BASEURL: ${{ secrets.BASE_URL }}
+        working-directory: exampleSite
+        run: hugo --buildDrafts --gc --verbose --enableGitInfo --themesDir ../..
+      - name: Install coscmd
+        run: sudo pip install coscmd
+      - name: Configure coscmd
+        env:
+          COS_SECRET_ID: ${{ secrets.COS_SECRET_ID }}
+          COS_SECRET_KEY: ${{ secrets.COS_SECRET_KEY }}
+          COS_BUCKET_NAME: ${{ secrets.COS_BUCKET_NAME }}
+          COS_BUCKET_REGION: ${{ secrets.COS_BUCKET_REGION }}
+        run: coscmd config -a $COS_SECRET_ID -s $COS_SECRET_KEY -b $COS_BUCKET_NAME -r $COS_BUCKET_REGION
+      - name: Deploy to COS Bucket
+        run: coscmd upload -r -s --delete -f exampleSite/public/ /
