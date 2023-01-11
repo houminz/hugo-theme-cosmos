@@ -1,0 +1,139 @@
+languageCode = 'en-us'
+title = 'Cosmos'
+theme = "cosmos"
+MetaDataFormat = "yaml"
+
+[menu]
+  [[menu.main]]
+    identifier = "Home"
+    name = "Home"
+    pre = "<i class='fa fa-heart'></i>"
+    url = "/"
+    weight = -100
+  [[menu.main]]
+    identifier = "Archives"
+    name = "Archives"
+    pre = "<i class='fa fa-heart'></i>"
+    url = "/archives/"
+    weight = -80
+  [[menu.main]]
+    identifier = "Tags"
+    name = "Tags"
+    pre = "<i class='fa fa-heart'></i>"
+    url = "/tags/"
+    weight = -30
+  [[menu.main]]
+    identifier = "About"
+    name = "About"
+    pre = "<i class='fa fa-heart'></i>"
+    url = "/about/"
+    weight = 10
+
+[markup]
+  [markup.highlight]
+    style = 'solarized-dark'
+    codeFences = true
+    guessSyntax = false
+    lineNoStart =1
+    lineNos = true
+    lineNumbersInTable = true
+
+[module]
+  [module.mounts]
+    source = 'assets'
+    target = 'assets'
+
+[params]
+  bookSection = "docs"
+
+  author = "Houmin"
+  description = "Demo for Hugo Cosmos"
+  since = "2019"
+  dateFormat = "January 2, 2006"
+
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+
+  linkToMarkDown = false    # if you config contentCopyright and hugo output .md files
+  contentCopyright = '<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>'
+
+  enableGitInfo = true
+  enableHomeProfile = false
+  mainSections = ["posts"]
+
+  toc = true
+  douban = true
+  meting = true
+  photoSwipe = true
+
+  [params.katex]
+    # enable/disable KaTeX support
+    enable = true
+    # Element(s) scanned by auto render extension. Default: document.body
+    html_dom_element = "document.body"
+
+  [params.katex.options]
+    # If true (the default), KaTeX will throw a ParseError when it encounters an
+    # unsupported command or invalid LaTeX. If false, KaTeX will render unsupported
+    # commands as text, and render invalid LaTeX as its source code with hover text
+    # giving the error, in the color given by errorColor.
+    throwOnError = false
+    errorColor = "#CD5C5C"
+
+    # This is a list of delimiters to look for math, processed in the same order as
+    # the list. Each delimiter has three properties:
+    #   left:    A string which starts the math expression (i.e. the left delimiter).
+    #   right:   A string which ends the math expression (i.e. the right delimiter).
+    #   display: Whether math in the expression should be rendered in display mode.
+    [[params.katex.options.delimiters]]
+      left = "$$"
+      right = "$$"
+      display = true
+    [[params.katex.options.delimiters]]
+      left = "$"
+      right = "$"
+      display = false
+    [[params.katex.options.delimiters]]
+      left = "\\("
+      right = "\\)"
+      display = false
+    [[params.katex.options.delimiters]]
+      left = "\\["
+      right = "\\]"
+      display = true
+
+  [params.markmap]
+    enable = true
+
+  [params.mermaid]
+    enable = true
+
+  [params.echarts]
+    enable = true
+    map = true
+
+  [params.publicCDN]
+    enable = true
+
+  [params.assets]
+    favicon = "/static/favicon/favicon.ico"
+    favicon16x16 = "/static/favicon/favicon-16x16.png"
+    favicon32x32 = "/static/favicon/favicon-32x32.png"
+    apple_touch_icon = "/static/favicon/apple_touch_icon.png"
+
+  [params.reward]
+    enable = true
+    wechatPay = "https://cosmos-1251905798.cos.ap-beijing.myqcloud.com/theme/wechatpay.png"
+    aliPay = "https://cosmos-1251905798.cos.ap-beijing.myqcloud.com/theme/alipay.jpg"
+
+  [params.gitInfo]
+    gitRepo = "https://github.com/librabyte/hugo-theme-cosmos"
+    showCommitMessage = true
+
+  [params.giscuss]
+    enable = true
+    repo = "librabyte/hugo-theme-cosmos"
+    repoId = "R_kgDOIEDNvg"
+    category = "Announcements"
+    categoryId = "DIC_kwDOIEDNvs4CTiKG"
+    theme = "light"
