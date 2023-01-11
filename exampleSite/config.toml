@@ -1,6 +1,5 @@
 languageCode = 'en-us'
 title = 'Cosmos'
-theme = "cosmos"
 MetaDataFormat = "yaml"
 
 [menu]
