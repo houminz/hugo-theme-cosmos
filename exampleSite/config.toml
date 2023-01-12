@@ -27,6 +27,12 @@ MetaDataFormat = "yaml"
     pre = "<i class='fa fa-heart'></i>"
     url = "/about/"
     weight = 10
+  [[menu.main]]
+    identifier = "Documentation"
+    name = "Documentation"
+    pre = "<i class='fa fa-heart'></i>"
+    url = "/docs/"
+    weight = -20
 
 [markup]
   [markup.highlight]
