@@ -1,0 +1,6 @@
+{{ $id := .Get 0 }}
+{{ os.ReadFile "assets/sprites/icons.svg" | safeHTML }}
+
+{{- with $id -}}
+<svg class="gdoc-icon {{ . }}"><use href="#{{ . }}"></use></svg>
+{{- end -}}

@@ -1,5 +1,17 @@
+{{ os.ReadFile "assets/sprites/basic.svg" | safeHTML }}
+
 <header class="header">
     <div class="container flex align-center justify-between">
+        <label for="menu-control" class="gdoc-nav__control" tabindex="0">
+            <svg class="gdoc-icon gdoc_menu">
+                <title>{{ i18n "button_nav_open" }}</title>
+                <use href="#menu"></use>
+            </svg>
+            <svg class="gdoc-icon gdoc_arrow_back">
+                <title>{{ i18n "button_nav_close" }}</title>
+                <use href="#arrow-left"></use>
+            </svg>
+        </label>
         <div class="logo">
             <a href="{{ "/" | relLangURL }}" class="logo">
             {{- if .Site.Params.logoTitle -}}

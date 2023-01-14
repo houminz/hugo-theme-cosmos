@@ -7,29 +7,16 @@
 {{- if not ($.Page.Scratch.Get "noticecount") -}}
 
 <div>
-    {{ os.ReadFile "assets/sprites/solid/circle-info.svg" | safeHTML }}
-    {{ os.ReadFile "assets/sprites/solid/triangle-exclamation.svg" | safeHTML }}
-    {{ os.ReadFile "assets/sprites/solid/circle-check.svg" | safeHTML }}
-    {{ os.ReadFile "assets/sprites/solid/circle-exclamation.svg" | safeHTML }}
+    {{ os.ReadFile "assets/sprites/notice.svg" | safeHTML }}
 </div>
 {{- end -}}
 
 {{- $.Page.Scratch.Add "noticecount" 1 -}}
 <div class="notice {{ $noticeType }}" {{ if len .Params | eq 2 }} id="{{ .Get 1 }}" {{ end }}>
-    {{ $spriteId := "circle-info" }}
-    {{ if (eq $noticeType "info") }}
-        {{ $spriteId = "circle-info" }}
-    {{ else if (eq $noticeType "warning") }}
-        {{ $spriteId = "triangle-exclamation" }}
-    {{ else if (eq $noticeType "tip") }}
-        {{ $spriteId = "circle-check" }}
-    {{ else if (eq $noticeType "important") }}
-        {{ $spriteId = "circle-exclamation" }}
-    {{ end }}
     <p class="first notice-title">
         <span class="icon-notice baseline">
             <svg>
-                <use href="#{{- $spriteId -}}"></use>
+                <use href="#notice-{{- $noticeType -}}"></use>
             </svg>
         </span>
         {{- i18n $noticeType -}}
