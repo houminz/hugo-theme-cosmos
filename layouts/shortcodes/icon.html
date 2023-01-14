@@ -1,6 +1,9 @@
 {{ $id := .Get 0 }}
-{{ os.ReadFile "assets/sprites/icons.svg" | safeHTML }}
+{{- if not ($.Page.Scratch.Get "noticecount") -}}
+    {{ os.ReadFile "assets/sprites/icons.svg" | safeHTML }}
+{{- end -}}
 
 {{- with $id -}}
+{{- $.Page.Scratch.Add "noticecount" 1 -}}
 <svg class="gdoc-icon {{ . }}"><use href="#{{ . }}"></use></svg>
 {{- end -}}
