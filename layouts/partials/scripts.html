@@ -1,9 +1,10 @@
 {{ $cosmos := resources.Get "js/cosmos.js" }}
 {{ $main := resources.Get "js/main.js" }}
+{{ $back2top := resources.Get "js/back2top.js" }}
 {{ $jsDouban := resources.Get "js/douban.js" | resources.ExecuteAsTemplate "js/douban.js" . -}}
 {{ $jsMarkmap := resources.Get "js/markmap.js" | resources.ExecuteAsTemplate "js/markmap.js" . -}}
 {{ $jsMermaid := resources.Get "js/mermaid.js" | resources.ExecuteAsTemplate "js/mermaid.js" . -}}
-{{ $js := slice $cosmos $main $jsMarkmap $jsMermaid $jsDouban| resources.Concat "js/main.js" | minify | fingerprint }}
+{{ $js := slice $cosmos $main $back2top $jsMarkmap $jsMermaid $jsDouban| resources.Concat "js/main.js" | minify | fingerprint }}
 <script type="text/javascript" src="{{ $js.RelPermalink }}"></script>
 
 <!-- core -->
