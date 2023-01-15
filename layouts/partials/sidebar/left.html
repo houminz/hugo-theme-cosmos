@@ -9,66 +9,77 @@
 
 {{ if $showLeftSidebar }}
 <aside class="sidebar">
-    <div class="search flex align-center">
-        Search
-    </div>
-    <section class="sidebar--main">
-        <h2>Navigation</h2>
-        <ul class="sidebar__list">
-            {{ with .Site.GetPage $bookSection }}
-            {{ template "book-section-children" (dict "Section" . "CurrentPage" $ ) }}
-            {{ end }}
-        </ul>
-    </section>
-    <section class="sidebar--more">
-        <span>Sidebar footer</span>
-    </section>
+    <nav>
+        <div class="search flex align-center">
+            Search
+        </div>
+        <section class="sidebar--main">
+            <h2>Navigation</h2>
+            <ul class="sidebar__list">
+                {{ with .Site.GetPage $bookSection }}
+                {{ template "book-section-children" (dict "Section" . "CurrentPage" $ ) }}
+                {{ end }}
+            </ul>
+        </section>
+        <section class="sidebar--more">
+            <span>Sidebar footer</span>
+        </section>
+    </nav>
 </aside>
 {{- end }}
 
 {{ define "book-section-children" }}{{/* (dict "Section" .Section "CurrentPage" .CurrentPage) */}}
-{{ range (where .Section.Pages "Params.bookhidden" "ne" true) }}
-{{ if .IsSection }}
-{{ $current := eq $.CurrentPage . }}
-{{- if eq .Section "about" -}}
-{{- else -}}
-<li>
-    <input type="checkbox" class="hidden">
-    <label>
-        <span class="flex">
-            <a
-                href="{{ .RelPermalink }}"
-                class="sidebar__entry{{- if eq $current . }}
-                      {{- printf " is-active" }}
-                    {{- end }}"
-            >
-                {{- partial "sidebar/title" .Page -}}
-            </a>
-        </span>
-    </label>
-    <ul class="sidebar__list">
-        {{ template "book-section-children" (dict "Section" . "CurrentPage" $.CurrentPage) }}
-    </ul>
-</li>
-{{- end -}}
-{{ else if and .IsPage .Content }}
-{{ $current := eq $.CurrentPage . }}
-{{ $ancestor := .IsAncestor $.CurrentPage }}
-<li>
-    <input type="checkbox" class="hidden">
-    <label>
-        <span class="flex">
-            <a
-                    href="{{ .RelPermalink }}"
-                    class="sidebar__entry{{- if eq $current . }}
-                      {{- printf " is-active" }}
-                    {{- end }}"
-            >
-                {{- partial "sidebar/title" .Page -}}
-            </a>
-        </span>
-    </label>
-</li>
-{{ end }}
-{{ end }}
+    {{ range (where .Section.Pages "Params.bookhidden" "ne" true) }}
+        {{ $current := $.CurrentPage }}
+        {{ $isCurrent := eq $current . }}
+        {{ $isAncestor := .IsAncestor $current }}
+        {{ $id := substr (sha1 .Permalink) 0 8 }}
+        {{ $numberOfPages := (add (len .Pages) (len .Sections)) }}
+        {{ $isParent := ne $numberOfPages 0 }}
+        {{ $doCollapse := and $isParent (or (default true .Params.alwaysCollapse) (default true .Site.Params.alwaysCollapse)) }}
+
+        {{- if eq .Section "about" -}}
+        {{- else -}}
+        <li>
+            <input
+                type="checkbox"
+                {{ if $doCollapse }}
+                    class="sidebar__toggle" id="{{ printf "navtree-%s" $id }}"
+                    {{ if or $isCurrent $isAncestor }}checked{{ end }}
+                {{ else }}
+                    class="hidden"
+                {{ end }}
+            />
+            <label
+                {{ if $doCollapse }}
+                    for="{{ printf "navtree-%s" $id }}" class="flex justify-between align-center"
+                {{ end }}
+                >
+                <span class="flex">
+                    <a
+                        href="{{ .RelPermalink }}"
+                        class="sidebar__entry{{- if eq $current . }}
+                              {{- printf " is-active" }}
+                            {{- end }}"
+                    >
+                        {{- partial "sidebar/title" .Page -}}
+                    </a>
+                </span>
+                {{ if $doCollapse }}
+                <svg class="icon toggle angle-left">
+                    <use xlink:href="#angle-left"></use>
+                </svg>
+                <svg class="icon toggle angle-down">
+                    <use xlink:href="#angle-down"></use>
+                </svg>
+                {{ end }}
+            </label>
+            {{ if $isParent }}
+            <ul class="sidebar__list">
+                {{ template "book-section-children" (dict "Section" . "CurrentPage" $.CurrentPage) }}
+            </ul>
+            {{ end }}
+        </li>
+        {{- end -}}
+    {{ end }}
 {{ end }}

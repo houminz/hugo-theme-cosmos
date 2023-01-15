@@ -2,33 +2,52 @@
 
 <header class="header">
     <div class="container flex align-center justify-between">
-        <label for="menu-control" class="gdoc-nav__control" tabindex="0">
-            <svg class="gdoc-icon gdoc_menu">
+        <label for="menu-control" class="sidebar__control" tabindex="0">
+            <svg class="icon menu">
                 <title>{{ i18n "button_nav_open" }}</title>
                 <use href="#menu"></use>
             </svg>
-            <svg class="gdoc-icon gdoc_arrow_back">
+            <svg class="icon arrow-left">
                 <title>{{ i18n "button_nav_close" }}</title>
                 <use href="#arrow-left"></use>
             </svg>
         </label>
-        <div class="logo">
-            <a href="{{ "/" | relLangURL }}" class="logo">
-            {{- if .Site.Params.logoTitle -}}
-            {{ .Site.Params.logoTitle }}
-            {{- else -}}
-            {{ .Site.Title }}
-            {{- end -}}
+        <div>
+            <a class="brand header__link" href="{{ .Site.BaseURL }}">
+            <span class="flex align-center">
+              <img
+                      class="brand__img"
+                      src="{{ (default "brand.svg" .Site.Params.GeekdocLogo) | relURL }}"
+                alt=""
+              />
+              <span class="brand__title">{{ .Site.Title }}</span>
+            </span>
             </a>
         </div>
-        <nav class="site-navbar">
-            <ul id="menu" class="menu">
-                {{ range .Site.Menus.main -}}
-                <li class="menu-item">
-                    <a class="menu-item-link" href="{{ .URL | safeURL }}">{{ .Name }}</a>
-                </li>
-                {{- end }}
-            </ul>
-        </nav>
-    </div>
+        <div class="menu-header">
+            <span class="menu-header__items">
+                <span class="menu-header__home">
+                  <a href="{{ .Site.BaseURL }}" class="gdoc-header__link">
+                    <svg class="icon home">
+                      <title>{{ i18n "button_homepage" }}</title>
+                      <use href="#home"></use>
+                    </svg>
+                  </a>
+                </span>
+                <span class="menu-header__control">
+                  <label for="menu-header-control">
+                    <svg class="icon angle-right">
+                      <use href="#angle-right"></use>
+                      <title>{{ i18n "button_menu_close" }}</title>
+                    </svg>
+                  </label>
+                </span>
+            </span>
+            <label for="menu-header-control" class="menu-header__control">
+                <svg class="icon angle-left">
+                    <use href="#angle-left"></use>
+                    <title>{{ i18n "button_menu_open" }}</title>
+                </svg>
+            </label>
+        </div>
 </header>

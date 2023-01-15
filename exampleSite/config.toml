@@ -4,30 +4,6 @@ MetaDataFormat = "yaml"
 
 [menu]
   [[menu.main]]
-    identifier = "Home"
-    name = "Home"
-    pre = "<i class='fa fa-heart'></i>"
-    url = "/"
-    weight = -100
-  [[menu.main]]
-    identifier = "Archives"
-    name = "Archives"
-    pre = "<i class='fa fa-heart'></i>"
-    url = "/archives/"
-    weight = -80
-  [[menu.main]]
-    identifier = "Tags"
-    name = "Tags"
-    pre = "<i class='fa fa-heart'></i>"
-    url = "/tags/"
-    weight = -30
-  [[menu.main]]
-    identifier = "About"
-    name = "About"
-    pre = "<i class='fa fa-heart'></i>"
-    url = "/about/"
-    weight = 10
-  [[menu.main]]
     identifier = "Documentation"
     name = "Documentation"
     pre = "<i class='fa fa-heart'></i>"
@@ -70,6 +46,7 @@ MetaDataFormat = "yaml"
   douban = true
   meting = true
   photoSwipe = true
+  alwaysCollapse = false
 
   [params.katex]
     # enable/disable KaTeX support

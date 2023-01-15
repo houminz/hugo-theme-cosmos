@@ -34,16 +34,16 @@
 
 # copyright
 - id: author
-  translation: Author
+  translation: "Author"
 
 - id: lastMod
-  translation: LastMod
+  translation: "LastMod"
 
 - id: markdown
-  translation: Markdown
+  translation: "Markdown"
 
 - id: license
-  translation: License
+  translation: "License"
 
 - id: warning
   translation: "Warning"
@@ -53,3 +53,8 @@
   translation: "Info"
 - id: tip
   translation: "Tip"
+
+- id: button_nav_open
+  translation: "Open Navigation"
+- id: button_nav_close
+  translation: "Close Navigation"

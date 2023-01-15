@@ -2,33 +2,21 @@
 // Menu
 // =============================
 
-.site-navbar {
-  float: right;
+.menu-header {
+  &__items {
+    display: flex;
 
-  .menu {
-    display: inline-block;
-    position: relative;
-    padding: $menu-padding;
-    font-family: $global-serif-font-family;
-
-    .menu-item {
-      display: inline-block;
-
-      & + .menu-item {
-        margin-left: $menu-item-margin-left;;
-      }
-
-      @include underline-from-center;
-    }
-
-    .menu-item-link {
-      font-size: $menu-link-font-size;
+    > span {
+      margin-left: $padding-8;
     }
   }
-}
 
-@include max-screen() {
-  .site-navbar {
+  &__control,
+  &__home {
     display: none;
+
+    svg.icon {
+      cursor: pointer;
+    }
   }
 }

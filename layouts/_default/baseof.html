@@ -10,11 +10,11 @@
 {{- print "list" -}}
 {{- end -}}
 ">
-    {{- partialCached "header.html" . .Page -}}
 
     <input type="checkbox" class="hidden" id="menu-control" />
     <input type="checkbox" class="hidden" id="menu-header-control" />
 
+    {{- partialCached "header.html" . .Page -}}
     <main class="container flex flex-even" id="main">
         {{- block "main" . }}{{ end }}
     </main>

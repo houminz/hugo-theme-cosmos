@@ -29,6 +29,24 @@ aside {
     }
   }
 
+  &__control {
+    display: none;
+    margin: 0;
+    padding: 0;
+
+    svg.icon {
+      cursor: pointer;
+    }
+
+    svg.icon.menu {
+      display: inline-block;
+    }
+
+    svg.icon.arrow-left {
+      display: none;
+    }
+  }
+
   &__list {
     padding-left: 1em;
     margin: 0;
@@ -44,8 +62,42 @@ aside {
       margin: $padding-8 0;
     }
 
-    svg.gdoc-icon {
+    svg.icon {
       margin-right: $padding-4;
+    }
+  }
+
+  &__toggle {
+    display: none;
+
+    & ~ label {
+      cursor: pointer;
+
+      svg.icon.toggle {
+        width: $font-size-16;
+        height: $font-size-16;
+      }
+    }
+
+    &:not(:checked) {
+      & ~ ul,
+      & ~ label svg.icon.angle-down {
+        display: none;
+      }
+      & ~ label svg.icon.angle-left {
+        display: block;
+      }
+    }
+
+    &:checked {
+      & ~ ul,
+      & ~ label svg.icon.angle-down {
+        display: block;
+      }
+
+      & ~ label svg.icon.angle-left {
+        display: none;
+      }
     }
   }
 
@@ -55,4 +107,12 @@ aside {
   &--main > ul > li > label > a {
     font-weight: bold;
   }
+}
+
+// Responsive styles
+.sidebar nav,
+.markdown {
+  transition: 0.2s ease-in-out;
+  transition-property: transform, margin-left, opacity;
+  will-change: transform, margin-left;
 }

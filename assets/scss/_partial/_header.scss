@@ -3,10 +3,26 @@
 // ==============================
 
 .header {
-  @include clearfix;
-  padding: $header-padding;
-
   @import '_header/logo';
   @import '_header/menu';
+}
 
+.header {
+  background: $blue;
+  color: $black;
+  border-bottom: 0.3em solid $black;
+
+  &__link,
+  &__link:visited {
+    color: $red;
+  }
+
+  &__link:hover {
+    text-decoration: none;
+  }
+
+  svg.icon {
+    width: $font-size-32;
+    height: $font-size-32;
+  }
 }
