@@ -1,3 +1,5 @@
+@import '_toc';
+
 aside {
   display: block;
 }
@@ -9,8 +11,6 @@ aside {
 }
 
 .sidebar {
-  flex: 0 0 $menu-width;
-
   nav {
     width: $menu-width;
     padding: $padding-16 $padding-32 $padding-16 0;

@@ -1,6 +1,6 @@
 ---
 author: "Houmin Wei"
-title: "Markdown Syntax Guide"
+title: "Markdown Syntax"
 date: "2019-03-11"
 tags: ["markdown", "hugo", "cosmos"]
 categories: ["themes", "syntax"]
@@ -439,7 +439,7 @@ Adding a colon on the left and/or right side of the dashes below any heading wil
 
 {{< notice style="secondary" icon="eye" title="Result" >}}
 | Option | Number | Description |
-| :------:|:------:|:----------- |
+| ------:|:------:|:----------- |
 | data   | 1      | path to data files to supply the data that will be passed into templates. |
 | engine | 2      | engine to be used for processing templates. Handlebars is the default. |
 | ext    | 3      | extension to be used for dest files. |
@@ -447,25 +447,9 @@ Adding a colon on the left and/or right side of the dashes below any heading wil
 
 ### Inline Markdown within tables
 
-````markdown
-| Name              | Markdown            | HTML tag             |
-| ----------------- | ------------------- | -------------------- |
-| *Emphasis*        | `*Emphasis*`        | `<em></em>`          |
-| **Strong**        | `**Strong**`        | `<strong></strong>` |
-| `code`            | ``code``            | `<code></code>`      |
-| ~~Strikethrough~~ | `~~Strikethrough~~` | `<del></del`         |
-````
-
-{{< notice info >}}
-| Name              | Markdown            | HTML tag             |
-| ----------------- | ------------------- | -------------------- |
-| *Italics*        | `*Emphasis*`        | `<em></em>`          |
-| *Italics*        | `_Emphasis_`        | `<em></em>`          |
-| **Strong**        | `**Strong**`        | `<strong></strong>` |
-| `code`            | ``code``            | `<code></code>`      |
-| ~~Strikethrough~~ | `~~Strikethrough~~` | `<del></del`         |
-
-{{< /notice >}}
+| Italics   | Bold     | Code   |
+| --------- | -------- | ------ |
+| _italics_ | **bold** | `code` |
 
 ## Blockquotes
 

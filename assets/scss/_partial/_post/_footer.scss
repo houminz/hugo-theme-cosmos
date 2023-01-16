@@ -22,20 +22,15 @@
       color: $theme-color;
       background: $tags-background;
       word-break: break-all;
-
-      &::before {
-        content: '#';
-      }
     }
   }
 
   .post-nav {
-    margin: 10px 0;
     display: flex;
+    margin: 1em 0;
     line-height: 30px;
     border-radius: $global-radius;
 
-    margin: 1em 0;
     @include clearfix;
 
     a {

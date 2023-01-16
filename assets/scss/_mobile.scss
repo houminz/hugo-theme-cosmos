@@ -8,6 +8,14 @@
     }
   }
 
+  .post {
+    margin-left: -8rem;
+  }
+
+  .toc {
+    margin-right: -$toc-width !important;
+  }
+
   .header {
     svg.icon {
       width: $font-size-24;
@@ -52,6 +60,16 @@
 
     svg.icon.arrow-left {
       display: inline-block;
+    }
+  }
+
+  #menu-header-control:checked ~ main {
+    .toc, .post {
+      transform: translateX(-$toc-width);
+    }
+
+    .post {
+      opacity: 0.25;
     }
   }
 

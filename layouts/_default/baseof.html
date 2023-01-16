@@ -10,15 +10,16 @@
 {{- print "list" -}}
 {{- end -}}
 ">
+    <div class="page">
+        <input type="checkbox" class="hidden" id="menu-control" />
+        <input type="checkbox" class="hidden" id="menu-header-control" />
 
-    <input type="checkbox" class="hidden" id="menu-control" />
-    <input type="checkbox" class="hidden" id="menu-header-control" />
-
-    {{- partialCached "header.html" . .Page -}}
-    <main class="container flex flex-even" id="main">
-        {{- block "main" . }}{{ end }}
-    </main>
-    {{ partialCached "footer.html" . .Layout .Kind -}}
+        {{- partialCached "header.html" . .Page -}}
+        <main class="content-wrapper flex flex-even justify-between" id="main">
+            {{- block "main" . }}{{ end }}
+        </main>
+        {{ partialCached "footer.html" . .Layout .Kind -}}
+    </div>
 
 </body>
 

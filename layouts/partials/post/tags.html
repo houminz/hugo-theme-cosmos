@@ -1,6 +1,13 @@
 {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
 <ul class="post-tags">
     {{- range ($.GetTerms $tags) }}
-    <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+    <li>
+        <a href="{{ .Permalink }}">
+            <svg class="icon">
+                <use href="#tags"></use>
+            </svg>
+            <span>{{ .LinkTitle }}</span>
+        </a>
+    </li>
     {{- end }}
 </ul>

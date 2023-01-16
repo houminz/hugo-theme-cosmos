@@ -219,8 +219,6 @@ $code-background: $deputy-color !default;
 // ============================================================================
 // =============================== Font =======================================
 // ============================================================================
-// Font size attribute applied to '<html>' and '<body>'.
-$global-font-size: 16px !default;
 
 // Text color of the body.
 $global-font-color: $black !default;
@@ -241,8 +239,45 @@ $logo-font-size: 40px !default;
 $logo-font-family: 'Chancery', cursive, LiSu, sans-serif !default;
 
 // ============================================================================
-// =============================== Global =====================================
+// =============================== Layout =====================================
 // ============================================================================
+// Used in layout
+$padding-1: 1px !default;
+$padding-2: 0.125rem !default;
+$padding-4: 0.25rem !default;
+$padding-8: 0.5rem !default;
+$padding-16: 1rem !default;
+$padding-24: 1.5rem !default;
+$padding-32: 2rem !default;
+$padding-48: 3rem !default;
+$padding-64: 4rem !default;
+$padding-96: 6rem !default;
+
+$font-size-base: 16px !default;
+$font-size-12: 0.75rem !default;
+$font-size-14: 0.875rem !default;
+$font-size-16: 1rem !default;
+$font-size-20: 1.25rem !default;
+$font-size-24: 1.5rem !default;
+$font-size-32: 2rem !default;
+$font-size-64: 4rem !default;
+$font-size-96: 6rem !default;
+$font-size-128: 8rem !default;
+$global-font-size: $font-size-16 !default;
+
+// Used in layout
+$border-radius: $padding-4 !default;
+
+$body-font-weight: normal !default;
+
+$body-min-width: 20rem !default;
+$container-max-width: 80rem !default;
+
+$header-height: 3.5rem !default;
+$menu-width: 16rem !default;
+$toc-width: 16rem !default;
+
+$mobile-breakpoint: $menu-width + $body-min-width * 1.2 + $toc-width !default;
 
 // Global width of '<body>'.
 $global-body-width: 1200px !default;
@@ -251,10 +286,55 @@ $global-header-height: 60px !default;
 $global-footer-height: 60px !default;
 $global-gap: 24px !default;
 $global-radius: 8px;
+// Width of the post toc.
+$post-toc-width: 200px !default;
+// Margin left of the post toc.
+$post-toc-margin-left: $global-body-width - 15px !default;
+
+// Height of the mobile header.
+$mobile-navbar-height: 50px !default;
 
 // Padding of container main
 $global-container-padding: 0 20px !default;
+$menu-padding: 15px 25px !default;
 
+// Margin of menu item.
+$menu-item-margin-left: 20px !default;
+
+// Margin of menu item in mobile.
+$menu-item-mobile-margin: 5px !default;
+// Padding of the site header.
+$header-padding: 20px 20px !default;
+// ========== Post ========== //
+// Margin bottom of post list.
+$post-list-margin-bottom: 20px !default;
+// Padding of the post.
+$post-padding: 1.5em 0 !default;
+$body-min-width: 20rem !default;
+$container-max-width: 82rem !default;
+
+$header-height: 3.5rem !default;
+$menu-width: 18rem !default;
+
+$sm-breakpoint: $menu-width + $body-min-width + 3rem !default;
+// Navs
+$border-radius:               .375rem !default;
+$menu-width: 18rem !default;
+
+// Margin top of the footer.
+$footer-margin-top: 2em !default;
+
+// Margin left of the social link.
+$social-link-margin-left: 10px !default;
+
+// Font size of the social icon.
+$social-icon-font-size: 30px !default;
+
+// Margin of the copyright.
+$copyright-margin: 10px 0 !default;
+
+
+// ============================================================================
 // Background color of the site.
 $global-background: $theme-bg-color !default;
 
@@ -281,38 +361,18 @@ $terms-link-margin: 5px 10px !default;
 // Font size of the terms count
 $terms-count-font-size: 12px !default;
 
-// ============================================================================
-// =============================== Header =====================================
-// ============================================================================
-// Padding of the site header.
-$header-padding: 20px 20px !default;
 
 // ============================================================================
 // =============================== Menu =======================================
 // ============================================================================
-$menu-padding: 15px 25px !default;
-
-// Margin of menu item.
-$menu-item-margin-left: 20px !default;
-
-// Margin of menu item in mobile.
-$menu-item-mobile-margin: 5px !default;
 
 // Font size of menu item link.
 $menu-link-font-size: 25px !default;
 
-// Height of the mobile header.
-$mobile-navbar-height: 50px !default;
-
 // ============================================================================
 // =============================== Post =======================================
 // ============================================================================
-// ========== Post ========== //
-// Margin bottom of post list.
-$post-list-margin-bottom: 20px !default;
 
-// Padding of the post.
-$post-padding: 1.5em 0 !default;
 
 // Border top of the post + post.
 $post-border: 1px solid $gray-200 !default;
@@ -363,14 +423,9 @@ $content-table-border-color: darken($deputy-color, 3%) !default;
 // ============================================================================
 // =============================== TOC ========================================
 // ============================================================================
-// Width of the post toc.
-$post-toc-width: 200px !default;
-
 // Backgroud color of the post toc.
 $post-toc-backgroud: rgba($deputy-color, 0.6) !default;
 
-// Margin left of the post toc.
-$post-toc-margin-left: $global-body-width - 15px !default;
 
 // Font size of the post toc title.
 $post-toc-title-size: 20px !default;
@@ -470,17 +525,6 @@ $pagination-font-size: 20px !default;
 // ============================================================================
 // =============================== Footer =====================================
 // ============================================================================
-// Margin top of the footer.
-$footer-margin-top: 2em !default;
-
-// Margin left of the social link.
-$social-link-margin-left: 10px !default;
-
-// Font size of the social icon.
-$social-icon-font-size: 30px !default;
-
-// Margin of the copyright.
-$copyright-margin: 10px 0 !default;
 
 // ============================================================================
 // =============================== Archive =====================================
@@ -520,43 +564,9 @@ $archive-post-hover-transform: translateX(4px) !default;
 // =============================== Nav ========================================
 // ============================================================================
 
-// Navs
-$border-radius:               .375rem !default;
 
 $link-color:                              $theme-color !default;
 $link-decoration:                         underline !default;
 $link-shade-percentage:                   20% !default;
 $link-hover-color:                        shift-color($link-color, $link-shade-percentage) !default;
 $link-hover-decoration:                   null !default;
-
-$menu-width: 18rem !default;
-
-// Used in layout
-$padding-2: 0.125rem !default;
-$padding-4: 0.25rem !default;
-$padding-8: 0.5rem !default;
-$padding-16: 1rem !default;
-$padding-24: 1.5rem !default;
-$padding-32: 2rem !default;
-$padding-48: 3rem !default;
-$padding-64: 4rem !default;
-$padding-96: 6rem !default;
-
-$font-size-base: 16px !default;
-$font-size-12: 0.75rem !default;
-$font-size-14: 0.875rem !default;
-$font-size-16: 1rem !default;
-$font-size-20: 1.25rem !default;
-$font-size-24: 1.5rem !default;
-$font-size-32: 2rem !default;
-$font-size-64: 4rem !default;
-$font-size-96: 6rem !default;
-$font-size-128: 8rem !default;
-
-$body-min-width: 20rem !default;
-$container-max-width: 82rem !default;
-
-$header-height: 3.5rem !default;
-$menu-width: 18rem !default;
-
-$sm-breakpoint: $menu-width + $body-min-width + 3rem !default;

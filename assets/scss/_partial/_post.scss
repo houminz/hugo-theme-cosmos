@@ -3,15 +3,14 @@
 // ==============================
 
 .post {
-  padding: $post-padding;
   width: 100%;
+  border: 0.1em solid red;
 
   & + .post {
     border-top: $post-border;
   }
 
   @import '_post/header';
-  @import '_post/toc';
   @import '_post/content';
   @import '_post/copyright';
   @import '_post/footer';

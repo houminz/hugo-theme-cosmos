@@ -1,23 +1,26 @@
-.post-toc {
-  position: absolute;
-  width: $post-toc-width;
-  margin-left: $post-toc-margin-left;
+// ==============================
+// Post ToC
+// ==============================
+
+.toc {
+  width: 10em;
   padding: 10px;
-  font-family: $global-serif-font-family;
-  border-radius: 5px;
-  background: $post-toc-backgroud;
+  margin: 1em 1em;
+  border-radius: 0.5em;
+  background: $theme-bg-color;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
   word-wrap: break-word;
   box-sizing: border-box;
+  border: 3px solid blue;
 
-  .post-toc-title {
+  .toc-title {
     margin: 0 10px;
     font-size: $post-toc-title-size;
     font-weight: 400;
     text-transform: uppercase;
   }
 
-  .post-toc-content {
+  .toc-content {
     font-size: $post-toc-content;
 
     &.always-active ul {
@@ -45,11 +48,5 @@
     .toc-link.active {
       color: $theme-color;
     }
-  }
-}
-
-@include max-screen($toc-max-sreen-width) {
-  .post-toc {
-    display: none;
   }
 }
