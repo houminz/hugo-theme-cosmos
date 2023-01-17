@@ -268,7 +268,6 @@ $global-font-size: $font-size-16 !default;
 // Used in layout
 $border-radius: $padding-4 !default;
 
-$body-font-weight: normal !default;
 
 $body-min-width: 20rem !default;
 $container-max-width: 80rem !default;
@@ -276,50 +275,14 @@ $container-max-width: 80rem !default;
 $header-height: 3.5rem !default;
 $menu-width: 16rem !default;
 $toc-width: 16rem !default;
+$post-width: 50rem !default;
 
-$mobile-breakpoint: $menu-width + $body-min-width * 1.2 + $toc-width !default;
-
-// Global width of '<body>'.
-$global-body-width: 1200px !default;
-$global-nav-width: 1024px !default;
-$global-header-height: 60px !default;
-$global-footer-height: 60px !default;
-$global-gap: 24px !default;
-$global-radius: 8px;
-// Width of the post toc.
-$post-toc-width: 200px !default;
-// Margin left of the post toc.
-$post-toc-margin-left: $global-body-width - 15px !default;
-
-// Height of the mobile header.
-$mobile-navbar-height: 50px !default;
-
-// Padding of container main
-$global-container-padding: 0 20px !default;
-$menu-padding: 15px 25px !default;
-
-// Margin of menu item.
-$menu-item-margin-left: 20px !default;
-
-// Margin of menu item in mobile.
-$menu-item-mobile-margin: 5px !default;
-// Padding of the site header.
-$header-padding: 20px 20px !default;
-// ========== Post ========== //
-// Margin bottom of post list.
-$post-list-margin-bottom: 20px !default;
-// Padding of the post.
-$post-padding: 1.5em 0 !default;
 $body-min-width: 20rem !default;
 $container-max-width: 82rem !default;
 
 $header-height: 3.5rem !default;
-$menu-width: 18rem !default;
 
-$sm-breakpoint: $menu-width + $body-min-width + 3rem !default;
-// Navs
-$border-radius:               .375rem !default;
-$menu-width: 18rem !default;
+$sm-breakpoint: $menu-width + $body-min-width * 1.2 +  $toc-width !default;
 
 // Margin top of the footer.
 $footer-margin-top: 2em !default;
@@ -332,6 +295,10 @@ $social-icon-font-size: 30px !default;
 
 // Margin of the copyright.
 $copyright-margin: 10px 0 !default;
+
+// ============================================================================
+// =============================== Layout =====================================
+// ============================================================================
 
 
 // ============================================================================
@@ -435,9 +402,6 @@ $post-toc-content: 15px !default;
 
 // List style of the post toc list.
 $post-toc-list-style: square !default;
-
-// Max screen media of the post toc.
-$toc-max-sreen-width: 2 * $post-toc-width + $post-toc-margin-left !default;
 
 // ============================================================================
 // =============================== Code =======================================

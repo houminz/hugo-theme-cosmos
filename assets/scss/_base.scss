@@ -5,28 +5,22 @@ html {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   overflow-y: scroll;
-  overflow-x: scroll;
 }
 
 body {
-  padding: 0;
   margin: 0;
   font-family: $global-font-family;
   font-weight: normal;
   font-size: 18px;
+  height: 100%;
+  width: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: $global-lineheight;
   color: $global-font-color;
   background: $global-background;
   scroll-behavior: smooth;
-  border-top: 3px solid $theme-color;
-}
-
-@include max-screen() {
-  body {
-    border-top: 0;
-  }
+  border: 3px solid limegreen;
 }
 
 ::selection {
@@ -49,80 +43,33 @@ body {
 //   border-radius: 5px;
 // }
 
-article,
-aside,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-nav,
-section,
 table {
-    display: block;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  overflow-x: auto;
+  word-break: keep-all;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    line-height: $global-lineheight;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-ul {
-    padding: 0;
-}
-
-a {
-    text-decoration: none;
-}
-
-body,
-figure,
-ul {
-    margin: 0;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-    overflow-x: auto;
-    word-break: keep-all;
-}
 
 button,
 input,
 textarea {
-    padding: 0;
-    font: inherit;
-    background: 0 0;
-    border: 0;
+  padding: 0;
+  font: inherit;
+  background: 0 0;
+  border: 0;
 }
 
 input,
 textarea {
-    outline: 0;
+  outline: 0;
 }
 
 button,
 input[type=button],
 input[type=submit] {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 img {
@@ -197,7 +144,7 @@ img {
 }
 
 dl, ol, p, figure, ul {
-  margin-bottom: $global-gap;
+  margin-bottom: $padding-16;
 }
 
 ol, ul {
@@ -358,6 +305,52 @@ hr {
   border: 0;
 }
 
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+section,
+table {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: $global-lineheight;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul {
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body,
+figure,
+ul {
+  margin: 0;
+}
+
+
 svg.icon {
   display: inline-block;
   width: $font-size-20;
@@ -367,12 +360,4 @@ svg.icon {
   stroke: currentColor;
   fill: currentColor;
   position: relative;
-}
-
-.page {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  border: 3px solid red;
 }

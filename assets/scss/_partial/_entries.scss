@@ -5,10 +5,10 @@
 
 .post-entry {
     position: relative;
-    margin-bottom: $global-gap;
-    padding: $global-gap;
+    margin-bottom: $padding-16;
+    padding: $padding-16;
     background: $global-background;
-    border-radius: $global-radius;
+    border-radius: $border-radius;
     transition: transform 0.1s;
     border: 1px solid;
 }

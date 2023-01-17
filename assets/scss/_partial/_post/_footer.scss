@@ -29,14 +29,14 @@
     display: flex;
     margin: 1em 0;
     line-height: 30px;
-    border-radius: $global-radius;
+    border-radius: $border-radius;
 
     @include clearfix;
 
     a {
       padding-inline-start: 14px;
       padding-inline-end: 14px;
-      border-radius: $global-radius;
+      border-radius: $border-radius;
     }
 
     .title {
@@ -79,20 +79,6 @@
 
     .nav-mobile {
       display: none;
-    }
-  }
-}
-
-@include max-screen() {
-  .post-footer {
-    .post-nav {
-      .nav-default {
-        display: none;
-      }
-
-      .nav-mobile {
-        display: inline;
-      }
     }
   }
 }

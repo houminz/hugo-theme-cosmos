@@ -3,41 +3,13 @@
 // ==============================
 
 .post-content {
+  border: 3px solid orange;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 1rem;
+  //width: $post-width;
   word-wrap: break-word;
-
-  @for $i from 1 through 6 {
-    h#{$i} {
-      font-weight: 400;
-      font-family: $global-serif-font-family;
-
-      .anchor {
-        float: left;
-        line-height: 1;
-        margin-left: -20px;
-        padding-right: 4px;
-
-        &:hover {
-          border-bottom: initial;
-        }
-
-        .icon-link {
-          visibility: hidden;
-          font-size: 16px;
-          display: contents;
-
-          &:before {
-            vertical-align: middle;
-          }
-        }
-      }
-
-      &:hover {
-        .icon-link {
-          visibility: visible;
-        }
-      }
-    }
-  }
+  word-break: break-all;
+  //display: none;
 
   @import 'code';
   @import 'notice';

@@ -2,6 +2,19 @@
 // Post
 // ==============================
 
+.content-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .page {
-  @import '_post';
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  border: 3px solid red;
 }
