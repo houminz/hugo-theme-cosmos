@@ -9,9 +9,6 @@ categories: ["Hugo"]
 
 Hugo support syntax highlighting natively[^1] using [Chroma](https://github.com/alecthomas/chroma)[^2] as its code highlighter.
 
-[^1]: [Syntax Highlighting | Hugo](https://gohugo.io/content-management/syntax-highlighting/)
-[^2]: https://github.com/alecthomas/chroma
-
 <!--more-->
 
 ## Implementation
@@ -39,7 +36,7 @@ if style == nil {
 
 formatter := formatters.Get("html")
 if formatter == nil {
-formatter = formatters.Fallback
+    formatter = formatters.Fallback
 }
 
 // obtain an iterator over the tokens
@@ -272,3 +269,6 @@ func GetTitleFunc(style string) func(s string) string {
     }
 }
 {{< /highlight >}}
+
+[^1]: [Syntax Highlighting | Hugo](https://gohugo.io/content-management/syntax-highlighting/)
+[^2]: https://github.com/alecthomas/chroma

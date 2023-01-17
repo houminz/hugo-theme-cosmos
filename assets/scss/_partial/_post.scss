@@ -4,9 +4,9 @@
 
 .post {
   border: 0.4rem solid purple;
-  padding: 1rem 2rem;
-  margin: 1rem 2rem;
-  //width: $post-width;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  width: $post-width;
 
   @import '_post/header';
   @import '_post/content';
@@ -15,4 +15,6 @@
   @import '_post/reward';
   @import '_post/tabs';
   @import '_post/details';
+  @import '_post/table';
+
 }

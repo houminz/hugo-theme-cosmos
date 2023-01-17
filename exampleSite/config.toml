@@ -12,7 +12,7 @@ MetaDataFormat = "yaml"
 
 [markup]
   [markup.highlight]
-    style = 'solarized-dark'
+    style = 'monokai'
     codeFences = true
     guessSyntax = false
     lineNoStart =1
@@ -25,15 +25,10 @@ MetaDataFormat = "yaml"
     target = 'assets'
 
 [params]
-  bookSection = "docs"
-
   author = "Houmin"
   description = "Demo for Hugo Cosmos"
   since = "2019"
   dateFormat = "January 2, 2006"
-
-  ShowPostNavLinks = true
-  ShowBreadCrumbs = true
 
   linkToMarkDown = false    # if you config contentCopyright and hugo output .md files
   contentCopyright = '<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>'
@@ -41,6 +36,7 @@ MetaDataFormat = "yaml"
   enableGitInfo = true
   enableHomeProfile = false
   mainSections = ["posts"]
+  bookSection = "docs"
 
   toc = true
   douban = true
