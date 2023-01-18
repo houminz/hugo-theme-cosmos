@@ -10,14 +10,6 @@
             {{ .Description }}
         </div>
         {{- end }}
-
-        {{- if not (.Param "hideMeta") }}
-        <div class="post-meta">
-            {{ partial "post/date.html" .}}
-            {{ partial "post/author.html" .}}
-            {{ partial "post/category.html" .}}
-        </div>
-        {{- end }}
     </header>
 
     <div class="post-content" itemprop="articleBody">

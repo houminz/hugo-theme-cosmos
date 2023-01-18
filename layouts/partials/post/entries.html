@@ -19,13 +19,6 @@
             <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
         </div>
         {{- end }}
-        {{- if not (.Param "hideMeta") }}
-        <footer class="entry-footer">
-            {{ partial "post/date.html" .}}
-            {{ partial "post/author.html" .}}
-            {{ partial "post/category.html" .}}
-        </footer>
-        {{- end }}
         <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
     </article>
     {{- end }}
@@ -33,5 +26,4 @@
     <footer class="page-footer">
         {{ partial "pagination.html" . }}
     </footer>
-
 </div>
