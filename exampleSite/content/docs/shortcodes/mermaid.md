@@ -2,7 +2,7 @@
 author: "Houmin"
 title: "Mermaid"
 date: "2023-01-06"
-tags: ["mindmap", "mermaid"]
+tags: ["short code", "mermaid", "hugo"]
 ShowToc: true
 ---
 

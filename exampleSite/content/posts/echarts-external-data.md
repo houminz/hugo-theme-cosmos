@@ -2,8 +2,7 @@
 author: "Houmin"
 title: "ECharts Using External Data"
 date: "2023-01-07"
-description: "Add echarts to your site using external data."
-tags: ["EChats"]
+tags: ["echarts", "hugo"]
 ShowToc: true
 ---
 

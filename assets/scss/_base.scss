@@ -11,7 +11,7 @@ body {
   margin: 0;
   font-family: $global-font-family;
   font-weight: normal;
-  font-size: 18px;
+  font-size: $global-font-size;
   height: 100%;
   width: 100%;
   -webkit-font-smoothing: antialiased;
@@ -119,21 +119,6 @@ h1>a>svg {
   #{$header} {
     font-size: $size;
     font-family: $global-serif-font-family;
-  }
-}
-
-blockquote {
-  margin: 2em 0;
-  padding: 10px 20px;
-  position: relative;
-  color: rgba(#34495e, 0.8);
-  background-color: $content-blockquote-backgroud;
-  border-left: $content-blockquote-border-left;
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
-  border-inline-start: 3px solid var(--primary);
-
-  p {
-    margin: 0;
   }
 }
 
@@ -260,7 +245,7 @@ dl dt::after {
 hr {
   margin: 30px 0;
   height: 2px;
-  background: var(--tertiary);
+  background: $secondary;
   border: 0;
 }
 
@@ -281,7 +266,7 @@ h3,
 h4,
 h5,
 h6 {
-  line-height: $global-lineheight;
+  line-height: $global-head-lineheight;
 }
 
 h1,
@@ -308,7 +293,6 @@ figure,
 ul {
   margin: 0;
 }
-
 
 svg.icon {
   display: inline-block;

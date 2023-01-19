@@ -76,16 +76,17 @@ $font-size-16: 1rem !default;
 $font-size-20: 1.25rem !default;
 $font-size-24: 1.5rem !default;
 $font-size-32: 2rem !default;
+$font-size-48: 3rem !default;
 $font-size-64: 4rem !default;
 $font-size-96: 6rem !default;
 $font-size-128: 8rem !default;
-$global-font-size: $font-size-16 !default;
 
-// Text color of the body.
+
+$global-font-size: $font-size-16 !default;
 $global-font-color: $black !default;
 
-// Default line height for all type. `$global-lineheight` is 24px while `$global-font-size` is 16px.
-$global-lineheight: 1.5 !default;
+$global-lineheight: $font-size-24 !default;
+$global-head-lineheight: $font-size-64 !default;
 
 // Font family of the site.
 $global-font-family: Arial !default;
@@ -94,7 +95,7 @@ $global-font-family: Arial !default;
 $global-serif-font-family: Athelas, STHeiti, Microsoft Yahei, serif !default;
 
 // Font size of the logo.
-$logo-font-size: 40px !default;
+$logo-font-size: $font-size-64 !default;
 
 // Font family of the logo.
 $logo-font-family: 'Chancery', cursive, LiSu, sans-serif !default;
@@ -129,8 +130,6 @@ $body-min-width: 20rem !default;
 $container-max-width: 82rem !default;
 
 
-
-
 // Margin left of the social link.
 $social-link-margin-left: 10px !default;
 
@@ -146,12 +145,12 @@ $global-background: $theme-bg-color !default;
 
 // Headings font size of the site.
 $global-headings: (
-        h1: 26px,
-        h2: 24px,
-        h3: 20px,
-        h4: 16px,
-        h5: 14px,
-        h6: 14px
+  h1: $font-size-64,
+  h2: $font-size-48,
+  h3: $font-size-32,
+  h4: $font-size-24,
+  h5: $font-size-20,
+  h6: $font-size-16
 ) !default;
 
 // ========== General Terms ========== //
@@ -206,7 +205,7 @@ $post-serif-font-family: $global-serif-font-family !default;
 $post-border: 1px solid $light-gray !default;
 
 // Font size of post title.
-$post-title-font-size: $font-size-32 !default;
+$post-title-font-size: $font-size-64 !default;
 
 // Font weight of post title.
 $post-title-font-weight: 600 !default;
@@ -246,7 +245,7 @@ $content-headings-anchor: "" !default;
 $content-link-border: 1px solid $theme-color !default;
 
 // Background color of the blockquote.
-$content-blockquote-backgroud: rgba($theme-color, 0.05) !default;
+$content-blockquote-backgroud: rgba($theme-color, 0.1) !default;
 
 // Border left of the blockquote.
 $content-blockquote-border-left: 3px solid rgba($theme-color, 0.3) !default;
