@@ -1,10 +1,32 @@
 ---
-title: Tabs
+title: "Tabs"
+author: "Houmin"
+date: "2022-12-04"
+tags: ["tabs", "short code", "hugo"]
 ---
 
 Tabs let you organize content by context, for example installation instructions for each supported platform.
 
 <!--more-->
+
+````markdown
+{{</* tabs */>}}
+{{</* tab "toml" */>}}
+```toml
++++
+math = true
++++
+```
+{{</* /tab */>}}
+{{</* tab "yaml" */>}}
+```yaml
+---
+math: true
+---
+```
+{{</* /tab */>}}
+{{</* /tabs */>}}
+````
 
 ## Example 1
 

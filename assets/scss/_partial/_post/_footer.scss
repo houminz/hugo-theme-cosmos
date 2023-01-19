@@ -5,21 +5,25 @@
 .post-footer {
   margin-top: $post-footer-margin-top;
   border-top: $post-footer-border-top;
-  font-family: $global-serif-font-family;
+  font-family: $post-serif-font-family;
 
   .post-tags {
     padding: $post-tags-padding;
 
     li {
-        display: inline-block;
-        margin-inline-end: 3px;
-        margin-bottom: 5px;
+      display: inline-block;
+      margin-inline-end: $post-tags-margin;
+      margin-bottom: $post-tags-margin;
+
+      a>svg.icon {
+        width: $font-size-32;
+        height: $font-size-32;
+      }
     }
 
     a {
       display: block;
-      margin-right: 5px;
-      color: $theme-color;
+      margin-right: $post-tags-margin;
       background: $tags-background;
       word-break: break-all;
     }
@@ -27,31 +31,23 @@
 
   .post-nav {
     display: flex;
-    margin: 1em 0;
-    line-height: 30px;
-    border-radius: $border-radius;
+    margin: $post-nav-padding;
+    line-height: $post-nav-line-height;
 
     @include clearfix;
 
     a {
-      padding-inline-start: 14px;
-      padding-inline-end: 14px;
-      border-radius: $border-radius;
-    }
-
-    .title {
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      font-size: small;
-      color: $deputy-color;
+      padding-inline-start: $post-nav-padding;
+      padding-inline-end: $post-nav-padding;
     }
 
     .prev,
     .next {
       width: 50%;
-      font-weight: 600;
+      padding: $post-nav-padding;
+      font-weight: $post-nav-font-weight;
       font-size: $post-nav-font-size;
-      font-family: $global-serif-font-family;
+      font-family: $post-serif-font-family;
       transition-property: transform;
       transition-timing-function: ease-out;
       transition-duration: 0.3s;
@@ -62,7 +58,7 @@
 
       &:hover {
         color: $theme-color;
-        transform: translateX(-4px);
+        transform: translateX(-$post-nav-hover-transform);
       }
     }
 
@@ -73,7 +69,7 @@
 
       &:hover {
         color: $theme-color;
-        transform: translateX(4px);
+        transform: translateX($post-nav-hover-transform);
       }
     }
 

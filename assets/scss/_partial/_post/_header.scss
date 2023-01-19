@@ -3,14 +3,14 @@
 // ==============================
 
 .post-header {
-  margin-bottom: 20px;
+  margin-bottom: $post-title-margin-bottom;
   text-align: center;
 
   .post-title {
     margin: 0;
     font-size: $post-title-font-size;
     font-weight: $post-title-font-weight;
-    font-family: $global-serif-font-family;
+    font-family: $post-serif-font-family;
   }
 
   .post-link {

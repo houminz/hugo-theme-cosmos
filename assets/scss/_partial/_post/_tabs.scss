@@ -3,7 +3,7 @@
 	margin-top: $padding-16;
 	margin-bottom: $padding-16;
 
-	border: $padding-2 solid $gray-200;
+	border: $padding-2 solid $light-gray;
 	border-radius: $border-radius;
 
 	overflow: hidden;
@@ -21,13 +21,13 @@
 	.tabs-content {
 		order: 999; //Move content blocks to the end
 		width: 100%;
-		border-top: $padding-2 solid $gray-200;
+		border-top: $padding-2 solid $light-gray;
 		padding: $padding-16;
 		display: none;
 	}
 
 	input[type="radio"]:checked + label {
-		border-bottom: $padding-2 solid $red-200;
+		border-bottom: $padding-2 solid $theme-color;
 	}
 	input[type="radio"]:checked + label + .tabs-content {
 		display: block;

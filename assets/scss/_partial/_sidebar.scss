@@ -4,11 +4,12 @@ aside {
 
 .sidebar {
   nav {
-    padding: 0.5rem;
-    margin-top: 1rem;
+    padding: $post-sidebar-nav-padding-top;
+    margin-top: $post-sidebar-nav-margin-top;
+    margin-left: $post-sidebar-nav-margin-left;
     height: 100%;
 
-    width: $menu-width;
+    width: $post-sidebar-nav-width;
 
     > ul > li > * {
       font-weight: normal;

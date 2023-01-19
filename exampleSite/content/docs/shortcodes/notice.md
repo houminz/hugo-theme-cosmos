@@ -1,6 +1,42 @@
 ---
-title: Notice
+author: "Houmin"
+title: "Notice"
+date: "2023-01-03"
+tags: ["notice", "short code", "hugo"]
 ---
+
+## Format
+
+```html
+{{</* notice tip */>}}
+This is a notice short code format example.
+{{</* /notice */>}}
+```
+
+## Tip
+
+{{< notice tip >}}
+This is a very good tip.
+{{< /notice >}}
+
+## Info
+
+{{< notice info >}}
+This is a info notice.
+{{< /notice >}}
+
+## Warning
+{{< notice warning >}}
+This is a warning notice. Be warned!
+{{< /notice >}}
+
+## Important
+
+{{< notice important >}}
+This is a important notice.
+{{< /notice >}}
+
+## Examples
 
 {{< notice >}}
 This is a notice of the type `info`. The notice can span multiple lines, even multiple paragraphs.
@@ -17,24 +53,4 @@ func main() {
 	fmt.Println("Hello World!")
 }
 ```
-{{< /notice >}}
-
-<br>
-
-{{< notice tip >}}
-This is a very good tip.
-{{< /notice >}}
-
-{{< notice info >}}
-This is a info notice.
-{{< /notice >}}
-
-{{< notice warning >}}
-This is a warning notice. Be warned!
-{{< /notice >}}
-
-<br>
-
-{{< notice important >}}
-This is a important notice.
 {{< /notice >}}

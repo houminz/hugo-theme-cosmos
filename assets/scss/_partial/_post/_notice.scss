@@ -1,59 +1,62 @@
-.notice{
-    padding:18px;
-    line-height:24px;
-    margin-bottom:24px;
-    border-radius:4px;
-}
-.notice p:last-child{
-    margin-bottom:0
-}
-.notice-title{
-    margin:-18px -18px 12px;
-    padding:4px 18px;
-    border-radius:4px 4px 0 0;
-    font-weight:700;
-    color: $notice-title-color;
+.notice {
+    margin: $notice-margin-top $notice-margin-left;
+    line-height: $notice-line-height;
+    border-radius: $notice-border-radius;
 }
 
-.notice.warning .notice-title{
+.notice-title {
+    padding: $notice-title-padding-top $notice-padding-left;
+    border-radius: $notice-border-radius $notice-border-radius 0 0;
+    font-weight: $notice-font-weight;
+    color: $notice-title-text-color;
+}
+
+.notice-content {
+    padding: $notice-content-padding-top $notice-padding-left;
+    margin: 0 $notice-margin-left;
+}
+
+.notice.warning .notice-title {
     background: $notice-warning-title-bg;
 }
-.notice.warning{
+.notice.warning {
     background: $notice-warning-content-bg;
 }
 
-.notice.info .notice-title{
+.notice.info .notice-title {
     background: $notice-info-title-bg;
 }
-.notice.info{
+.notice.info {
     background: $notice-info-content-bg;
 }
 
-.notice.important .notice-title{
+.notice.important .notice-title {
     background: $notice-important-title-bg;
 }
-.notice.important{
+.notice.important {
     background: $notice-important-content-bg;
 }
 
-.notice.tip .notice-title{
+.notice.tip .notice-title {
     background: $notice-tip-title-bg;
 }
-.notice.tip{
+.notice.tip {
     background: $notice-tip-content-bg;
 }
 
-.icon-notice{
-    display:inline-flex;
-    align-self:center;
-    margin-right:8px
+.icon-notice {
+    display: inline-flex;
+    align-self: center;
+    margin-right: $notice-icon-margin-right;
 }
-.icon-notice img,.icon-notice svg{
-    height:1em;
-    width:1em;
-    fill:currentColor
+
+.icon-notice img,.icon-notice svg {
+    height: $notice-icon-height;
+    width: $notice-icon-width;
+    fill: currentColor;
 }
-.icon-notice img,.icon-notice.baseline svg{
-    top:.125em;
-    position:relative
+
+.icon-notice img,.icon-notice.baseline svg {
+    top: $notice-icon-baseline-top;
+    position: relative;
 }

@@ -5,10 +5,8 @@
 .post-content {
   padding: 0.5rem 1rem;
   margin: 0.5rem 1rem;
-  //width: $post-width;
   word-wrap: break-word;
   word-break: break-all;
-  //display: none;
 
   @import 'code';
   @import 'notice';
@@ -23,18 +21,6 @@
 
 .post-summary {
   margin-bottom: 1em;
-}
-
-.read-more {
-  .read-more-link {
-    color: $theme-color;
-    font-size: 1.1em;
-    font-family: $global-serif-font-family;
-
-    &:hover {
-      border-bottom: $post-readMore-border-bottom;
-    }
-  }
 }
 
 .footnote-ref {

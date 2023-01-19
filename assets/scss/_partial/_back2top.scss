@@ -3,21 +3,21 @@
 // =============================
 
 .back2top {
-    font-size: 12px;
+    font-size: $font-size-16;
     color: $secondary;
 }
 
 .back2top {
     visibility: hidden;
     position: fixed;
-    bottom: 60px;
-    right: 30px;
+    bottom: $padding-64;
+    right: $padding-32;
     z-index: 99;
-    background: $gray-200;
-    width: 42px;
-    height: 42px;
-    padding: 12px;
-    border-radius: 64px;
+    background: $light-gray;
+    width: $padding-64;
+    height: $padding-64;
+    padding: $padding-16;
+    border-radius: $padding-64;
     transition: visibility 0.5s, opacity 0.8s linear;
 }
 

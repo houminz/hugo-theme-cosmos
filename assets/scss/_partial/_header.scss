@@ -9,13 +9,7 @@
 
 .header {
   width: 100%;
-  background: $blue;
-  color: $black;
-
-  &__link,
-  &__link:visited {
-    color: $red;
-  }
+  height: $site-header-height;
 
   &__link:hover {
     text-decoration: none;

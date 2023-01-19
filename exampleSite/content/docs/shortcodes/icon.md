@@ -1,5 +1,8 @@
 ---
-title: Icons
+title: "Icon"
+author: "Houmin"
+date: "2022-12-04"
+tags: ["icon", "short code", "hugo"]
 ---
 
 Simple shortcode to include icons from SVG sprites outside of menus.
@@ -12,13 +15,9 @@ Simple shortcode to include icons from SVG sprites outside of menus.
 
 ## Usage
 
-| Result                    | Usage                           |
-|---------------------------|---------------------------------|
-| {{< icon "weibo" >}}      | `{{</* icon "weibo" */>}}`      |
-| {{< icon "weixin" >}}     | `{{</* icon "weixin" */>}}`     |
-| {{< icon "alipay" >}}     | `{{</* icon "alipay" */>}}`     |
-| {{< icon "facebook" >}}   | `{{</* icon "facebook" */>}}`   |
-| {{< icon "linkedin" >}}   | `{{</* icon "linkedin" */>}}`   |
-| {{< icon "twitter" >}}    | `{{</* icon "twitter" */>}}`    |
-| {{< icon "github" >}}     | `{{</* icon "github */>}}`      |
-| {{< icon "github-alt" >}} | `{{</* icon "github-alt" */>}}` |
+|           Result            |               Usage               |          Result           |               Usage               |
+|:---------------------------:|:---------------------------------:|:-------------------------:|:---------------------------------:|
+|    {{< icon "weibo" >}}     |    `{{</* icon "weibo" */>}}`     | {{< icon "github-alt" >}} |  `{{</* icon "github-alt" */>}}`  |
+|    {{< icon "weixin" >}}    |    `{{</* icon "weixin" */>}}`    |   {{< icon "github" >}}   |    `{{</* icon "github */>}}`     |
+|    {{< icon "alipay" >}}    |    `{{</* icon "alipay" */>}}`    |  {{< icon "twitter" >}}   |   `{{</* icon "twitter" */>}}`    |
+|   {{< icon "facebook" >}}   |   `{{</* icon "facebook" */>}}`   |  {{< icon "linkedin" >}}  |   `{{</* icon "linkedin" */>}}`   |

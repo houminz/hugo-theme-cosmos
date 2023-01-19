@@ -10,15 +10,17 @@
 
 {{- $.Page.Scratch.Add "noticecount" 1 -}}
 <div class="notice {{ $noticeType }}" {{ if len .Params | eq 2 }} id="{{ .Get 1 }}" {{ end }}>
-    <p class="first notice-title">
+    <div class="notice-title">
         <span class="icon-notice baseline">
             <svg>
                 <use href="#notice-{{- $noticeType -}}"></use>
             </svg>
         </span>
         {{- i18n $noticeType -}}
-    </p>
-{{- if or $block (not $raw) }}{{ $raw }}{{ else }}<p>{{ $raw }}</p>{{ end -}}
+    </div>
+    <div class="notice-content">
+        {{- if or $block (not $raw) }}{{ $raw }}{{ else }}<p>{{ $raw }}</p>{{ end -}}
+    </div>
 </div>
 
 

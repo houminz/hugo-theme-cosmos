@@ -2,9 +2,7 @@
 details {
   display: block;
   padding: 1rem;
-  border: 1px solid $gray-200;
   border-radius: .25rem;
-  background-color: $blue-100;
 }
 
 details > summary {
@@ -12,7 +10,6 @@ details > summary {
   padding: 1rem;
   margin: -1rem;
   cursor: pointer;
-  background-color: $red-100;
 }
 
 details[open] summary {

@@ -1,5 +1,22 @@
 ---
-title: Github Code
+title: "Code"
+author: "Houmin"
+date: "2022-12-05"
+tags: ["code", "short code", "hugo"]
 ---
+
+## Gist
+
+```html
+{{</* gist spf13 7896402 */>}}
+```
+
+{{< gist spf13 7896402 >}}
+
+## Github Code
+
+```html
+{{</* ghcode url="https://github.com/gohugoio/hugo/blob/77fc74a5b20f50298ac4a1cd88e436932fc2226f/markup/highlight/highlight.go#L60-L65" */>}}
+```
 
 {{< ghcode url="https://github.com/gohugoio/hugo/blob/77fc74a5b20f50298ac4a1cd88e436932fc2226f/markup/highlight/highlight.go#L60-L65" >}}

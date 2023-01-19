@@ -1,6 +1,6 @@
 @media screen and (max-width: $sm-breakpoint) {
   .sidebar {
-    margin-left: -$menu-width;
+    margin-left: -$post-sidebar-nav-width;
     font-size: $font-size-base;
 
     &__control {
@@ -45,7 +45,7 @@
 
   #menu-control:checked ~ main {
     .sidebar nav, .post {
-      transform: translateX($menu-width);
+      transform: translateX($post-sidebar-nav-width);
     }
 
     .post {

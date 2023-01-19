@@ -1,11 +1,10 @@
 .highlight {
-  padding: 0;
-  margin: 0.5rem 0.125rem;
-  border-radius: 0.5rem;
+  margin: $code-margin-top $code-margin-left;
+  border-radius: $code-border-radius;
+  font-size: $code-font-size;
   overflow-x: scroll; /* 代码行太长向右滚动 */
-  font-size: $font-size-16;
 
   pre {
-    padding: 0.5rem;  /* 适当留出边距 */
+    padding: $code-pre-padding-top $code-pre-padding-left;  /* 适当留出边距 */
   }
 }
