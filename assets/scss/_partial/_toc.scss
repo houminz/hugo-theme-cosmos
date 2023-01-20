@@ -3,49 +3,8 @@
 // ==============================
 
 .toc {
-  width: $toc-width;
+  flex: 0 0 $toc-width;
   padding: 0.5rem;
   margin: 0.5rem;
   border-radius: 0.5em;
-  background: $theme-bg-color;
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
-  word-wrap: break-word;
-  box-sizing: border-box;
-
-  .toc-title {
-    margin: 0 10px;
-    font-size: $post-toc-title-size;
-    font-weight: 400;
-    text-transform: uppercase;
-  }
-
-  .toc-content {
-    font-size: $post-toc-content;
-
-    &.always-active ul {
-      display: block;
-    }
-
-    >nav>ul {
-      margin: 10px 0;
-    }
-
-    ul {
-      padding-left: 20px;
-      list-style: $post-toc-list-style;
-
-      ul {
-        padding-left: 15px;
-        display: none;
-      }
-
-      .has-active > ul {
-        display: block;
-      }
-    }
-
-    .toc-link.active {
-      color: $theme-color;
-    }
-  }
 }

@@ -15,7 +15,7 @@
         <input type="checkbox" class="hidden" id="menu-header-control" />
 
         {{- partialCached "header.html" . .Page -}}
-        <main class="content-wrapper" id="main">
+        <main class="container flex" id="main">
             {{- block "main" . }}{{ end }}
         </main>
         {{ partialCached "footer.html" . .Layout .Kind -}}

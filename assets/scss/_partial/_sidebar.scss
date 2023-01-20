@@ -9,7 +9,7 @@ aside {
     margin-left: $post-sidebar-nav-margin-left;
     height: 100%;
 
-    width: $post-sidebar-nav-width;
+    flex: 0 0 $post-sidebar-nav-width;
 
     > ul > li > * {
       font-weight: normal;

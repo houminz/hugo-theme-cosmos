@@ -5,7 +5,8 @@
 .post {
   padding: 0.5rem;
   margin: 0.5rem;
-  width: $post-width;
+  flex-grow: 1;
+  min-width: $body-min-width;
 
   @import '_post/header';
   @import '_post/content';

@@ -1,7 +1,7 @@
 {{- if .Site.Params.echarts.enable -}}
 
-{{ $width := .Get "width" | default "100%" }}
-{{ $height := .Get "height" | default "400px" }}
+{{ $width := .Get "width" | default "60rem" }}
+{{ $height := .Get "height" | default "40rem" }}
 {{ $randomId := printf "echarts-%d" ($.Page.Scratch.Get "echartsId" | default 0) }}
 {{ $.Page.Scratch.Add "echartsId" 1 -}}
 

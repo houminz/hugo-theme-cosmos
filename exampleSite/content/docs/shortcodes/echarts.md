@@ -248,7 +248,7 @@ var option = {
 
 China Map
 
-{{< echarts height="1000px" >}}
+{{< echarts height="50rem" >}}
 var option = {
     title: {
         text: "疫情地图: 2020-03-09",
@@ -364,7 +364,7 @@ World GPS Point, data fetched using `XMLHttpRequest`
 {{< details "Code example for echarts using external data">}}
 
 ```javascript
-/* echarts height="600px" */
+/* echarts height="40rem" */
 
     var ROOT_PATH ='https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/examples';
     var CHUNK_COUNT = 230;
@@ -450,7 +450,7 @@ World GPS Point, data fetched using `XMLHttpRequest`
 {{< /details >}}
 
 
-{{< echarts height="600px" >}}
+{{< echarts height="40rem" >}}
 
     var ROOT_PATH ='https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/examples';
     var CHUNK_COUNT = 230;
