@@ -3,6 +3,7 @@ var refactorToc = function(toc) {
     const oldTocList = toc.children[0];
     let newTocList = oldTocList;
     let temp;
+
     while (newTocList.children.length === 1 && (temp = newTocList.children[0].children[0]).tagName === 'UL') {
         newTocList = temp;
     }
@@ -11,61 +12,25 @@ var refactorToc = function(toc) {
 };
 
 var linkToc = function() {
-    const links = document.querySelectorAll('#TableOfContents a:first-child');
+    const links = document.querySelectorAll('#TableOfContents a');
     for (let i = 0; i < links.length; i++) links[i].className += ' toc-link';
 
     for (let num = 1; num <= 6; num++) {
         const headers = document.querySelectorAll('.post-content>h' + num);
         for (let i = 0; i < headers.length; i++) {
             const header = headers[i];
-            header.innerHTML = `<a href="#${header.id}" class="headerlink anchor"><i class="iconfont icon-link"></i></a>${header.innerHTML}`;
+            header.innerHTML = `<a href="#${header.id}" class="headerlink anchor">${header.innerHTML}</a>`;
         }
     }
 };
 
 var initToc = function() {
-    const SPACING = 20;
-    const toc = document.querySelector('.post-toc');
-    const footer = document.querySelector('.post-footer');
-
-    if (toc !== null) {
-        const minScrollTop = toc.offsetTop - SPACING;
-        const maxScrollTop = footer.offsetTop - toc.offsetHeight - SPACING;
-
-        const tocState = {
-            start: {
-                'position': 'absolute',
-                'top': minScrollTop,
-            },
-            process: {
-                'position': 'fixed',
-                'top': SPACING,
-            },
-            end: {
-                'position': 'absolute',
-                'top': maxScrollTop,
-            },
-        };
-
-        window.onscroll = function() {
-            const scrollTop = document.body.scrollTop;
-
-            if (scrollTop < minScrollTop) {
-                toc.css(tocState.start);
-            } else if (scrollTop > maxScrollTop) {
-                toc.css(tocState.end);
-            } else {
-                toc.css(tocState.process);
-            }
-        };
-    }
-
     const HEADERFIX = 30;
     const tocLink = document.querySelectorAll('.toc-link');
     const headerlink = document.querySelectorAll('.headerlink');
     const tocLinkList = document.querySelectorAll('.post-toc-content li');
 
-    var headerlinkTop = new Array();
+    var headerlinkTop = [];
     headerlink.forEach(element => headerlinkTop.push(element.offsetTop));
 
     const headerLinksOffsetForSearch = headerlinkTop.map(x => x - HEADERFIX);
@@ -77,8 +42,8 @@ var initToc = function() {
         return -1;
     };
 
-    window.onscroll = function() {
-        const scrollTop = document.body.scrollTop;
+    window.addEventListener("scroll", function() {
+        const scrollTop = document.documentElement.scrollTop;
         const activeTocIndex = searchActiveTocIndex(headerLinksOffsetForSearch, scrollTop);
 
         tocLink.forEach(element => element.classList.remove('active'));
@@ -92,14 +57,14 @@ var initToc = function() {
                 ancestor = ancestor.parentNode.parentNode;
             }
         }
-    };
+    });
 };
 
 document.addEventListener("DOMContentLoaded", function(event) {
     const tocContainer = document.getElementById('post-toc');
     if (tocContainer !== null) {
         const toc = document.getElementById('TableOfContents');
-        if (toc === null) {
+        if (toc.childElementCount === 0) {
             // toc = true, but there are no headings
             tocContainer.parentNode.removeChild(tocContainer);
         } else {

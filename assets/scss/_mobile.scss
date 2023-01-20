@@ -13,7 +13,7 @@
   }
 
   .toc {
-    margin-right: -$toc-width !important;
+    margin-right: -$post-toc-width !important;
   }
 
   .header {
@@ -65,7 +65,7 @@
 
   #menu-header-control:checked ~ main {
     .toc, .post {
-      transform: translateX(-$toc-width);
+      transform: translateX(-$post-toc-width);
     }
 
     .post {

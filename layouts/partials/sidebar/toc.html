@@ -1,8 +1,8 @@
 {{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) -}}
-<aside class="toc" id="toc">
-    <h2 class="toc-title">{{ T "toc" }}</h2>
+<aside class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">{{ T "toc" }}</h2>
     {{- $globalAutoCollapseToc := .Site.Params.autoCollapseToc | default true }}
-    <div class="toc-content{{ if not (or .Params.autoCollapseToc (and $globalAutoCollapseToc (ne .Params.autoCollapseToc false))) }} always-active{{ end }}">
+    <div class="post-toc-content{{ if not (or .Params.autoCollapseToc (and $globalAutoCollapseToc (ne .Params.autoCollapseToc false))) }} always-active{{ end }}">
         {{.TableOfContents}}
     </div>
 </aside>

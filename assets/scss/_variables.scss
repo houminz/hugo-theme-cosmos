@@ -123,7 +123,6 @@ $body-min-width: 20rem !default;
 $container-max-width: 100rem !default;
 
 $header-height: 3.5rem !default;
-$toc-width: 14rem !default;
 $post-width: 68rem !default;
 
 $body-min-width: 20rem !default;
@@ -264,18 +263,28 @@ $post-toc-list-style: square !default;
 
 
 // =============================== ToC ========================================
+$post-toc-width: 14rem !default;
+
 // Font size of the post toc title.
-$post-toc-title-size: 20px !default;
+$post-toc-title-font-size: $font-size-20 !default;
 
 // Font size of the post toc content.
-$post-toc-content: 15px !default;
+$post-toc-content-font-size: $font-size-16 !default;
 
+$post-toc-margin-left: $padding-16 !default;
+$post-toc-margin-top: $padding-96 !default;
+$post-toc-padding: $padding-16 !default;
+
+$post-toc-title-margin-top: $post-toc-margin-top + $padding-32 !default;
+$post-toc-content-margin-top: $post-toc-margin-top + $padding-96 !default;
+
+$post-toc-content-ul-padding-left-l1: $padding-16 !default;
 // List style of the post toc list.
 $post-toc-list-style: square !default;
 // ============================= End of TOC ===================================
 
 
-$sm-breakpoint: $post-sidebar-nav-width + $body-min-width * 1.2 +  $toc-width !default;
+$sm-breakpoint: $post-sidebar-nav-width + $body-min-width * 1.2 +  $post-toc-width !default;
 
 
 // =============================== Code =======================================

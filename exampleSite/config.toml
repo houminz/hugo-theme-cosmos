@@ -19,6 +19,11 @@ MetaDataFormat = "yaml"
     lineNos = true
     lineNumbersInTable = true
 
+  [markup.tableOfContents]
+    endLevel = 6
+    ordered = false
+    startLevel = 2
+
 [module]
   [module.mounts]
     source = 'assets'
