@@ -13,7 +13,7 @@
         {{- partial "helper/external" (dict "Context" . "Namespace" "PhotoSwipe") -}}
     {{ end }}
 
-    {{ if and (.Site.Params.katex.enable) (not .Site.Params.markmap.enable) }}
+    {{ if .Site.Params.katex.enable }}
         {{- partial "helper/external" (dict "Context" . "Namespace" "KaTeX") -}}
     {{ end }}
 
