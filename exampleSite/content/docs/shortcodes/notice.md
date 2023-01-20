@@ -38,7 +38,7 @@ This is a important notice.
 
 ## Examples
 
-{{< notice >}}
+{{< notice tip >}}
 This is a notice of the type `info`. The notice can span multiple lines, even multiple paragraphs.
 
 For instance, this is another paragraph. Naturally **Markdown** can be used, for instance to embed links.
