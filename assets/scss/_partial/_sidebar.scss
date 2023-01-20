@@ -3,13 +3,16 @@ aside {
 }
 
 .sidebar {
+  flex: 0 0 $post-sidebar-nav-width;
+
   nav {
+    @include fixed;
+
     padding: $post-sidebar-nav-padding-top;
     margin-top: $post-sidebar-nav-margin-top;
     margin-left: $post-sidebar-nav-margin-left;
     height: 100%;
 
-    flex: 0 0 $post-sidebar-nav-width;
 
     > ul > li > * {
       font-weight: normal;

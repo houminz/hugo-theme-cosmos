@@ -31,12 +31,6 @@ $green:   #198754 !default;
 $teal:    #20c997 !default;
 $cyan:    #0dcaf0 !default;
 
-// Default theme color of the site.
-$theme-color: $cyan !default;
-$theme-bg-color: #ffffff !default;
-$primary:       $cyan !default;
-$secondary:     $dark-gray !default;
-
 $dark-blue:     shade-color($blue, 20%) !default;
 $dark-indigo:   shade-color($indigo, 20%) !default;
 $dark-purple:   shade-color($purple, 20%) !default;
@@ -58,6 +52,11 @@ $light-yellow:  tint-color($yellow, 80%) !default;
 $light-green:   tint-color($green, 80%) !default;
 $light-teal:    tint-color($teal, 80%) !default;
 $light-cyan:    tint-color($cyan, 80%) !default;
+
+// Default theme color of the site.
+$theme-color: $cyan !default;
+$theme-bg-color: #ffffff !default;
+$deputy-color:  $light-cyan !default;
 
 // ============================== End of Color ================================
 
@@ -443,7 +442,8 @@ $copyright-margin: 10px 0 !default;
 
 
 // =============================== Table ======================================
-$table-background: $light-teal !default;
+$table-background: $light-cyan !default;
 // Border color of the table.
-$table-border-color: darken($table-background, 3%) !default;
+$table-border-color: darken($table-background, 40%) !default;
+$table-background-dark: darken($table-background, 20%) !default;
 // ============================ End of Table ==================================

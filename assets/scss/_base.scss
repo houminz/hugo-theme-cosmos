@@ -91,35 +91,15 @@ a {
 a code {
   margin: auto 0;
   border-radius: 0;
-  box-shadow: 0 -1px 0 $secondary inset;
+  box-shadow: 0 -1px 0 $deputy-color inset;
 }
 
 del {
-  background: linear-gradient(to right, $primary 100%, transparent 0) 0 50%/1px 1px repeat-x;
-}
-
-h1:hover .anchor,
-h2:hover .anchor,
-h3:hover .anchor,
-h4:hover .anchor,
-h5:hover .anchor,
-h6:hover .anchor {
-  display: inline-flex;
-  color: $secondary;
-  margin-inline-start: 8px;
-  font-weight: 500;
-  user-select: none;
+  background: linear-gradient(to right, $theme-color 100%, transparent 0) 0 50%/1px 1px repeat-x;
 }
 
 h1>a>svg {
   display: inline;
-}
-
-@each $header, $size in $global-headings {
-  #{$header} {
-    font-size: $size;
-    font-family: $global-serif-font-family;
-  }
 }
 
 img {
@@ -186,7 +166,7 @@ figure.align-center {
 }
 
 figure > figcaption {
-  color: $primary;
+  color: $theme-color;
   font-size: 16px;
   font-weight: bold;
   margin: 8px 0 16px;
@@ -217,12 +197,6 @@ figure {
   }
 }
 
-hr {
-  margin: 1rem 0;
-  position: relative;
-  border-top: 2px dashed $theme-color;
-  border-bottom: none;
-}
 
 kbd {
   display: inline-block;
@@ -242,12 +216,6 @@ dl dt::after {
   content: ':';
 }
 
-hr {
-  margin: 30px 0;
-  height: 2px;
-  background: $secondary;
-  border: 0;
-}
 
 aside,
 figcaption,
@@ -276,8 +244,8 @@ h4,
 h5,
 h6,
 p {
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-top: $padding-8;
+  margin-bottom: $padding-8;
 }
 
 ul {
@@ -303,4 +271,20 @@ svg.icon {
   stroke: currentColor;
   fill: currentColor;
   position: relative;
+}
+
+
+.footnote-ref {
+  > a {
+    font-weight: bold;
+    margin-left: 100px;
+
+    &:before {
+      content: "[";
+    }
+
+    &:after {
+      content: "]";
+    }
+  }
 }

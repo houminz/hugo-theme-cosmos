@@ -1,40 +1,30 @@
-.post-content, .notice {
-  &>table {
+.post-content, .notice-content {
+  >.table-wrapper {
     overflow-x: auto;
-    max-width: 100%;
-    margin: 10px 0;
-    margin-bottom: 32px;
-    border-spacing: 0;
-    box-shadow: 2px 2px 3px rgba(0,0,0,.125);
 
-    thead {
-      background: $table-background;
-    }
+    > table {
+      margin: 10px 0;
+      border-spacing: 0;
+      box-shadow: 2px 2px 3px rgba(0, 0, 0, .125);
 
-    th, td {
-      padding: 5px 15px;
-      border: 1px double $table-border-color;
-    }
+      > thead {
+        > tr {
+          background: $table-background-dark;
+        }
+      }
 
-    tr:hover {
-      background-color: $table-background;
-    }
+      th, td {
+        padding: 5px 15px;
+        border: 1px double $table-border-color;
+      }
 
-    th {
-      background: #3498db;
-      color: white;
-      font-weight: bold;
-    }
+      tr:nth-of-type(even) {
+        background: $table-background;
+      }
 
-    td, th {
-      padding: 10px;
-      border: 1px solid #ccc;
-      text-align: left;
-      font-size: 18px;
-    }
-
-    tr:nth-of-type(odd) {
-      background: $table-background;
+      tr:hover {
+        background-color: $table-background-dark;
+      }
     }
   }
 }

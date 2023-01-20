@@ -4,7 +4,7 @@
 
 .back2top {
     font-size: $font-size-16;
-    color: $secondary;
+    color: $deputy-color;
 }
 
 .back2top {
@@ -23,11 +23,11 @@
 
 .back2top,
 .back2top svg {
-    filter: drop-shadow(0px 0px 0px $primary);
+    filter: drop-shadow(0px 0px 0px $theme-color);
 }
 
 .back2top:hover {
-    color: $primary;
+    color: $theme-color;
 }
 
 .back2top:focus,
