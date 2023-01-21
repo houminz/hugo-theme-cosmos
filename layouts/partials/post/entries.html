@@ -5,11 +5,11 @@
 
         {{ range .Pages }}
         <div class="post-entry">
+            <div class="post-entry-date">
+                <time datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "Jan 02"}}</time>
+            </div>
             <div class="post-entry-title">
                 <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-            </div>
-            <div class="post-entry-date">
-                <time datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "2006-01-02"}}</time>
             </div>
         </div>
         {{ end }}

@@ -14,11 +14,27 @@
 
 .post-entry {
     display: flex;
-    justify-content: space-between;
     transition: transform 0.1s;
     margin: $post-entry-margin;
     font-size: $post-entry-font-size;
     a {
         color: $global-font-color;
+    }
+
+    .post-entry-date {
+        flex-basis: 25%;
+        max-width: 25%;
+    }
+
+    .post-entry-title {
+        flex-basis: 75%;
+        max-width: 75%;
+    }
+}
+
+@media screen and (max-width: $sm-breakpoint) {
+    .post-list {
+        padding: $post-list-padding-sm;
+        margin: $post-list-margin-sm;
     }
 }
