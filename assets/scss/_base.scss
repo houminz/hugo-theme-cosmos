@@ -1,7 +1,18 @@
 @import '_common/normalize';
 
+@media screen and (max-width: $sm-breakpoint) {
+  html {
+    font-size: $font-size-sm;
+  }
+}
+
+@media screen and (min-width: $sm-breakpoint) {
+  html {
+    font-size: $font-size-base;
+  }
+}
+
 html {
-  font-size: $global-font-size;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   overflow-y: scroll;

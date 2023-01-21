@@ -1,7 +1,7 @@
 <div class="post-list">
     {{ range (where site.RegularPages "Type" "in" site.Params.mainSections).GroupByDate "2006" -}}
     <section>
-        <h1 class="site-date-catalog">{{ .Key }}</h1>
+        <h1 class="post-entry-date-catalog">{{ .Key }}</h1>
 
         {{ range .Pages }}
         <div class="post-entry">

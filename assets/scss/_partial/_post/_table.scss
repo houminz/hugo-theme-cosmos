@@ -3,9 +3,9 @@
     overflow-x: auto;
 
     > table {
-      margin: 10px 0;
+      margin: $padding-8 0;
       border-spacing: 0;
-      box-shadow: 2px 2px 3px rgba(0, 0, 0, .125);
+      box-shadow: $padding-2 $padding-2 $padding-4 rgba(0, 0, 0, .125);
 
       > thead {
         > tr {
@@ -14,8 +14,8 @@
       }
 
       th, td {
-        padding: 5px 15px;
-        border: 1px double $table-border-color;
+        padding: $padding-8 $padding-16;
+        border: $padding-1 double $table-border-color;
       }
 
       tr:nth-of-type(even) {

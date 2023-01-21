@@ -3,10 +3,10 @@
 // ==============================
 
 .post {
-  padding: 0.5rem;
-  margin: 0.5rem;
   flex-grow: 1;
   min-width: $body-min-width;
+  padding: $post-padding;
+  margin: $post-margin;
 
   @import '_post/header';
   @import '_post/content';

@@ -60,6 +60,7 @@ $deputy-color:            $light-cyan !default;
 
 
 // =============================== Font =======================================
+$font-size-sm:      8px !default;
 $font-size-base:    16px !default;
 $font-size-12:      0.75rem !default;
 $font-size-14:      0.875rem !default;
@@ -121,8 +122,8 @@ $terms-count-font-size:     $font-size-14 !default;
 
 // =============================== Header =====================================
 $site-header-height:        $padding-64 !default;
-$site-header-padding:       $padding-16 !default;
-$site-header-margin:        $padding-16 !default;
+$site-header-padding:       $padding-16 0 !default;
+$site-header-margin:        $padding-16 0 !default;
 $site-header-font-size:     $font-size-64 !default;
 $site-header-font-family:   'Chancery', cursive, LiSu, sans-serif !default;
 // =============================== End of Header ==============================
@@ -146,20 +147,18 @@ $menu-link-font-size: $font-size-24 !default;
 
 // =============================== Post =======================================
 $post-serif-font-family:    $global-serif-font-family !default;
-
+$post-padding:              $padding-8 !default;
+$post-margin:               $padding-8 !default;
 $post-title-font-size:      $font-size-64 !default;
 $post-title-font-weight:    600 !default;
 $post-title-margin-bottom:  $padding-32 !default;
-
 $post-footer-margin-top:    $padding-32 !default;
 $post-footer-border-top:    $padding-1 solid $light-gray !default;
-
 $post-tags-padding:         $padding-16 !default;
 $post-tags-margin:          $padding-8 !default;
 $post-tags-icon-width:      $font-size-20 !important;
 $post-tags-icon-height:     $font-size-20 !important;
 $post-tags-background:      $theme-bg-color !default;
-
 $post-nav-font-size:        $font-size-24 !default;
 $post-nav-font-weight:      600 !default;
 $post-nav-line-height:      $padding-32 !default;
@@ -170,8 +169,18 @@ $post-nav-padding:          $padding-8 $padding-32 !default;
 // ================================== Content =================================
 $link-border:             $padding-1 solid $theme-color !default;
 
+$content-padding:         $padding-8 $padding-16 !default;
+$content-margin:          $padding-8 $padding-16 !default;
+
 $content-blockquote-backgroud:    rgba($theme-color, 0.1) !default;
 $content-blockquote-border-left:  $padding-4 solid rgba($theme-color, 0.3) !default;
+$content-blockquote-margin:       $padding-16 0 !default;
+$content-blockquote-padding:      $padding-16 $padding-32 !default;
+$content-blockquote-box-shadow:   $padding-2 $padding-2 $padding-4 rgba(0,0,0,0.125);
+$content-blockquote-border-inline-start: $padding-4 solid $theme-color;
+
+$content-hr-margin:               $padding-16 0 !default;
+$content-hr-border-top:           $padding-2 dashed $theme-color !default;
 
 $content-tabs-border-radius:      $padding-4 !default;
 $content-tabs-border:             $padding-2 solid $light-gray;
@@ -183,26 +192,46 @@ $content-tabs-border-top:         $padding-2 solid $light-gray;
 // ============================= End of Content ===============================
 
 // =============================== Sidebar ====================================
-$post-sidebar-nav-margin-top:     $padding-16 !default;
-$post-sidebar-nav-margin-left:    $padding-32 !default;
-$post-sidebar-nav-padding-top:    $padding-16 !default;
-$post-sidebar-nav-padding-left:   $padding-16 !default;
-$post-sidebar-nav-width:          14rem !default;
+$post-sidebar-nav-margin-top:       $padding-16 !default;
+$post-sidebar-nav-margin-left:      $padding-32 !default;
+$post-sidebar-nav-padding-top:      $padding-16 !default;
+$post-sidebar-nav-padding-left:     $padding-16 !default;
+$post-sidebar-nav-width:            14rem !default;
 // ============================= End of Sidebar ===============================
-
 
 // =============================== ToC ========================================
 $post-toc-width:                    14rem !default;
 $post-toc-list-style:               square !default;
 $post-toc-title-font-size:          $font-size-20 !default;
 $post-toc-content-font-size:        $font-size-16 !default;
-$post-toc-margin-left:              $padding-16 !default;
-$post-toc-margin-top:               $padding-96 !default;
-$post-toc-padding:                  $padding-16 !default;
-$post-toc-title-margin-top:         $post-toc-margin-top + $padding-32 !default;
-$post-toc-content-margin-top:       $post-toc-margin-top + $padding-96 !default;
+$post-toc-margin:                   $padding-96 $padding-32 0 !default;
+$post-toc-padding:                  $padding-32 !default;
+$post-toc-title-margin-top:         $padding-96 + $padding-32 !default;
+$post-toc-content-margin-top:       $padding-96 + $padding-96 !default;
 $post-toc-content-ul-padding-left:  $padding-16 !default;
 // ============================= End of TOC ===================================
+
+// =============================== Back2Top ===================================
+$back2top-width:          $padding-48 !default;
+$back2top-height:         $padding-48 !default;
+$back2top-border-radius:  50% !default;
+$back2top-padding:        $padding-8 !default;
+$back2top-bottom:         $padding-64 !default;
+$back2top-right:          $padding-64 !default;
+$back2top-color:          $dark-gray !default;
+$back2top-bg-color:       $light-gray !default;
+// ============================ End of Back2Top ===============================
+
+// =============================== Entries ====================================
+$post-list-width:                         50rem !default;
+$post-list-padding:                       $padding-32 !default;
+$post-list-margin:                        $padding-32 !default;
+$post-entry-margin:                       $padding-16 0 !default;
+$post-entry-font-size:                    $font-size-20 !default;
+$post-entry-data-catalog-font-size:       $font-size-48 !default;
+$post-entry-data-catalog-padding:         $padding-16 0 !default;
+$post-entry-data-catalog-margin:          $padding-16 0 !default;
+// ============================ End of Entries ================================
 
 
 $sm-breakpoint: $post-sidebar-nav-width + $body-min-width * 1.2 +  $post-toc-width !default;

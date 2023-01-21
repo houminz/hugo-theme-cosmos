@@ -1,24 +1,23 @@
 .post-list {
     display: flex;
     flex-direction: column;
-    padding: $padding-32;
-    margin: $padding-32;
-    width: 50rem;
+    padding: $post-list-padding;
+    margin: $post-list-margin;
+    width: $post-list-width;
 }
 
-.site-date-catalog {
-    font-size: $font-size-48;
-    padding: $padding-16 0;
-    margin: $padding-16 0;
+.post-entry-date-catalog {
+    font-size: $post-entry-data-catalog-font-size;
+    padding: $post-entry-data-catalog-padding;
+    margin: $post-entry-data-catalog-margin;
 }
 
 .post-entry {
     display: flex;
     justify-content: space-between;
-    margin: $padding-16 0;
     transition: transform 0.1s;
-    font-size: $font-size-20;
-
+    margin: $post-entry-margin;
+    font-size: $post-entry-font-size;
     a {
         color: $global-font-color;
     }

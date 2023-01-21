@@ -1,5 +1,6 @@
 .sidebar {
   flex: 0 0 $post-sidebar-nav-width;
+  box-sizing: border-box;
 
   nav {
     @include fixed;
@@ -108,4 +109,34 @@
   transition: 0.2s ease-in-out;
   transition-property: transform, margin-left, opacity;
   will-change: transform, margin-left;
+}
+
+@media screen and (max-width: $sm-breakpoint) {
+  .sidebar {
+    margin-left: -$post-sidebar-nav-width;
+
+    &__control {
+      display: inline-block !important;
+    }
+  }
+
+  #menu-control:checked ~ main {
+    .sidebar nav, .post {
+      transform: translateX($post-sidebar-nav-width);
+    }
+
+    .post {
+      opacity: 0.25;
+    }
+  }
+
+  #menu-control:checked ~ .header .sidebar__control {
+    svg.icon.menu {
+      display: none;
+    }
+
+    svg.icon.arrow-left {
+      display: inline-block;
+    }
+  }
 }

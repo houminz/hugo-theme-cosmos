@@ -4,11 +4,9 @@
 
 .post-toc {
   flex: 0 0 $post-toc-width;
-  margin-left: $post-toc-margin-left;
-  margin-top: $post-toc-margin-top;
+  margin: $post-toc-margin;
   padding: $post-toc-padding;
   font-family: $global-serif-font-family;
-  border-radius: 5px;
   word-wrap: break-word;
   box-sizing: border-box;
 
@@ -29,10 +27,6 @@
       display: block;
     }
 
-    >nav>ul {
-      margin: 10px 0;
-    }
-
     ul {
       padding-left: $post-toc-content-ul-padding-left;
       list-style: $post-toc-list-style;
@@ -49,6 +43,22 @@
 
     .toc-link.active {
       color: $theme-color;
+    }
+  }
+}
+
+@media screen and (max-width: $sm-breakpoint) {
+  .post-toc {
+    margin-right: -$post-toc-width !important;
+  }
+
+  #menu-header-control:checked ~ main {
+    .post-toc, .post {
+      transform: translateX(-$post-toc-width);
+    }
+
+    .post {
+      opacity: 0.25;
     }
   }
 }
