@@ -8,8 +8,19 @@
 }
 
 .header {
-  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: $site-header-font-family;
+  font-size: $site-header-font-size;
+  padding: $site-header-padding;
+  margin: $site-header-margin;
   height: $site-header-height;
+
+  a {
+    color: $global-font-color;
+  }
 
   &__link:hover {
     text-decoration: none;

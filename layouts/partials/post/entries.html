@@ -1,29 +1,19 @@
-{{- $pages := .Sections  }}
-{{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
-{{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true"  }}
-{{- $paginator := .Paginate $pages }}
-
 <div class="post-list">
-    {{- range $index, $page := $paginator.Pages }}
-    <article class="post-entry">
-        {{- $isHidden := (site.Params.cover.hidden | default site.Params.cover.hiddenInList) }}
-        {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
-        <header class="entry-header">
-            <h2>
-                {{- .Title }}
-                {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
-            </h2>
-        </header>
-        {{- if (ne (.Param "hideSummary") true) }}
-        <div class="entry-content">
-            <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
-        </div>
-        {{- end }}
-        <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
-    </article>
-    {{- end }}
+    {{ range (where site.RegularPages "Type" "in" site.Params.mainSections).GroupByDate "2006" -}}
+    <section>
+        <h1 class="site-date-catalog">{{ .Key }}</h1>
 
-    <footer class="page-footer">
-        {{ partial "pagination.html" . }}
-    </footer>
+        {{ range .Pages }}
+        <div class="post-entry">
+            <div class="post-entry-title">
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </div>
+            <div class="post-entry-date">
+                <time datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "2006-01-02"}}</time>
+            </div>
+        </div>
+        {{ end }}
+    </section>
+    {{ end }}
+
 </div>

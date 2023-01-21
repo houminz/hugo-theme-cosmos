@@ -34,11 +34,11 @@
     }
 
     ul {
-      padding-left: $post-toc-content-ul-padding-left-l1;
+      padding-left: $post-toc-content-ul-padding-left;
       list-style: $post-toc-list-style;
 
       ul {
-        padding-left: $post-toc-content-ul-padding-left-l1;
+        padding-left: $post-toc-content-ul-padding-left;
         display: none;
       }
 

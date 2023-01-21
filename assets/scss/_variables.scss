@@ -55,16 +55,13 @@ $light-cyan:    tint-color($cyan, 80%) !default;
 
 // Default theme color of the site.
 $theme-color: $cyan !default;
-$theme-bg-color: #ffffff !default;
+$theme-bg-color: $white !default;
 $deputy-color:  $light-cyan !default;
 
+// Background color of the site.
+$global-background: $theme-bg-color !default;
+
 // ============================== End of Color ================================
-
-
-
-// Background color of the tags.
-// TODO: need to unify for the theme
-$tags-background: $theme-bg-color !default;
 
 
 // =============================== Font =======================================
@@ -75,11 +72,11 @@ $font-size-16: 1rem !default;
 $font-size-20: 1.25rem !default;
 $font-size-24: 1.5rem !default;
 $font-size-32: 2rem !default;
+$font-size-40: 2.5rem !default;
 $font-size-48: 3rem !default;
 $font-size-64: 4rem !default;
 $font-size-96: 6rem !default;
 $font-size-128: 8rem !default;
-
 
 $global-font-size: $font-size-16 !default;
 $global-font-color: $black !default;
@@ -93,65 +90,26 @@ $global-font-family: Arial !default;
 // Serif font family of the site.
 $global-serif-font-family: Athelas, STHeiti, Microsoft Yahei, serif !default;
 
-// Font size of the logo.
-$logo-font-size: $font-size-64 !default;
-
-// Font family of the logo.
-$logo-font-family: 'Chancery', cursive, LiSu, sans-serif !default;
 // ===========================End of Font =====================================
 
-// ============================================================================
 // =============================== Layout =====================================
-// ============================================================================
-// Used in layout
-$padding-1: 1px !default;
-$padding-2: 0.125rem !default;
-$padding-4: 0.25rem !default;
-$padding-8: 0.5rem !default;
-$padding-16: 1rem !default;
-$padding-24: 1.5rem !default;
-$padding-32: 2rem !default;
-$padding-48: 3rem !default;
-$padding-64: 4rem !default;
-$padding-96: 6rem !default;
+$padding-1:   1px !default;
+$padding-2:   0.125rem !default;
+$padding-4:   0.25rem !default;
+$padding-8:   0.5rem !default;
+$padding-16:  1rem !default;
+$padding-24:  1.5rem !default;
+$padding-32:  2rem !default;
+$padding-48:  3rem !default;
+$padding-64:  4rem !default;
+$padding-96:  6rem !default;
 
-// Used in layout
-$border-radius: $padding-4 !default;
-
-$body-min-width: 20rem !default;
-$container-max-width: 100rem !default;
-
-$header-height: 3.5rem !default;
-$post-width: 68rem !default;
-
-$body-min-width: 20rem !default;
-$container-max-width: 82rem !default;
-
-
-// Margin left of the social link.
-$social-link-margin-left: 10px !default;
-
-// Font size of the social icon.
-$social-icon-font-size: 30px !default;
-
+$border-radius:       $padding-4 !default;
+$body-min-width:      20rem !default;
+$container-max-width: 80rem !default;
 // =========================== End of Layout ==================================
 
-
-// ============================================================================
-// Background color of the site.
-$global-background: $theme-bg-color !default;
-
-// Headings font size of the site.
-$global-headings: (
-  h1: $font-size-64,
-  h2: $font-size-48,
-  h3: $font-size-32,
-  h4: $font-size-24,
-  h5: $font-size-20,
-  h6: $font-size-16
-) !default;
-
-// ========== General Terms ========== //
+// =============================== Terms =====================================
 // Font size of the terms title.
 $terms-title-size: 18px !default;
 
@@ -163,41 +121,48 @@ $terms-link-margin: 5px 10px !default;
 
 // Font size of the terms count
 $terms-count-font-size: 12px !default;
+// =========================== End of Terms ==================================
 
 
 // =============================== Header =====================================
-$site-header-height: $padding-64 !default;
-
+$site-header-height:        $padding-64 !default;
+$site-header-padding:       $padding-16 !default;
+$site-header-margin:        $padding-16 !default;
+$site-header-font-size:     $font-size-64 !default;
+$site-header-font-family:   'Chancery', cursive, LiSu, sans-serif !default;
 // =============================== End of Header ==============================
 
-// ============================================================================
-// =============================== Pagination =================================
-// ============================================================================
-// Margin of the pagination.
-$pagination-margin: 2em 0 !default;
 
-// Font size of the pagination (Without post, post pagination see line 140).
+// =============================== Pagination =================================
+$pagination-margin: $padding-16 0 !default;
 $pagination-font-size: 20px !default;
+// =========================== End ofPagination ===============================
 
 // =============================== Footer =====================================
 $site-footer-height: $padding-64 !default;
-
-// Margin top of the footer.
-$site-footer-margin-top: $padding-32 !default;
-
+$site-footer-padding: $padding-16 0 0 0!default;
+$site-footer-margin: $padding-64 0 0 0 !default;
 // =============================== End of Footer ==============================
 
-
-// ============================================================================
 // =============================== Menu =======================================
-// ============================================================================
-
 // Font size of menu item link.
 $menu-link-font-size: 25px !default;
+// =============================== End of Menu ================================
+
 
 // =============================== Post =======================================
 // Font family for post.
 $post-serif-font-family: $global-serif-font-family !default;
+
+// Headings font size of the site.
+$global-headings: (
+    h1: $font-size-48,
+    h2: $font-size-40,
+    h3: $font-size-32,
+    h4: $font-size-24,
+    h5: $font-size-20,
+    h6: $font-size-16
+) !default;
 
 // Border top of the post + post.
 $post-border: 1px solid $light-gray !default;
@@ -225,6 +190,7 @@ $post-tags-padding: $padding-16 !default;
 $post-tags-margin: $padding-8 !default;
 $post-tags-icon-width: $font-size-20 !important;
 $post-tags-icon-height: $font-size-20 !important;
+$post-tags-background: $theme-bg-color !default;
 
 // Font size of post pagination.
 $post-nav-font-size: $font-size-24 !default;
@@ -236,50 +202,31 @@ $post-nav-hover-transform: $padding-8 !default;
 // ============================= End of Post ==================================
 
 // ================================== Content =================================
-// Headings anchor.
-$content-headings-anchor: "" !default;
-
-// Border bottom of the link when hover it.
-$content-link-border: 1px solid $theme-color !default;
-
-// Background color of the blockquote.
-$content-blockquote-backgroud: rgba($theme-color, 0.1) !default;
-
-// Border left of the blockquote.
-$content-blockquote-border-left: 3px solid rgba($theme-color, 0.3) !default;
-// ============================= End of Post ==================================
+$content-link-border:             $padding-1 solid $theme-color !default;
+$content-blockquote-backgroud:    rgba($theme-color, 0.1) !default;
+$content-blockquote-border-left:  $padding-4 solid rgba($theme-color, 0.3) !default;
+// ============================= End of Content ===============================
 
 // =============================== Sidebar ====================================
-$post-sidebar-nav-margin-top: $padding-16 !default;
-$post-sidebar-nav-margin-left: $padding-32 !default;
-$post-sidebar-nav-padding-top: $padding-16 !default;
+$post-sidebar-nav-margin-top:   $padding-16 !default;
+$post-sidebar-nav-margin-left:  $padding-32 !default;
+$post-sidebar-nav-padding-top:  $padding-16 !default;
 $post-sidebar-nav-padding-left: $padding-16 !default;
-$post-sidebar-nav-width: 14rem !default;
-
-// List style of the post toc list.
-$post-toc-list-style: square !default;
+$post-sidebar-nav-width:        14rem !default;
 // ============================= End of Sidebar ===============================
 
 
 // =============================== ToC ========================================
-$post-toc-width: 14rem !default;
-
-// Font size of the post toc title.
-$post-toc-title-font-size: $font-size-20 !default;
-
-// Font size of the post toc content.
-$post-toc-content-font-size: $font-size-16 !default;
-
-$post-toc-margin-left: $padding-16 !default;
-$post-toc-margin-top: $padding-96 !default;
-$post-toc-padding: $padding-16 !default;
-
-$post-toc-title-margin-top: $post-toc-margin-top + $padding-32 !default;
-$post-toc-content-margin-top: $post-toc-margin-top + $padding-96 !default;
-
-$post-toc-content-ul-padding-left-l1: $padding-16 !default;
-// List style of the post toc list.
-$post-toc-list-style: square !default;
+$post-toc-width:                    14rem !default;
+$post-toc-list-style:               square !default;
+$post-toc-title-font-size:          $font-size-20 !default;
+$post-toc-content-font-size:        $font-size-16 !default;
+$post-toc-margin-left:              $padding-16 !default;
+$post-toc-margin-top:               $padding-96 !default;
+$post-toc-padding:                  $padding-16 !default;
+$post-toc-title-margin-top:         $post-toc-margin-top + $padding-32 !default;
+$post-toc-content-margin-top:       $post-toc-margin-top + $padding-96 !default;
+$post-toc-content-ul-padding-left:  $padding-16 !default;
 // ============================= End of TOC ===================================
 
 
@@ -287,80 +234,14 @@ $sm-breakpoint: $post-sidebar-nav-width + $body-min-width * 1.2 +  $post-toc-wid
 
 
 // =============================== Code =======================================
-// Color of the code.
-$code-color: #c7254e !default;
-
-$code-margin-top: $padding-8 !default;
-$code-margin-left: $padding-8 !default;
-$code-pre-padding-top: $padding-1 !default;
+$code-color:            #c7254e !default;
+$code-margin-top:       $padding-8 !default;
+$code-margin-left:      $padding-8 !default;
+$code-pre-padding-top:  $padding-1 !default;
 $code-pre-padding-left: $padding-4 !default;
-$code-border-radius: $padding-8 !default;
-
-$code-font-size: $font-size-16 !default;
-
-// Font family of the code.
-$code-font-family: Consolas, Monaco, Menlo, "DejaVu Sans Mono",
-"Bitstream Vera Sans Mono", "Courier New", monospace !default;
-
-// Color of code highlight, solarized.
-$code-highlight-color: (
-        comment: #93a1a1,
-        keyword: #859900,
-        number: #2aa198,
-        title: #268bd2,
-        attribute: #b58900,
-        symbol: #cb4b16,
-        built_in: #dc322f,
-        formula: #eee8d5
-) !default;
-
-// Code type list.
-$code-type-list: (
-  // Custom code type
-  language-bash: "Bash",
-  language-c: "C",
-  language-cs: "C#",
-  language-cpp: "C++",
-  language-css: "CSS",
-  language-coffeescript: "CoffeeScript",
-  language-html: "HTML",
-  language-xml: "XML",
-  language-http: "HTTP",
-  language-json: "JSON",
-  language-java: "Java",
-  language-js: "JavaScript",
-  language-javascript: "JavaScript",
-  language-makefile: "Makefile",
-  language-markdown: "Markdown",
-  language-objectivec: "Objective-C",
-  language-php: "PHP",
-  language-perl: "Perl",
-  language-python: "Python",
-  language-ruby: "Ruby",
-  language-sql: "SQL",
-  language-shell: "Shell",
-
-  language-erlang: "Erlang",
-  language-go: "Go",
-  language-go-html-template: "Go HTML Template",
-  language-groovy: "Groovy",
-  language-haskell: "Haskell",
-  language-kotlin: "Kotlin",
-  language-clojure: "Clojure",
-  language-less: "Less",
-  language-lisp: "Lisp",
-  language-lua: "Lua",
-  language-matlab: "Matlab",
-  language-rust: "Rust",
-  language-scss: "Scss",
-  language-scala: "Scala",
-  language-swift: "Swift",
-  language-typescript: "TypeScript",
-  language-yml: "YAML",
-  language-yaml: "YAML",
-  language-toml: "TOML",
-  language-diff: "Diff"
-) !default;
+$code-border-radius:    $padding-8 !default;
+$code-font-size:        $font-size-16 !default;
+$code-font-family:      Consolas, Monaco, Menlo, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace !default;
 // =============================== End of Code ================================
 
 // =============================== Archive ====================================
@@ -415,35 +296,43 @@ $notice-warning-content-bg:   $light-yellow !default;
 $notice-important-title-bg:   $red !default;
 $notice-important-content-bg: $light-red !default;
 
-$notice-border-radius: $padding-4 !default;
-$notice-margin-top: $padding-24 !default;
-$notice-margin-left: $padding-8 !default;
-$notice-line-height: $padding-24 !default;
-$notice-padding-left: $padding-8 !default;
-$notice-padding-top: $padding-8 !default;
-$notice-title-padding-top: $padding-4 !default;
-$notice-content-padding-top: $padding-8 !default;
-$notice-font-weight: 700 !default;
-$notice-icon-height: $padding-16 !default;
-$notice-icon-width: $padding-16 !default;
-$notice-icon-margin-right: $padding-8 !default;
-$notice-icon-baseline-top: $padding-2 !default;
-
+$notice-border-radius:        $padding-4 !default;
+$notice-margin-top:           $padding-24 !default;
+$notice-margin-left:          $padding-8 !default;
+$notice-line-height:          $padding-24 !default;
+$notice-padding-left:         $padding-8 !default;
+$notice-padding-top:          $padding-8 !default;
+$notice-title-padding-top:    $padding-4 !default;
+$notice-content-padding-top:  $padding-8 !default;
+$notice-font-weight:          700 !default;
+$notice-icon-height:          $padding-16 !default;
+$notice-icon-width:           $padding-16 !default;
+$notice-icon-margin-right:    $padding-8 !default;
+$notice-icon-baseline-top:    $padding-2 !default;
 // ============================ End of Notice =================================
 
 
 // =============================== Copyright ==================================
-// Background color of the copyright.
-$copyright-background: $light-cyan !default;
-$copyright-border: $light-cyan !default;
-// Margin of the copyright.
-$copyright-margin: 10px 0 !default;
+$copyright-background:        $light-cyan !default;
+$copyright-border:            $light-cyan !default;
+$copyright-margin:            $padding-16 0 !default;
+// ============================ End of Copyright ==============================
+
+
+// =============================== Reward ==================================
+$reward-button-background:    $theme-bg-color !default;
+$reward-button-height:        $padding-32 !default;
+$reward-button-padding:       0 $padding-8 !default;
+$reward-button-border-radius: $padding-4 !default;
+$reward-qr-width:             $padding-96;
+$reward-qr-margin:            $padding-8 $padding-32;
+$reward-border:               $light-cyan !default;
+$reward-font-size:            $font-size-16 !default;
 // ============================ End of Copyright ==============================
 
 
 // =============================== Table ======================================
-$table-background: $light-cyan !default;
-// Border color of the table.
-$table-border-color: darken($table-background, 40%) !default;
-$table-background-dark: darken($table-background, 20%) !default;
+$table-background:        $light-cyan !default;
+$table-border-color:      darken($table-background, 40%) !default;
+$table-background-dark:   darken($table-background, 20%) !default;
 // ============================ End of Table ==================================

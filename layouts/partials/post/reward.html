@@ -1,27 +1,23 @@
 <div class="post-reward">
-    <div style="padding: 0 0 0 0; margin: 0 0 0 0; width: 100%; font-size:16px; text-align: center;">
-        <div id="QR" style="opacity: 0; display: block;">
-            <div id="wechat" style="padding: 0 0 0 0; display: inline-block;">
-                <a class="fancybox" rel="group">
-                    <img id="wechat_qr" src="https://cosmos-1251905798.cos.ap-beijing.myqcloud.com/theme/wechatpay.png" alt="wechatPay"></a>
-                <p>微信</p>
-            </div>
-            <div id="alipay" style="display: inline-block;">
-                <a class="fancybox" rel="group">
-                    <img id="alipay_qr" src="https://cosmos-1251905798.cos.ap-beijing.myqcloud.com/theme/alipay.jpg" alt="aliPay"></a>
-                <p>支付宝</p>
-            </div>
+    <div class="post-reward-qr-container" id="rewardQR">
+        <div class="post-reward-qr">
+            <img src="{{ .Site.Params.reward.WechatPay }}" alt="wechatPay">
+            <p>微信</p>
         </div>
-        <button id="rewardButton"
-                onclick="
-                    var qr = document.getElementById('QR');
-                    if (qr.style.opacity === '0') {
-                        qr.style.opacity='1';
-                    } else {
-                        qr.style.opacity='0'
-                    }"
-        >
-            <span>🧧 鼓励作者</span>
-        </button>
+        <div class="post-reward-qr">
+            <img src="{{ .Site.Params.reward.AliPay }}" alt="aliPay">
+            <p>支付宝</p>
+        </div>
     </div>
+    <button id="rewardButton"
+        onclick="
+            var qr = document.getElementById('rewardQR');
+            if (qr.style.opacity === '0') {
+                qr.style.opacity='1';
+            } else {
+                qr.style.opacity='0'
+            }"
+        >
+        <span>🧧 鼓励作者</span>
+    </button>
 </div>

@@ -3,9 +3,9 @@
 // =============================
 
 .footer {
-    width: 100%;
     height: $site-footer-height;
-    margin-top: $site-footer-margin-top;
+    padding: $site-footer-padding;
+    margin: $site-footer-margin;
     z-index: 9999;
 
     @import "_footer/copyright";

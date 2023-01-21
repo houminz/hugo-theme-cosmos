@@ -1,5 +1,5 @@
 languageCode = 'en-us'
-title = 'Cosmos'
+title = 'Hugo Cosmos'
 MetaDataFormat = "yaml"
 
 [menu]
@@ -106,8 +106,8 @@ MetaDataFormat = "yaml"
 
   [params.reward]
     enable = true
-    wechatPay = "https://cosmos-1251905798.cos.ap-beijing.myqcloud.com/theme/wechatpay.png"
-    aliPay = "https://cosmos-1251905798.cos.ap-beijing.myqcloud.com/theme/alipay.jpg"
+    WechatPay = "https://cosmos-1251905798.cos.ap-beijing.myqcloud.com/theme/wechatpay.png"
+    AliPay = "https://cosmos-1251905798.cos.ap-beijing.myqcloud.com/theme/alipay.jpg"
 
   [params.gitInfo]
     gitRepo = "https://github.com/librabyte/hugo-theme-cosmos"

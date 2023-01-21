@@ -7,6 +7,8 @@ tags: ["mindmap", "markdown", "short code", "hugo"]
 
 [MarkMap](https://markmap.js.org) is a Javascript library for rendering simple text definitions to MindMap in the browser.
 
+## 语法示例
+
 For example, the following defines a simple MindMap:
 
 ```markmap
@@ -35,6 +37,8 @@ For example, the following defines a simple MindMap:
     ```
 - Katex - $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
 ```
+
+## 中文示例
 
 这是另一个中文的例子：
 
