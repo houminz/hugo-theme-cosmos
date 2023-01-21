@@ -219,39 +219,6 @@ $code-font-size:        $font-size-16 !default;
 $code-font-family:      Consolas, Monaco, Menlo, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace !default;
 // =============================== End of Code ================================
 
-// =============================== Archive ====================================
-// Margin of the archive.
-$archive-margin: 2em 0px !default;
-
-// Max width of the archive.
-$archive-max-width: 550px !default;
-
-// Font size of the archive name.
-$archive-name-font-size: 30px !default;
-
-// Font size of the collection title.
-$collection-title-font-size: 28px !default;
-
-// Padding of the archive post.
-$archive-post-padding: 3px 20px !default;
-
-// Padding of the archive post in mobile.
-$archive-post-mobile-padding: 5px 10px !default;
-
-// Font size of the archive post time in mobile.
-$archive-post-mobile-time-font-size: 13px !default;
-
-// Border left of the archive post, use $archive-post-hover-border-left when hover it.
-$archive-post-border-left: 1px solid $gray !default;
-$archive-post-hover-border-left: 3px solid $theme-color !default;
-
-// Transition of the archive post when hover it.
-$archive-post-hover-transition: 0.2s ease-out !default;
-
-// Transform of the archive post when hover it.
-$archive-post-hover-transform: translateX(4px) !default;
-// =============================== End of Archive ==============================
-
 // =============================== Notice =====================================
 $notice-title-text-color:     $white !default;
 $notice-content-text-color:   $black !default;
