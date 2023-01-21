@@ -1,18 +1,21 @@
-.terms-tags li {
-    display: inline-block;
-    margin: 10px;
-    font-weight: 500;
-}
+.terms-tags {
+    li {
+        display: inline-block;
+        margin: $term-tags-margin;
+        font-weight: 500;
+    }
 
-.terms-tags a {
-    display: block;
-    padding: 3px 10px;
-    background: $theme-color;
-    border-radius: 6px;
-    transition: transform 0.1s;
-}
+    a {
+        display: block;
+        padding: $term-tags-padding;
+        color: $term-color;
+        background: $term-bg-color;
+        border-radius: $term-border-radius;
+        transition: transform 0.1s;
+    }
 
-.terms-tags a:active {
-    background: $theme-color;
-    transform: scale(0.96);
+    a:active {
+        background: $theme-color;
+        transform: scale(0.96);
+    }
 }

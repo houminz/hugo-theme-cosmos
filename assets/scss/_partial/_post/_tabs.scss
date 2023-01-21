@@ -1,33 +1,29 @@
 // {{< tabs >}}
 .tabs {
-	margin-top: $padding-16;
-	margin-bottom: $padding-16;
-
-	border: $padding-2 solid $light-gray;
-	border-radius: $border-radius;
-
-	overflow: hidden;
-
 	display: flex;
 	flex-wrap: wrap;
+	overflow: hidden;
+
+	margin: $content-tabs-margin;
+	border: $content-tabs-border;
+	border-radius: $content-tabs-border-radius;
 
 	label {
 		display: inline-block;
-		padding: $padding-8 $padding-16;
-		border-bottom: $padding-2 transparent;
+		padding: $content-tabs-label-padding;
 		cursor: pointer;
 	}
 
 	.tabs-content {
 		order: 999; //Move content blocks to the end
 		width: 100%;
-		border-top: $padding-2 solid $light-gray;
-		padding: $padding-16;
+		border-top: $content-tabs-border-top;
+		padding: $content-tabs-padding;
 		display: none;
 	}
 
 	input[type="radio"]:checked + label {
-		border-bottom: $padding-2 solid $theme-color;
+		border-bottom: $content-tabs-border-bottom;
 	}
 	input[type="radio"]:checked + label + .tabs-content {
 		display: block;

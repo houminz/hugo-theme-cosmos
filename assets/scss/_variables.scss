@@ -53,42 +53,42 @@ $light-green:   tint-color($green, 80%) !default;
 $light-teal:    tint-color($teal, 80%) !default;
 $light-cyan:    tint-color($cyan, 80%) !default;
 
-// Default theme color of the site.
-$theme-color: $cyan !default;
-$theme-bg-color: $white !default;
-$deputy-color:  $light-cyan !default;
-
-// Background color of the site.
-$global-background: $theme-bg-color !default;
-
+$theme-color:             $cyan !default;
+$theme-bg-color:          $white !default;
+$deputy-color:            $light-cyan !default;
 // ============================== End of Color ================================
 
 
 // =============================== Font =======================================
-$font-size-base: 16px !default;
-$font-size-12: 0.75rem !default;
-$font-size-14: 0.875rem !default;
-$font-size-16: 1rem !default;
-$font-size-20: 1.25rem !default;
-$font-size-24: 1.5rem !default;
-$font-size-32: 2rem !default;
-$font-size-40: 2.5rem !default;
-$font-size-48: 3rem !default;
-$font-size-64: 4rem !default;
-$font-size-96: 6rem !default;
-$font-size-128: 8rem !default;
+$font-size-base:    16px !default;
+$font-size-12:      0.75rem !default;
+$font-size-14:      0.875rem !default;
+$font-size-16:      1rem !default;
+$font-size-20:      1.25rem !default;
+$font-size-24:      1.5rem !default;
+$font-size-32:      2rem !default;
+$font-size-40:      2.5rem !default;
+$font-size-48:      3rem !default;
+$font-size-64:      4rem !default;
+$font-size-96:      6rem !default;
+$font-size-128:     8rem !default;
 
-$global-font-size: $font-size-16 !default;
-$global-font-color: $black !default;
+$global-font-color:         $black !default;
+$global-font-size:          $font-size-16 !default;
+$global-lineheight:         $font-size-24 !default;
+$global-head-lineheight:    $font-size-64 !default;
+$global-font-family:        Arial !default;
+$global-serif-font-family:  Athelas, STHeiti, Microsoft Yahei, serif !default;
 
-$global-lineheight: $font-size-24 !default;
-$global-head-lineheight: $font-size-64 !default;
-
-// Font family of the site.
-$global-font-family: Arial !default;
-
-// Serif font family of the site.
-$global-serif-font-family: Athelas, STHeiti, Microsoft Yahei, serif !default;
+// Headings font size of the site.
+$global-headings: (
+    h1: $font-size-48,
+    h2: $font-size-40,
+    h3: $font-size-32,
+    h4: $font-size-24,
+    h5: $font-size-20,
+    h6: $font-size-16
+) !default;
 
 // ===========================End of Font =====================================
 
@@ -110,17 +110,12 @@ $container-max-width: 80rem !default;
 // =========================== End of Layout ==================================
 
 // =============================== Terms =====================================
-// Font size of the terms title.
-$terms-title-size: 18px !default;
-
-// Border bottom of the terms title.
-$terms-title-border-bottom: 2px solid $theme-color !default;
-
-// Margin of the terms link.
-$terms-link-margin: 5px 10px !default;
-
-// Font size of the terms count
-$terms-count-font-size: 12px !default;
+$term-tags-margin:          $padding-4 $padding-8 !default;
+$term-tags-padding:         $padding-4 $padding-8 !default;
+$term-border-radius:        $padding-8 !default;
+$term-color:                $global-font-color !default;
+$term-bg-color:             $theme-bg-color !default;
+$terms-count-font-size:     $font-size-14 !default;
 // =========================== End of Terms ==================================
 
 
@@ -134,85 +129,65 @@ $site-header-font-family:   'Chancery', cursive, LiSu, sans-serif !default;
 
 
 // =============================== Pagination =================================
-$pagination-margin: $padding-16 0 !default;
-$pagination-font-size: 20px !default;
+$pagination-margin:     $padding-16 0 !default;
+$pagination-font-size:  $font-size-20 !default;
 // =========================== End ofPagination ===============================
 
 // =============================== Footer =====================================
-$site-footer-height: $padding-64 !default;
-$site-footer-padding: $padding-16 0 0 0!default;
-$site-footer-margin: $padding-64 0 0 0 !default;
+$site-footer-height:    $padding-64 !default;
+$site-footer-padding:   $padding-16 0 0 0!default;
+$site-footer-margin:    $padding-64 0 0 0 !default;
 // =============================== End of Footer ==============================
 
 // =============================== Menu =======================================
-// Font size of menu item link.
-$menu-link-font-size: 25px !default;
+$menu-link-font-size: $font-size-24 !default;
 // =============================== End of Menu ================================
 
 
 // =============================== Post =======================================
-// Font family for post.
-$post-serif-font-family: $global-serif-font-family !default;
+$post-serif-font-family:    $global-serif-font-family !default;
 
-// Headings font size of the site.
-$global-headings: (
-    h1: $font-size-48,
-    h2: $font-size-40,
-    h3: $font-size-32,
-    h4: $font-size-24,
-    h5: $font-size-20,
-    h6: $font-size-16
-) !default;
+$post-title-font-size:      $font-size-64 !default;
+$post-title-font-weight:    600 !default;
+$post-title-margin-bottom:  $padding-32 !default;
 
-// Border top of the post + post.
-$post-border: 1px solid $light-gray !default;
+$post-footer-margin-top:    $padding-32 !default;
+$post-footer-border-top:    $padding-1 solid $light-gray !default;
 
-// Font size of post title.
-$post-title-font-size: $font-size-64 !default;
+$post-tags-padding:         $padding-16 !default;
+$post-tags-margin:          $padding-8 !default;
+$post-tags-icon-width:      $font-size-20 !important;
+$post-tags-icon-height:     $font-size-20 !important;
+$post-tags-background:      $theme-bg-color !default;
 
-// Font weight of post title.
-$post-title-font-weight: 600 !default;
-
-// Margin top of the post title.
-$post-title-margin-bottom: $padding-32 !default;
-
-// Border bottom of the read more link when hover it.
-$post-readMore-border-bottom: 1px solid $theme-color !default;
-
-// Margin top of the post footer.
-$post-footer-margin-top: $padding-32 !default;
-
-// Border top of post footer.
-$post-footer-border-top: 1px solid $light-gray !default;
-
-// Padding of the post tags.
-$post-tags-padding: $padding-16 !default;
-$post-tags-margin: $padding-8 !default;
-$post-tags-icon-width: $font-size-20 !important;
-$post-tags-icon-height: $font-size-20 !important;
-$post-tags-background: $theme-bg-color !default;
-
-// Font size of post pagination.
-$post-nav-font-size: $font-size-24 !default;
-$post-nav-font-weight: 600 !default;
-$post-nav-padding: $padding-8 $padding-32 !default;
-$post-nav-line-height: $padding-32 !default;
-$post-nav-hover-transform: $padding-8 !default;
-
+$post-nav-font-size:        $font-size-24 !default;
+$post-nav-font-weight:      600 !default;
+$post-nav-line-height:      $padding-32 !default;
+$post-nav-hover-transform:  $padding-8 !default;
+$post-nav-padding:          $padding-8 $padding-32 !default;
 // ============================= End of Post ==================================
 
 // ================================== Content =================================
-$content-link-border:             $padding-1 solid $theme-color !default;
+$link-border:             $padding-1 solid $theme-color !default;
+
 $content-blockquote-backgroud:    rgba($theme-color, 0.1) !default;
 $content-blockquote-border-left:  $padding-4 solid rgba($theme-color, 0.3) !default;
+
+$content-tabs-border-radius:      $padding-4 !default;
+$content-tabs-border:             $padding-2 solid $light-gray;
+$content-tabs-margin:             $padding-16 0 !default;
+$content-tabs-padding:            $padding-16 !default;
+$content-tabs-label-padding:      $padding-8 $padding-16 !default;
+$content-tabs-border-bottom:      $padding-2 solid $theme-color;
+$content-tabs-border-top:         $padding-2 solid $light-gray;
 // ============================= End of Content ===============================
 
 // =============================== Sidebar ====================================
-$post-sidebar-nav-margin-top:   $padding-16 !default;
-$post-sidebar-nav-margin-left:  $padding-32 !default;
-$post-sidebar-nav-padding-top:  $padding-16 !default;
-$post-sidebar-nav-padding-left: $padding-16 !default;
-$post-sidebar-nav-width:        14rem !default;
+$post-sidebar-nav-margin-top:     $padding-16 !default;
+$post-sidebar-nav-margin-left:    $padding-32 !default;
+$post-sidebar-nav-padding-top:    $padding-16 !default;
+$post-sidebar-nav-padding-left:   $padding-16 !default;
+$post-sidebar-nav-width:          14rem !default;
 // ============================= End of Sidebar ===============================
 
 
@@ -276,13 +251,6 @@ $archive-post-hover-transition: 0.2s ease-out !default;
 // Transform of the archive post when hover it.
 $archive-post-hover-transform: translateX(4px) !default;
 // =============================== End of Archive ==============================
-
-$link-color:                              $theme-color !default;
-$link-decoration:                         underline !default;
-$link-shade-percentage:                   20% !default;
-$link-hover-color:                        shift-color($link-color, $link-shade-percentage) !default;
-$link-hover-decoration:                   null !default;
-
 
 // =============================== Notice =====================================
 $notice-title-text-color:     $white !default;

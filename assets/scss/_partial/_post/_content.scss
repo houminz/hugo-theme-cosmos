@@ -34,31 +34,6 @@
       margin: 0;
     }
   }
-
-  @each $header, $size in $global-headings {
-    #{$header} {
-      font-size: $size;
-      font-family: $global-serif-font-family;
-      font-weight: 500;
-      color: $global-font-color;
-
-      &>a {
-        color: $global-font-color;
-      }
-
-      &:hover {
-        display: inline-flex;
-        color: $theme-color;
-        margin-inline-start: 8px;
-        font-weight: 500;
-        user-select: none;
-
-        &>a {
-          color: $theme-color;
-        }
-      }
-    }
-  }
 }
 
 .post-description {

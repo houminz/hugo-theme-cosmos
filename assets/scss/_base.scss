@@ -18,13 +18,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
   line-height: $global-lineheight;
   color: $global-font-color;
-  background: $global-background;
+  background: $theme-bg-color;
   scroll-behavior: smooth;
 }
 
 ::selection {
   background: $theme-color;
-  color: #fff;
+  color: $theme-bg-color;
 }
 
 // ::-webkit-scrollbar {
@@ -41,6 +41,51 @@ body {
 //   background: rgba(211, 211, 211, 0.4);
 //   border-radius: 5px;
 // }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: $global-head-lineheight;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: $padding-8;
+  margin-bottom: $padding-8;
+}
+
+@each $header, $size in $global-headings {
+  #{$header} {
+    font-size: $size;
+    font-family: $global-serif-font-family;
+    font-weight: 500;
+    color: $global-font-color;
+
+    &>a {
+      color: $global-font-color;
+    }
+
+    &:hover {
+      display: inline-flex;
+      color: $theme-color;
+      margin-inline-start: 8px;
+      font-weight: 500;
+      user-select: none;
+
+      &>a {
+        color: $theme-color;
+      }
+    }
+  }
+}
 
 table {
   width: 100%;
@@ -84,7 +129,7 @@ a {
   word-break: break-all;
 
   &:hover {
-    border-bottom: $content-link-border;
+    border-bottom: $link-border;
   }
 }
 
@@ -226,26 +271,6 @@ hgroup,
 section,
 table {
   display: block;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: $global-head-lineheight;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin-top: $padding-8;
-  margin-bottom: $padding-8;
 }
 
 ul {
