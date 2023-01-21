@@ -34,4 +34,25 @@
       margin: 0;
     }
   }
+
+  li, ul {
+    margin-left: $padding-16;
+  }
+
+  // task list
+  ul li:has(input[type="checkbox"]) {
+    list-style: none;
+    margin-left: $padding-8;
+  }
+
+  input {
+    margin-right: $padding-8;
+  }
+}
+
+@media screen and (max-width: $sm-breakpoint) {
+  .post-content {
+    padding: $content-padding-sm;
+    margin: $content-margin-sm;
+  }
 }

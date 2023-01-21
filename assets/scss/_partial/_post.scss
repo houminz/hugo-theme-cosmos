@@ -17,3 +17,10 @@
   @import '_post/details';
   @import '_post/table';
 }
+
+@media screen and (max-width: $sm-breakpoint) {
+  .post {
+    padding: $post-padding-sm;
+    margin: $post-margin-sm;
+  }
+}

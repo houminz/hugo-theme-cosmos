@@ -1,18 +1,7 @@
 @import '_common/normalize';
 
-@media screen and (max-width: $sm-breakpoint) {
-  html {
-    font-size: $font-size-sm;
-  }
-}
-
-@media screen and (min-width: $sm-breakpoint) {
-  html {
-    font-size: $font-size-base;
-  }
-}
-
 html {
+  font-size: $font-size-base;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   overflow-y: scroll;
@@ -137,7 +126,7 @@ img {
 a {
   text-decoration: none;
   color: $theme-color;
-  word-break: break-all;
+  word-break: break-word;
 
   &:hover {
     border-bottom: $link-border;
@@ -168,11 +157,11 @@ dl, ol, p, figure, ul {
 }
 
 ol, ul {
-  padding-inline-start: 20px;
+  padding-inline-start: $padding-16;
 }
 
 li {
-  margin-top: 5px;
+  margin-top: $padding-4;
 }
 
 li p {
@@ -200,9 +189,7 @@ dd ~ dd, dt ~ dt {
   margin-top: 10px;
 }
 
-ul li:has(input[type="checkbox"]) {
-  list-style: none;
-}
+
 
 iframe {
   max-width: 100%;

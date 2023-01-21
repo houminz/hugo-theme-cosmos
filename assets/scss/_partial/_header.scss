@@ -34,11 +34,13 @@
 
 @media screen and (max-width: $sm-breakpoint) {
   .header {
+    font-size: $site-header-font-size-sm;
     justify-content: space-between;
 
     svg.icon {
-      width: $font-size-24;
-      height: $font-size-24;
+      width: $font-size-40;
+      height: $font-size-40;
+      margin: 0 $padding-16;
     }
   }
 
@@ -64,7 +66,7 @@
 
   #menu-control:checked ~ main {
     .sidebar nav, .post {
-      transform: translateX($post-sidebar-nav-width);
+      transform: translateX($post-sidebar-width);
     }
 
     .post {
@@ -93,7 +95,7 @@
   }
 
   #menu-header-control:checked ~ .header {
-    .brand {
+    .header__link {
       display: none;
     }
 
