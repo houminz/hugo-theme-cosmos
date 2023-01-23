@@ -140,7 +140,8 @@ a code {
 }
 
 del {
-  background: linear-gradient(to right, $theme-color 100%, transparent 0) 0 50%/1px 1px repeat-x;
+  //background: linear-gradient(to right, $theme-color 100%, transparent 0) 0 50%/1px 1px repeat-x;
+  color: $theme-color;
 }
 
 h1>a>svg {

@@ -2,6 +2,7 @@
 author: "Houmin"
 title: "Markmap"
 date: "2023-01-07"
+markmap: true
 tags: ["mindmap", "markdown", "short code", "hugo"]
 ---
 

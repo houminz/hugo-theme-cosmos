@@ -8,16 +8,16 @@ tags: ["douban", "short code", "hugo"]
 ## Format
 
 ```html
-{{</* douban type="movie" id="35554292" */>}}
-{{</* douban type="book" id="1084336" */>}}
+{{</* douban type="movie" id="35674355" */>}}
+{{</* douban type="book" id="35546622" */>}}
 ```
 
 ## Examples
 
 ### Movie
 
-{{< douban type="movie" id="35554292" >}}
+{{< douban type="movie" id="35674355" >}}
 
 ### Book
 
-{{< douban type="book" id="1084336" >}}
+{{< douban type="book" id="35546622" >}}

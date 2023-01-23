@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         _this.innerHTML = book_str;
     }
 
-    const doubanItems = document.querySelectorAll('.douban_show');
+    const doubanItems = document.querySelectorAll('.douban-show');
     doubanItems.forEach(function(doubanItem) {
         var db_type = doubanItem.firstElementChild.getAttribute('db_type').toString();
         var db_id = doubanItem.firstElementChild.getAttribute('db_id').toString();

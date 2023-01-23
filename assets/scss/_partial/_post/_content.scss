@@ -7,6 +7,7 @@
   @import 'notice';
   @import 'douban';
   @import 'tabs';
+  @import 'columns';
 
   padding: $content-padding;
   margin: $content-margin;
@@ -28,10 +29,15 @@
     background-color: $content-blockquote-backgroud;
     border-left: $content-blockquote-border-left;
     box-shadow: $content-blockquote-box-shadow;
-    border-inline-start: 3px solid $theme-color;
+    border-inline-start: $padding-4 solid $theme-color;
 
     p {
       margin: 0;
+    }
+
+    cite {
+      display: block;
+      text-align: right;
     }
   }
 

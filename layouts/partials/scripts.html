@@ -13,27 +13,27 @@
         {{- partial "helper/external" (dict "Context" . "Namespace" "PhotoSwipe") -}}
     {{ end }}
 
-    {{ if .Site.Params.katex.enable }}
+    {{ if and (.Site.Params.katex.enable) (.Page.Params.math) }}
         {{- partial "helper/external" (dict "Context" . "Namespace" "KaTeX") -}}
     {{ end }}
 
-    {{ if .Site.Params.markmap.enable }}
+    {{ if and (.Site.Params.markmap.enable) (.Page.Params.markmap) }}
         {{- partial "helper/external" (dict "Context" . "Namespace" "MarkMap") -}}
     {{ end }}
 
-    {{ if .Site.Params.mermaid.enable }}
+    {{ if and (.Site.Params.mermaid.enable) (.Page.Params.mermaid)}}
         {{- partial "helper/external" (dict "Context" . "Namespace" "Mermaid") -}}
     {{ end }}
 
-    {{ if .Site.Params.echarts.enable }}
+    {{ if and (.Site.Params.echarts.enable) (.Page.Params.echarts) }}
         {{- partial "helper/external" (dict "Context" . "Namespace" "ECharts") -}}
+
+        {{ if and (.Site.Params.echarts.map) (.Page.Params.echartsMap) }}
+            {{- partial "helper/external" (dict "Context" . "Namespace" "EChartsMap") -}}
+        {{ end }}
     {{ end }}
 
-    {{ if .Site.Params.echarts.map }}
-        {{- partial "helper/external" (dict "Context" . "Namespace" "EChartsMap") -}}
-    {{ end }}
-
-    {{ if .Site.Params.meting }}
+    {{ if and .Site.Params.meting (.Page.Params.meting) }}
         {{- partial "helper/external" (dict "Context" . "Namespace" "Meting") -}}
     {{ end }}
 {{- end -}}
@@ -43,7 +43,7 @@
 <script src="{{ "/js/" | relURL }}{{ . }}"></script>
 {{ end }}
 
-{{ if .Site.Params.markmap.enable -}}
+{{ if and (.Site.Params.markmap.enable) (.Page.Params.markmap) -}}
 <style>
     .markmap > svg {
         width: 100%;

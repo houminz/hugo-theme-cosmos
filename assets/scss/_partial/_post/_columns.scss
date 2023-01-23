@@ -1,11 +1,23 @@
 // {{< columns >}}
 .columns {
-  margin-left: -$padding-16;
-  margin-right: -$padding-16;
+  margin: 0 $padding-8;
 
   > div {
     margin: $padding-16 0;
-    min-width: $body-min-width / 2;
     padding: 0 $padding-16;
+  }
+}
+@media screen and (max-width: $sm-breakpoint) {
+  .flex-mobile-column {
+    flex-direction: column;
+
+    &.gdoc-columns {
+      margin: $padding-32 0;
+    }
+
+    .gdoc-columns__content {
+      min-width: auto;
+      margin: 0;
+    }
   }
 }

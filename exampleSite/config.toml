@@ -50,7 +50,7 @@ MetaDataFormat = "yaml"
   toc = true
   douban = true
   meting = true
-  photoSwipe = true
+  photoSwipe = false
   alwaysCollapse = false
 
   [params.katex]

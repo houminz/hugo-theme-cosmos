@@ -2,6 +2,8 @@
 author: "Houmin"
 title: "ECharts"
 date: "2023-01-07"
+echarts: true
+echartsMap: true
 tags: ["echarts", "short code", "hugo"]
 ---
 

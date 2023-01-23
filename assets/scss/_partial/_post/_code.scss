@@ -1,10 +1,29 @@
+code:not(.hljs) {
+  font-size: 85%;
+  background: $inline-code-color;
+  padding: $inline-code-padding;
+  margin: $inline-code-margin;
+  border-radius: $inline-code-border-radius;
+}
+
+pre:not(.hljs) {
+  background: $inline-code-color;
+}
 .highlight {
-  margin: $code-margin-top $code-margin-left;
+  margin: $code-margin;
   border-radius: $code-border-radius;
   font-size: $code-font-size;
   overflow-x: scroll; /* 代码行太长向右滚动 */
 
   pre {
-    padding: $code-pre-padding-top $code-pre-padding-left;  /* 适当留出边距 */
+    padding: $code-pre-padding;  /* 适当留出边距 */
+    margin: $code-pre-margin;
+    background: $monakai-background-color;
+  }
+
+  code {
+    background: $monakai-background-color;
+    padding: 0;
+    margin: 0;
   }
 }

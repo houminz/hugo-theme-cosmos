@@ -52,17 +52,9 @@
             />
             <label
                 {{ if $doCollapse }}
-                    for="{{ printf "navtree-%s" $id }}" class="flex justify-even align-center"
+                    for="{{ printf "navtree-%s" $id }}" class="flex justify-between align-center"
                 {{ end }}
                 >
-                {{ if $doCollapse }}
-                <svg class="icon toggle angle-left">
-                    <use href="#angle-left"></use>
-                </svg>
-                <svg class="icon toggle angle-down">
-                    <use href="#angle-down"></use>
-                </svg>
-                {{ end }}
                 <span class="flex">
                     <a
                         href="{{ .RelPermalink }}"
@@ -73,6 +65,14 @@
                         {{- partial "sidebar/title" .Page -}}
                     </a>
                 </span>
+                {{ if $doCollapse }}
+                <svg class="icon toggle angle-left">
+                    <use href="#angle-left"></use>
+                </svg>
+                <svg class="icon toggle angle-down">
+                    <use href="#angle-down"></use>
+                </svg>
+                {{ end }}
             </label>
             {{ if $isParent }}
             <ul class="sidebar__list">

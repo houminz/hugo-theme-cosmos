@@ -42,7 +42,7 @@ $dark-green:    shade-color($green, 20%) !default;
 $dark-teal:     shade-color($teal, 20%) !default;
 $dark-cyan:     shade-color($cyan, 20%) !default;
 
-$light-blue:    shade-color($blue, 80%) !default;
+$light-blue:    tint-color($blue, 80%) !default;
 $light-indigo:  tint-color($indigo, 80%) !default;
 $light-purple:  tint-color($purple, 80%) !default;
 $light-pink:    tint-color($pink, 80%) !default;
@@ -238,11 +238,27 @@ $post-entry-data-catalog-margin:          $padding-16 0 !default;
 // ============================ End of Entries ================================
 
 // =============================== Code =======================================
-$code-color:            #c7254e !default;
-$code-margin-top:       $padding-8 !default;
-$code-margin-left:      $padding-8 !default;
-$code-pre-padding-top:  $padding-1 !default;
-$code-pre-padding-left: $padding-4 !default;
+
+/*
+*   Style: monokai
+*   https://xyproto.github.io/splash/docs/monokai.html
+*/
+$monakai-color:                 #f8f8f2;
+$monakai-background-color:      #272822;
+$monakai-error-color:           #bb0064;
+$monakai-keyword-color:         #66d9ef;
+$monakai-text-color:            $monakai-color;
+$monakai-name-color:            #a6e22e;
+$monakai-literal-color:         #e6db74;
+
+$inline-code-color:             $light-pink !default;
+$inline-code-padding:           $padding-4 $padding-8 !default;
+$inline-code-margin:            $padding-4 $padding-4 !default;
+$inline-code-border-radius:     $padding-4 !default;
+
+$code-margin:           $padding-8 $padding-8 !default;
+$code-pre-padding:      $padding-4 $padding-4 !default;
+$code-pre-margin:       $padding-4 $padding-4 !default;
 $code-border-radius:    $padding-8 !default;
 $code-font-size:        $font-size-16 !default;
 $code-font-family:      Consolas, Monaco, Menlo, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace !default;
