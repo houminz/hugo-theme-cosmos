@@ -24,6 +24,10 @@ MetaDataFormat = "yaml"
     ordered = false
     startLevel = 2
 
+  [markup.goldmark.renderer]
+    unsafe = true
+
+
 [module]
   [module.mounts]
     source = 'assets'
