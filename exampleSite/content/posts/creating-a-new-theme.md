@@ -578,7 +578,7 @@ That wasn't very nice, was it?
 The "new" command uses an archetype to create the post file. Hugo created an empty default archetype file, but that causes an error when there's a theme. For me, the workaround was to create an archetypes file specifically for the post type.
 
 ```bash
-$ vi themes/zafta/archetypes/post.md
+$ vi themes/zafta/archetypes/posts.md
 +++
 Description = ""
 Tags = []
@@ -588,19 +588,19 @@ Categories = []
 
 $ find themes/zafta/archetypes -type f | xargs ls -l
 -rw-r--r--  1 quoha  staff   0 Sep 29 21:53 themes/zafta/archetypes/default.md
--rw-r--r--  1 quoha  staff  51 Sep 29 21:54 themes/zafta/archetypes/post.md
+-rw-r--r--  1 quoha  staff  51 Sep 29 21:54 themes/zafta/archetypes/posts.md
 
 $ hugo --verbose new post/first.md
 INFO: 2014/09/29 Using config file: /Users/quoha/Sites/zafta/config.toml
 INFO: 2014/09/29 attempting to create  post/first.md of post
-INFO: 2014/09/29 curpath: /Users/quoha/Sites/zafta/themes/zafta/archetypes/post.md
+INFO: 2014/09/29 curpath: /Users/quoha/Sites/zafta/themes/zafta/archetypes/posts.md
 INFO: 2014/09/29 creating /Users/quoha/Sites/zafta/content/post/first.md
 /Users/quoha/Sites/zafta/content/post/first.md created
 
 $ hugo --verbose new post/second.md
 INFO: 2014/09/29 Using config file: /Users/quoha/Sites/zafta/config.toml
 INFO: 2014/09/29 attempting to create  post/second.md of post
-INFO: 2014/09/29 curpath: /Users/quoha/Sites/zafta/themes/zafta/archetypes/post.md
+INFO: 2014/09/29 curpath: /Users/quoha/Sites/zafta/themes/zafta/archetypes/posts.md
 INFO: 2014/09/29 creating /Users/quoha/Sites/zafta/content/post/second.md
 /Users/quoha/Sites/zafta/content/post/second.md created
 
