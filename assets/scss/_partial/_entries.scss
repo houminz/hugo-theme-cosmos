@@ -3,7 +3,7 @@
     flex-direction: column;
     padding: $post-list-padding;
     margin: $post-list-margin;
-    width: $post-list-width;
+    width: 50%;
 }
 
 .post-entry-date-catalog {
@@ -36,5 +36,6 @@
     .post-list {
         padding: $post-list-padding-sm;
         margin: $post-list-margin-sm;
+        width: 100%;
     }
 }

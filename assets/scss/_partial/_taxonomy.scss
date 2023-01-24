@@ -1,0 +1,40 @@
+.taxomony {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: $post-list-padding;
+  margin: $post-list-margin;
+
+
+  .taxomony-title {
+    font-size: $font-size-32;
+    padding: $post-entry-data-catalog-padding;
+    margin: $post-entry-data-catalog-margin;
+
+  }
+
+  .taxomony-entry {
+    display: flex;
+    margin: $post-entry-margin;
+    font-size: $post-entry-font-size;
+
+    .taxomony-entry-time {
+      flex-basis: 35%;
+      max-width: 35%;
+    }
+
+    .taxomony-entry-title {
+      flex-basis: 65%;
+      max-width: 65%;
+    }
+  }
+}
+
+
+@media screen and (max-width: $sm-breakpoint) {
+  .taxomony {
+    padding: $post-list-padding-sm;
+    margin: $post-list-margin-sm;
+    width: 100%;
+  }
+}

@@ -1,0 +1,19 @@
+{{- define "main" }}
+
+<section class="taxomony">
+    <div class="taxomony-title">
+        <span>{{ .Title }}</span>
+    </div>
+    {{ range .Data.Pages -}}
+    <div class="taxomony-entry">
+        <div class="taxomony-entry-time">
+            {{ .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}
+        </div>
+        <div class="taxomony-entry-title">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </div>
+    </div>
+    {{- end }}
+</section>
+
+{{- end }}{{/* end main */ -}}
