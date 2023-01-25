@@ -6,7 +6,7 @@
     height: $site-footer-height;
     padding: $site-footer-padding;
     margin: $site-footer-margin;
-    z-index: 9999;
+    z-index: 99;
 
     @import "_footer/copyright";
 }

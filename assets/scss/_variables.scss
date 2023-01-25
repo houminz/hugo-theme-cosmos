@@ -77,8 +77,8 @@ $global-font-color:         $black !default;
 $global-font-size:          $font-size-16 !default;
 $global-lineheight:         $font-size-24 !default;
 $global-head-lineheight:    $font-size-64 !default;
-$global-font-family:        Arial !default;
-$global-serif-font-family:  Athelas, STHeiti, Microsoft Yahei, serif !default;
+$global-font-family:        monospace !default;
+$global-serif-font-family:  monospace !default;
 
 // Headings font size of the site.
 $global-headings: (
@@ -122,9 +122,8 @@ $terms-count-font-size:     $font-size-14 !default;
 
 // =============================== Header =====================================
 $site-header-height:        $padding-64 !default;
-$site-header-padding:       $padding-16 0 !default;
-$site-header-margin:        $padding-16 0 !default;
-$site-header-font-size:     $font-size-64 !default;
+$site-header-padding:       $padding-32 0 !default;
+$site-header-font-size:     $font-size-48 !default;
 $site-header-font-size-sm:  $font-size-40 !default;
 $site-header-font-family:   'Chancery', cursive, LiSu, sans-serif !default;
 // =============================== End of Header ==============================
@@ -223,6 +222,16 @@ $back2top-right:          $padding-64 !default;
 $back2top-color:          $dark-gray !default;
 $back2top-bg-color:       $light-gray !default;
 // ============================ End of Back2Top ===============================
+
+// =============================== Search ======================================
+$search-width:            20rem !default;
+$search-margin:           $padding-16 !default;
+$search-padding:          $padding-16 !default;
+
+$search-result-width:     $search-width !default;
+$search-result-padding:   $padding-16 !default;
+$search-result-margin:    $padding-16 0 0 !default;
+// ============================ End of Search ==================================
 
 // =============================== Entries ====================================
 $post-list-padding:                       $padding-32 !default;

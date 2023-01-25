@@ -1,0 +1,17 @@
+{{ if default true .Site.Params.search }}
+<div id="fastSearch">
+    <div class="search-container">
+        <svg class="icon search">
+            <title>{{ i18n "search" }}</title>
+            <use href="#search"></use>
+        </svg>
+        <input id="search-input" tabindex="0">
+    </div>
+
+    <div class="search-result">
+        <ul id="searchResults"></ul>
+    </div>
+</div>
+
+
+{{ end }}

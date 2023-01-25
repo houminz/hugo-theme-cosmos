@@ -11,11 +11,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: $dark-cyan;
 
   font-family: $site-header-font-family;
   font-size: $site-header-font-size;
   padding: $site-header-padding;
-  margin: $site-header-margin;
   height: $site-header-height;
 
   a {

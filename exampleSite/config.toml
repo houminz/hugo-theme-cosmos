@@ -52,6 +52,7 @@ MetaDataFormat = "yaml"
   meting = true
   photoSwipe = false
   alwaysCollapse = false
+  search = true
 
   [params.katex]
     # enable/disable KaTeX support
@@ -124,3 +125,6 @@ MetaDataFormat = "yaml"
     category = "Announcements"
     categoryId = "DIC_kwDOIEDNvs4CTiKG"
     theme = "light"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]

@@ -2,9 +2,24 @@
 {{ $back2top := resources.Get "js/back2top.js" }}
 {{ $toc := resources.Get "js/toc.js" }}
 {{ $jsDouban := resources.Get "js/douban.js" | resources.ExecuteAsTemplate "js/douban.js" . -}}
+{{ $js := slice $cosmos $toc $back2top $jsDouban }}
+
+{{ if default true .Site.Params.search }}
+{{ $jsSearch := resources.Get "js/search.js" | resources.ExecuteAsTemplate "js/search.js" . -}}
+{{ $js = $js | append $jsSearch }}
+{{ end }}
+
+{{ if .Site.Params.markmap.enable }}
 {{ $jsMarkmap := resources.Get "js/markmap.js" | resources.ExecuteAsTemplate "js/markmap.js" . -}}
+{{ $js = $js | append $jsMarkmap }}
+{{ end }}
+
+{{ if .Site.Params.mermaid.enable }}
 {{ $jsMermaid := resources.Get "js/mermaid.js" | resources.ExecuteAsTemplate "js/mermaid.js" . -}}
-{{ $js := slice $cosmos $toc $back2top $jsMarkmap $jsMermaid $jsDouban | resources.Concat "js/main.js" | minify | fingerprint }}
+{{ $js = $js | append $jsMermaid }}
+{{ end }}
+
+{{ $js = $js | resources.Concat "js/main.js" | minify | fingerprint }}
 <script type="text/javascript" src="{{ $js.RelPermalink }}"></script>
 
 <!-- core -->
@@ -35,6 +50,10 @@
 
     {{ if and .Site.Params.meting (.Page.Params.meting) }}
         {{- partial "helper/external" (dict "Context" . "Namespace" "Meting") -}}
+    {{ end }}
+
+    {{ if .Site.Params.search }}
+        {{- partial "helper/external" (dict "Context" . "Namespace" "FuseJS") -}}
     {{ end }}
 {{- end -}}
 
