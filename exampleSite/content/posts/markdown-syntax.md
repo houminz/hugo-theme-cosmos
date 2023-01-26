@@ -295,7 +295,7 @@ In GFM (GitHub Flavored Markdown) you can also add a language specifier directly
 
 See [Syntax Highlighting](../syntax-highlighting) for additional documentation.
 
-````plaintext
+````markdown
 ```js
 grunt.initConfig({
   assemble: {
