@@ -66,6 +66,7 @@ $font-size-14:      0.875rem !default;
 $font-size-16:      1rem !default;
 $font-size-20:      1.25rem !default;
 $font-size-24:      1.5rem !default;
+$font-size-28:      1.75rem !default;
 $font-size-32:      2rem !default;
 $font-size-40:      2.5rem !default;
 $font-size-48:      3rem !default;
@@ -82,9 +83,9 @@ $global-serif-font-family:  monospace !default;
 
 // Headings font size of the site.
 $global-headings: (
-    h1: $font-size-48,
-    h2: $font-size-40,
-    h3: $font-size-32,
+    h1: $font-size-40,
+    h2: $font-size-32,
+    h3: $font-size-28,
     h4: $font-size-24,
     h5: $font-size-20,
     h6: $font-size-16
@@ -151,7 +152,7 @@ $post-margin:               $padding-8 $padding-32 !default;
 $post-padding-sm:           $padding-8 $padding-8 !default;
 $post-margin-sm:            $padding-8 $padding-8 !default;
 $post-title-font-size:      $font-size-64 !default;
-$post-title-font-weight:    600 !default;
+$post-title-font-weight:    500 !default;
 $post-title-margin-bottom:  $padding-32 !default;
 $post-footer-margin-top:    $padding-32 !default;
 $post-footer-border-top:    $padding-1 solid $light-gray !default;
@@ -161,7 +162,7 @@ $post-tags-icon-width:      $font-size-20 !important;
 $post-tags-icon-height:     $font-size-20 !important;
 $post-tags-background:      $theme-bg-color !default;
 $post-nav-font-size:        $font-size-20 !default;
-$post-nav-font-weight:      600 !default;
+$post-nav-font-weight:      500 !default;
 $post-nav-line-height:      $padding-32 !default;
 $post-nav-hover-transform:  $padding-8 !default;
 $post-nav-padding:          $padding-8 !default;
