@@ -1,17 +1,32 @@
 // {{< details >}}
 details {
   display: block;
-  padding: 1rem;
-  border-radius: .25rem;
+  padding: $padding-16;
+  border-radius: $padding-4;
 }
 
 details > summary {
   line-height: 1;
-  padding: 1rem;
-  margin: -1rem;
-  cursor: pointer;
+  padding: $padding-16;
+  margin: -$padding-16;
+  list-style-type: none;
 }
 
 details[open] summary {
   margin-bottom: 0
+}
+
+// https://stackoverflow.com/questions/10813581/can-i-replace-the-expand-icon-of-the-details-element
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+details > summary::before {
+  content: '▶️';
+  margin-right: $padding-8;
+}
+
+details[open] > summary::before {
+  content: '🔽';
+  margin-right: $padding-8;
 }
