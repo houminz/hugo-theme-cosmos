@@ -4,25 +4,35 @@
 
 .post-toc {
   flex: 0 0 $post-toc-width;
-  margin: $post-toc-margin;
-  padding: $post-toc-padding;
   font-family: $global-serif-font-family;
   word-wrap: break-word;
   box-sizing: border-box;
 
-  .post-toc-title {
+  div.post-toc-container {
     @include fixed;
-    margin-top: $post-toc-title-margin-top;
+    margin: $post-toc-margin;
+    padding: $post-toc-padding;
+    width: $post-toc-width;
+    height: 100%;
+
+    > :first-child,
+    > :first-child > :first-child {
+      margin-top: 0;
+    }
+
+    section {
+      margin-top: $padding-16;
+    }
+  }
+
+  .post-toc-title {
     font-size: $post-toc-title-font-size;
     font-weight: 500;
     text-transform: uppercase;
   }
 
   .post-toc-content {
-    @include fixed;
-    margin-top: $post-toc-content-margin-top;
     font-size: $post-toc-content-font-size;
-
     &.always-active ul {
       display: block;
     }

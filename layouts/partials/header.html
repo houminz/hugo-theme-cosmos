@@ -1,7 +1,7 @@
 {{ os.ReadFile "assets/sprites/basic.svg" | safeHTML }}
 
 <header class="header">
-    <label for="menu-control" class="sidebar__control" tabindex="0">
+    <label for="menu-control" class="sidebar-control" tabindex="0">
         <svg class="icon menu">
             <title>{{ i18n "button_nav_open" }}</title>
             <use href="#menu"></use>
@@ -28,7 +28,7 @@
                 </svg>
               </a>
             </span>
-            <span class="menu-header__control">
+            <span class="menu-header-control">
               <label for="menu-header-control">
                 <svg class="icon angle-right">
                   <use href="#angle-right"></use>
@@ -37,7 +37,7 @@
               </label>
             </span>
         </span>
-        <label for="menu-header-control" class="menu-header__control">
+        <label for="menu-header-control" class="menu-header-control">
             <svg class="icon angle-left">
                 <use href="#angle-left"></use>
                 <title>{{ i18n "button_menu_open" }}</title>

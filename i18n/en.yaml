@@ -17,6 +17,9 @@
 - id: toc
   translation: "Table of Contents"
 
+- id: navigation
+  translation: "Navigation"
+
 - id: translations
   translation: "Translations"
 

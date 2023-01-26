@@ -121,8 +121,8 @@ $terms-count-font-size:     $font-size-14 !default;
 
 
 // =============================== Header =====================================
-$site-header-height:        $padding-64 !default;
-$site-header-padding:       $padding-32 0 !default;
+$site-header-height:        $padding-96 !default;
+$site-header-padding:       $padding-16 0 !default;
 $site-header-font-size:     $font-size-48 !default;
 $site-header-font-size-sm:  $font-size-40 !default;
 $site-header-font-family:   'Chancery', cursive, LiSu, sans-serif !default;
@@ -195,20 +195,19 @@ $content-tabs-border-top:         $padding-2 solid $light-gray;
 // ============================= End of Content ===============================
 
 // =============================== Sidebar ====================================
-$post-sidebar-nav-margin-top:       $padding-16 !default;
-$post-sidebar-nav-margin-left:      $padding-32 !default;
-$post-sidebar-nav-padding-top:      $padding-16 !default;
-$post-sidebar-nav-padding-left:     $padding-16 !default;
+$post-sidebar-title-margin-top:     $padding-96 + $padding-32 !default;
+$post-sidebar-content-margin-top:   $padding-96 + $padding-96 !default;
+$post-sidebar-nav-margin:           $post-sidebar-title-margin-top $padding-16 !default;
+$post-sidebar-nav-padding:          $padding-16 0 !default;
 // ============================= End of Sidebar ===============================
 
 // =============================== ToC ========================================
 $post-toc-list-style:               square !default;
 $post-toc-title-font-size:          $font-size-20 !default;
 $post-toc-content-font-size:        $font-size-16 !default;
-$post-toc-margin:                   $padding-96 0 0 $padding-8 !default;
-$post-toc-padding:                  $padding-32 0 !default;
 $post-toc-title-margin-top:         $padding-96 + $padding-32 !default;
-$post-toc-content-margin-top:       $padding-96 + $padding-96 !default;
+$post-toc-margin:                   $post-toc-title-margin-top $padding-16 !default;
+$post-toc-padding:                  $padding-32 0 !default;
 $post-toc-content-ul-padding-left:  $padding-16 !default;
 // ============================= End of TOC ===================================
 

@@ -10,17 +10,17 @@
 {{ if $showLeftSidebar }}
 <aside class="sidebar">
     <nav>
-        <div class="search flex align-center">
-        </div>
-        <section class="sidebar--main">
-            <h2>Navigation</h2>
-            <ul class="sidebar__list">
+        <section class="sidebar-title">
+            <span>{{ i18n "navigation" }}</span>
+        </section>
+        <section class="sidebar-content">
+            <ul>
                 {{ with .Site.GetPage $bookSection }}
                 {{ template "book-section-children" (dict "Section" . "CurrentPage" $ ) }}
                 {{ end }}
             </ul>
         </section>
-        <section class="sidebar--more">
+        <section class="sidebar-more">
             <span>Sidebar footer</span>
         </section>
     </nav>
@@ -43,7 +43,7 @@
             <input
                 type="checkbox"
                 {{ if $doCollapse }}
-                    class="sidebar__toggle" id="{{ printf "navtree-%s" $id }}"
+                    class="sidebar-toggle" id="{{ printf "navtree-%s" $id }}"
                     {{ if or $isCurrent $isAncestor }}checked{{ end }}
                 {{ else }}
                     class="hidden"
@@ -54,27 +54,17 @@
                     for="{{ printf "navtree-%s" $id }}" class="flex justify-between align-center"
                 {{ end }}
                 >
-                <span class="flex">
-                    <a
-                        href="{{ .RelPermalink }}"
-                        class="sidebar__entry{{- if eq $current . }}
-                              {{- printf " is-active" }}
-                            {{- end }}"
-                    >
-                        {{- partial "sidebar/title" .Page -}}
-                    </a>
-                </span>
-                {{ if $doCollapse }}
-                <svg class="icon toggle angle-left">
-                    <use href="#angle-left"></use>
-                </svg>
-                <svg class="icon toggle angle-down">
-                    <use href="#angle-down"></use>
-                </svg>
-                {{ end }}
+                <a
+                    href="{{ .RelPermalink }}"
+                    class="sidebar-entry{{- if eq $current . }}
+                          {{- printf " is-active" }}
+                        {{- end }}"
+                >
+                    {{- partial "sidebar/title" .Page -}}
+                </a>
             </label>
             {{ if $isParent }}
-            <ul class="sidebar__list">
+            <ul class="sidebar-list">
                 {{ template "book-section-children" (dict "Section" . "CurrentPage" $.CurrentPage) }}
             </ul>
             {{ end }}
