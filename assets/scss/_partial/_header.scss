@@ -87,7 +87,7 @@
     }
   }
 
-  #menu-control:checked ~ main {
+  #sidebar-control:checked ~ main {
     .sidebar nav, .post {
       transform: translateX($post-sidebar-width);
     }
@@ -97,7 +97,7 @@
     }
   }
 
-  #menu-control:checked ~ .header .sidebar-control {
+  #sidebar-control:checked ~ .header .sidebar-control {
     svg.icon.menu {
       display: none;
     }
