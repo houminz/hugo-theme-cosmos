@@ -4,11 +4,7 @@
 {{- $raw := (markdownify .Inner | chomp) -}}
 {{- $block := findRE "(?is)^<(?:address|article|aside|blockquote|canvas|dd|div|dl|dt|fieldset|figcaption|figure|footer|form|h(?:1|2|3|4|5|6)|header|hgroup|hr|li|main|nav|noscript|ol|output|p|pre|section|table|tfoot|ul|video)\\b" $raw 1 -}}
 {{/* Count how many times we've called this shortcode and load the css if it's the first time */}}
-{{- if not ($.Page.Scratch.Get "noticecount") -}}
-    {{ os.ReadFile "assets/sprites/notice.svg" | safeHTML }}
-{{- end -}}
 
-{{- $.Page.Scratch.Add "noticecount" 1 -}}
 <div class="notice {{ $noticeType }}" {{ if len .Params | eq 2 }} id="{{ .Get 1 }}" {{ end }}>
     <div class="notice-title">
         <span class="icon-notice baseline">

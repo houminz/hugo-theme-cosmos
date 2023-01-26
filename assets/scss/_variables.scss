@@ -54,7 +54,7 @@ $light-teal:    tint-color($teal, 80%) !default;
 $light-cyan:    tint-color($cyan, 80%) !default;
 
 $theme-color:             $cyan !default;
-$theme-bg-color:          $white !default;
+$theme-bg-color:          tint-color($yellow, 65%) !default;
 $deputy-color:            $light-cyan !default;
 // ============================== End of Color ================================
 
@@ -104,6 +104,7 @@ $padding-32:  2rem !default;
 $padding-48:  3rem !default;
 $padding-64:  4rem !default;
 $padding-96:  6rem !default;
+$padding-128: 8rem !default;
 
 $body-min-width:        20rem !default;
 $post-sidebar-width:    18rem !default;
@@ -122,6 +123,7 @@ $terms-count-font-size:     $font-size-14 !default;
 
 
 // =============================== Header =====================================
+$site-header-bg-color:      $theme-bg-color !default;
 $site-header-height:        $padding-96 !default;
 $site-header-padding:       $padding-16 0 !default;
 $site-header-font-size:     $font-size-48 !default;
@@ -151,7 +153,7 @@ $post-padding:              $padding-8 $padding-32 !default;
 $post-margin:               $padding-8 $padding-32 !default;
 $post-padding-sm:           $padding-8 $padding-8 !default;
 $post-margin-sm:            $padding-8 $padding-8 !default;
-$post-title-font-size:      $font-size-64 !default;
+$post-title-font-size:      $font-size-40 !default;
 $post-title-font-weight:    500 !default;
 $post-title-margin-bottom:  $padding-32 !default;
 $post-footer-margin-top:    $padding-32 !default;

@@ -358,7 +358,7 @@ Use the `printf()` function.
 
 ### 嵌入内容
 
-某些网站提供了基于 iframe 的嵌入代码，您也可以将其粘贴到 Typora 中。例如：
+某些网站提供了基于 iframe 的嵌入代码，例如：
 
 ```Markdown
 <iframe height='265'scrolling='no'

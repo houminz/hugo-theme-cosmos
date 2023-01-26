@@ -24,5 +24,10 @@
 <link rel="stylesheet" href="{{ "/css/" | relURL }}{{ . }}">
 {{ end }}
 
+<!-- custom svg sprites -->
+{{ range resources.Match "sprites/*.svg" -}}
+{{ printf "/assets/%s" . | os.ReadFile | safeHTML }}
+{{ end }}
+
 <!-- external js and css -->
 {{ partial "scripts.html" . }}

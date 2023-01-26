@@ -1,0 +1,16 @@
+svg.icon {
+  display: inline-block;
+  width: $font-size-32;
+  height: $font-size-32;
+  vertical-align: middle;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+  position: relative;
+}
+
+.icon-grid {
+  width: $padding-128;
+  height: $padding-128;
+  padding: 0 $padding-16;
+}

@@ -1,0 +1,14 @@
+<div class="flex flex-wrap justify-center">
+    {{ range $key := .Site.Data.icons.cosmos }}
+    <div class="flex flex-grid">
+        <div class="icon-grid align-center" >
+            <div class="flex align-center justify-center icon-grid__line">
+                <svg class="icon {{ $key }}"><use xlink:href="#{{ $key }}"></use></svg>
+            </div>
+            <div class="flex align-center justify-center icon-grid__line icon-grid__line--text">
+                <span>#{{ (replace $key "_" "_<wbr>") | safeHTML }}</span>
+            </div>
+        </div>
+    </div>
+    {{ end }}
+</div>
