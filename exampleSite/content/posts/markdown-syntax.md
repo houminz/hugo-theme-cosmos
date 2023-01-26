@@ -1,5 +1,5 @@
 ---
-author: "Houmin Wei"
+author: "Houmin"
 title: "Markdown Syntax"
 date: "2019-03-11"
 tags: ["markdown", "hugo", "cosmos"]
