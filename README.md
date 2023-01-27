@@ -1,28 +1,30 @@
 # hugo-theme-cosmos
 
-Hugo ***cosmos*** is a theme that represents a lifestyle. It's inspired by [hugo-PaperMod](https://github.com/adityatelange/hugo-PaperMod) with a lot of additional changes.
+[Hugo](https://gohugo.io/) [**Cosmos**](https://github.com/SimpCosm/hugo-theme-cosmos) is a theme that represents a lifestyle for [librabyte](https://github.com/librabyte). It's inspired by a lot of themes in hugo community and is being continuously improved.
 
 ## Key Features
 
-- [ ] Responsive and mobile friendly
-- [ ] Multilingual Mode support 
-- [x] Shortcodes : music, bilibili, douban, etc
-- [ ] Separate design for Tags & Categories Page
+- [x] Pure html/js/css, no external dependencies like jQuery/Bootstrap
+- [x] Custom css, Custom js, Custom head support
+- [x] Table of Contents
+- [x] Unrestricted menu configuration relating to amount of items and level of nesting
+- [x] [Rich short codes](https://github.com/librabyte/hugo-theme-cosmos/exampleSite/content/docs/shortcodes)
+- [x] Math formulae using the KaTeX library
+- [x] Responsive and mobile friendly
+- [x] Code syntax highlighting
+- [x] search for the sites
+- [ ] Multilingual Mode support
 - [ ] Social network linking
-- [ ] Better Pagination, TOC, footnote behavior
-- [ ] Use the awesome Chroma syntax highlighting
-- [ ] Custom css, Custom js, Custom head support
-- [ ] Sub menu support
-- [ ] Search Optimization
-- [ ] Archive of posts
-- [ ] Cover image for each post (with responsive image support)
-- [ ] Code block copy buttons
 - [ ] SEO Friendly
+- [ ] Image styling like sizing, shadow, border and alignment
 
+## Getting Support
+
+To get support, feel free to open a new [discussion topic](https://github.com/librabyte/hugo-theme-cosmos/discussions) or [issue report](https://github.com/librabyte/hugo-theme-cosmos/issues) in the official repository on GitHub.
 
 ## Contributing
 
-If you are interested in fixing issues and contributing directly to this theme. There are many ways to contribute to the Cosmos theme:
+You are most welcome to contribute bugfixes or even new features to the source code by making pull requests to the [official repository](https://github.com/librabyte/hugo-theme-cosmos) via GitHub.
 - submitting pull requests
 - reporting issues
 - providing new translations
@@ -40,3 +42,7 @@ If you are interested in fixing issues and contributing directly to this theme. 
 - [MermaidJS](https://mermaid.js.org)
 - [MarkMap](https://markmap.js.org)
 - [FuseJS](https://fusejs.io)
+
+## License
+
+This theme is licensed under the [MIT License](https://en.wikipedia.org/wiki/MIT_License).
