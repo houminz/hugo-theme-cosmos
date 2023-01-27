@@ -23,7 +23,7 @@
         {{- partial "post/tags.html" .}}
         {{- partial "post/prenext.html" . }}
 
-        {{- if and (.Site.Params.giscuss.enable) (not (.Param "disableComments")) }}
+        {{- if and (.Site.Params.comments.giscuss.enable) (ne .Params.comments false) }}
         {{- partial "comments.html" . }}
         {{- end }}
     </footer>

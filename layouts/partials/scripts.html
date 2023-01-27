@@ -1,20 +1,32 @@
 {{ $cosmos := resources.Get "js/cosmos.js" }}
-{{ $back2top := resources.Get "js/back2top.js" }}
-{{ $toc := resources.Get "js/toc.js" }}
-{{ $jsDouban := resources.Get "js/douban.js" | resources.ExecuteAsTemplate "js/douban.js" . -}}
-{{ $js := slice $cosmos $toc $back2top $jsDouban }}
+{{ $js := slice $cosmos }}
+
+{{ if default true .Site.Params.toc }}
+{{ $toc := resources.Get "js/toc.js" | resources.ExecuteAsTemplate "js/toc.js" . -}}
+{{ $js = $js | append $toc }}
+{{ end }}
+
+{{ if default true .Site.Params.back2top }}
+{{ $back2top := resources.Get "js/back2top.js" | resources.ExecuteAsTemplate "js/back2top.js" . -}}
+{{ $js = $js | append $back2top }}
+{{ end }}
 
 {{ if default true .Site.Params.search }}
 {{ $jsSearch := resources.Get "js/search.js" | resources.ExecuteAsTemplate "js/search.js" . -}}
 {{ $js = $js | append $jsSearch }}
 {{ end }}
 
-{{ if .Site.Params.markmap.enable }}
+{{ if default true .Site.Params.douban }}
+{{ $jsDouban := resources.Get "js/douban.js" | resources.ExecuteAsTemplate "js/douban.js" . -}}
+{{ $js = $js | append $jsDouban }}
+{{ end }}
+
+{{ if default true .Site.Params.markmap.enable }}
 {{ $jsMarkmap := resources.Get "js/markmap.js" | resources.ExecuteAsTemplate "js/markmap.js" . -}}
 {{ $js = $js | append $jsMarkmap }}
 {{ end }}
 
-{{ if .Site.Params.mermaid.enable }}
+{{ if default true .Site.Params.mermaid.enable }}
 {{ $jsMermaid := resources.Get "js/mermaid.js" | resources.ExecuteAsTemplate "js/mermaid.js" . -}}
 {{ $js = $js | append $jsMermaid }}
 {{ end }}
@@ -23,39 +35,38 @@
 <script type="text/javascript" src="{{ $js.RelPermalink }}"></script>
 
 <!-- core -->
-{{- if .Site.Params.publicCDN.enable }}
-    {{ if .Site.Params.photoSwipe }}
-        {{- partial "helper/external" (dict "Context" . "Namespace" "PhotoSwipe") -}}
-    {{ end }}
+{{ if .Site.Params.photoSwipe }}
+    {{- partial "helper/external" (dict "Context" . "Namespace" "PhotoSwipe") -}}
+{{ end }}
 
-    {{ if and (.Site.Params.katex.enable) (.Page.Params.math) }}
-        {{- partial "helper/external" (dict "Context" . "Namespace" "KaTeX") -}}
-    {{ end }}
+{{ if and (.Site.Params.katex.enable) (.Page.Params.math) }}
+    {{- partial "helper/external" (dict "Context" . "Namespace" "KaTeX") -}}
+    {{- partial "math.html" }}
+{{ end }}
 
-    {{ if and (.Site.Params.markmap.enable) (.Page.Params.markmap) }}
-        {{- partial "helper/external" (dict "Context" . "Namespace" "MarkMap") -}}
-    {{ end }}
+{{ if and (.Site.Params.markmap.enable) (.Page.Params.markmap) }}
+    {{- partial "helper/external" (dict "Context" . "Namespace" "MarkMap") -}}
+{{ end }}
 
-    {{ if and (.Site.Params.mermaid.enable) (.Page.Params.mermaid)}}
-        {{- partial "helper/external" (dict "Context" . "Namespace" "Mermaid") -}}
-    {{ end }}
+{{ if and (.Site.Params.mermaid.enable) (.Page.Params.mermaid)}}
+    {{- partial "helper/external" (dict "Context" . "Namespace" "Mermaid") -}}
+{{ end }}
 
-    {{ if and (.Site.Params.echarts.enable) (.Page.Params.echarts) }}
-        {{- partial "helper/external" (dict "Context" . "Namespace" "ECharts") -}}
+{{ if and (.Site.Params.echarts.enable) (.Page.Params.echarts) }}
+    {{- partial "helper/external" (dict "Context" . "Namespace" "ECharts") -}}
 
-        {{ if and (.Site.Params.echarts.map) (.Page.Params.echartsMap) }}
-            {{- partial "helper/external" (dict "Context" . "Namespace" "EChartsMap") -}}
-        {{ end }}
+    {{ if and (.Site.Params.echarts.map) (.Page.Params.echartsMap) }}
+        {{- partial "helper/external" (dict "Context" . "Namespace" "EChartsMap") -}}
     {{ end }}
+{{ end }}
 
-    {{ if and .Site.Params.meting (.Page.Params.meting) }}
-        {{- partial "helper/external" (dict "Context" . "Namespace" "Meting") -}}
-    {{ end }}
+{{ if and .Site.Params.meting (.Page.Params.meting) }}
+    {{- partial "helper/external" (dict "Context" . "Namespace" "Meting") -}}
+{{ end }}
 
-    {{ if .Site.Params.search }}
-        {{- partial "helper/external" (dict "Context" . "Namespace" "FuseJS") -}}
-    {{ end }}
-{{- end -}}
+{{ if .Site.Params.search }}
+    {{- partial "helper/external" (dict "Context" . "Namespace" "FuseJS") -}}
+{{ end }}
 
 <!-- custom js -->
 {{ range .Site.Params.customJS -}}

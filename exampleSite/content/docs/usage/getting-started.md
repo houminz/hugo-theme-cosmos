@@ -2,8 +2,8 @@
 title: "Getting Started"
 author: "Houmin"
 date: "2023-01-26"
-tags: ["code", "gist", "github", "hugo", "highlight"]
-weight: -20
+tags: ["hugo", "netlify", "cosmos"]
+weight: -100
 ---
 
 This page tells you how to get started with Hugo Cosmos, including installation and basic configuration.
@@ -24,23 +24,26 @@ To prepare your new site environment just a few steps are required:
    hugo new site demosite
    ```
 
-2. Switch to the root of the new site.
+2. Switch to the root of the new site and make the initial commit.
 
    ```bash
    cd demosite
+   git init
+   git add archetypes/ content/ config.toml
+   git commit -m "Initial commit"
    ```
 
 3. Install the Cosmos theme from a [release bundle](#option-1-download-pre-build-release-bundle) (recommended) or from [Git branch](#option-2-clone-the-github-repository).
 
    ```bash
-   git clone https://github.com/SimpCosm/hugo-theme-cosmos.git themes/cosmos
+   git submodule add https://github.com/librabyte/hugo-theme-cosmos.git themes/cosmos
+   git submodule init themes/cosmos
    ```
 4. Create the minimal required Hugo configuration `config.toml`. For all configuration options take a look at the [configuration](/docs/usage/configuration/) page.
 
    ```toml
-   baseURL = "http://localhost"
    title = "Hugo Cosmos"
-   theme = "hugo-theme-cosmos"
+   theme = "cosmos"
 
    # Required if you want to render robots.txt template
    enableRobotsTXT = true
@@ -52,6 +55,7 @@ To prepare your new site environment just a few steps are required:
        startLevel = 1
        endLevel = 9
    ```
+   
 5. Write your first posts under your demo site.
    ```bash
    hugo new posts/hello-world.md
@@ -60,6 +64,10 @@ To prepare your new site environment just a few steps are required:
 
    ```bash
    hugo server -D
+   ```
+7. Update hugo theme to the latest version.
+   ```bash
+   git submodule udpate
    ```
 
 ## Markdown your thoughts

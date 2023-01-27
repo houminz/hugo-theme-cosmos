@@ -1,13 +1,13 @@
+{{ if and .Site.Params.reward.enable (ne .Params.reward false) }}
+
 <div class="post-reward">
     <div class="post-reward-qr-container" id="rewardQR">
+        {{ range $key, $reward := .Site.Params.reward.items }}
         <div class="post-reward-qr">
-            <img src="{{ .Site.Params.reward.WechatPay }}" alt="wechatPay">
-            <p>微信</p>
+            <img src="{{ $reward }}" alt="{{- $key -}}">
+            <p>{{- $key -}}</p>
         </div>
-        <div class="post-reward-qr">
-            <img src="{{ .Site.Params.reward.AliPay }}" alt="aliPay">
-            <p>支付宝</p>
-        </div>
+        {{ end }}
     </div>
     <button id="rewardButton"
         onclick="
@@ -21,3 +21,5 @@
         <span>🧧 鼓励作者</span>
     </button>
 </div>
+
+{{- end }}

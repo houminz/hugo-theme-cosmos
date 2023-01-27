@@ -13,10 +13,6 @@ var resultsAvailable = false; // Did we get any search results?
 //
 
 document.addEventListener('keydown', function(event) {
-    console.debug("keydown");
-    console.debug(event.code);
-    console.debug(event.altKey);
-
     // CMD-/ to show / hide Search
     if (event.altKey && event.which === 191) {
         // Load json search index if first time invoking search

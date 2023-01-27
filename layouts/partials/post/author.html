@@ -1,3 +1,4 @@
+{{/* Multi Author Support, Not Used Yet */}}
 {{- if or .Params.author site.Params.author }}
 {{- $author := (.Params.author | default site.Params.author) }}
 {{- $author_type := (printf "%T" $author) }}

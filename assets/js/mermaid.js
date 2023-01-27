@@ -1,4 +1,3 @@
-{{- if .Site.Params.mermaid.enable -}}
 document.addEventListener("DOMContentLoaded", function(event) {
     const mermaids = document.querySelectorAll(".language-mermaid");
     mermaids.forEach( function (mermaid) {
@@ -8,4 +7,3 @@ document.addEventListener("DOMContentLoaded", function(event) {
         mermaid.parentElement.replaceWith(updateElement);
     });
 })
-{{- end -}}

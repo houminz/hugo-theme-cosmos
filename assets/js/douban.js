@@ -1,4 +1,3 @@
-{{- if .Site.Params.douban -}}
 document.addEventListener("DOMContentLoaded", function(event) {
     var movieShow = function (_this, ls_item, str) {
         var storage = localStorage.getItem(ls_item);
@@ -105,4 +104,3 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
     });
 });
-{{- end -}}

@@ -1,6 +1,7 @@
 languageCode = 'en-us'
-title = 'Hugo Cosmos'
 MetaDataFormat = "yaml"
+title = 'Hugo Cosmos'
+enableGitInfo = true
 
 [menu]
   [[menu.main]]
@@ -33,62 +34,51 @@ MetaDataFormat = "yaml"
     source = 'assets'
     target = 'assets'
 
+
 [params]
-  author = "Houmin"
-  description = "Demo for Hugo Cosmos"
   since = "2019"
   dateFormat = "January 2, 2006"
 
-  linkToMarkDown = false    # if you config contentCopyright and hugo output .md files
-  contentCopyright = '<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>'
-
-  enableGitInfo = true
   enableHomeProfile = false
   mainSections = ["posts"]
   bookSection = "docs"
-
-  toc = true
-  douban = true
   meting = true
   photoSwipe = false
-  alwaysCollapse = false
+
+  # (Optional, default false) Enables search function with fuse.js.
   search = true
+  # (Optional, default true) Display a "Back to top" link in the site footer.
+  back2top = true
+  # (Optional, default true) Enable douban short code for douban music/book reference.
+  douban = true
+  # (Optional, default true) Enable Table of Contents in the right sidebar.
+  toc = true
+  # (Optional, default true) Enable copyright info display in the post footer.
+  contentCopyright = true
 
-  [params.katex]
-    # enable/disable KaTeX support
+  alwaysCollapse = false
+
+  # (Optional, default true) Enable giscus as comment plugin.
+  [params.comments.giscuss]
     enable = true
-    # Element(s) scanned by auto render extension. Default: document.body
-    html_dom_element = "document.body"
+    repo = "librabyte/hugo-theme-cosmos"
+    repoId = "R_kgDOIEDNvg"
+    category = "Announcements"
+    categoryId = "DIC_kwDOIEDNvs4CTiKG"
+    theme = "light"
 
-  [params.katex.options]
-    # If true (the default), KaTeX will throw a ParseError when it encounters an
-    # unsupported command or invalid LaTeX. If false, KaTeX will render unsupported
-    # commands as text, and render invalid LaTeX as its source code with hover text
-    # giving the error, in the color given by errorColor.
-    throwOnError = false
-    errorColor = "#CD5C5C"
+  [params.reward]
+    enable = true
+    [params.reward.items]
+      wechat = "https://cosmos-1251905798.cos.ap-beijing.myqcloud.com/theme/wechatpay.png"
+      alipay = "https://cosmos-1251905798.cos.ap-beijing.myqcloud.com/theme/alipay.jpg"
 
-    # This is a list of delimiters to look for math, processed in the same order as
-    # the list. Each delimiter has three properties:
-    #   left:    A string which starts the math expression (i.e. the left delimiter).
-    #   right:   A string which ends the math expression (i.e. the right delimiter).
-    #   display: Whether math in the expression should be rendered in display mode.
-    [[params.katex.options.delimiters]]
-      left = "$$"
-      right = "$$"
-      display = true
-    [[params.katex.options.delimiters]]
-      left = "$"
-      right = "$"
-      display = false
-    [[params.katex.options.delimiters]]
-      left = "\\("
-      right = "\\)"
-      display = false
-    [[params.katex.options.delimiters]]
-      left = "\\["
-      right = "\\]"
-      display = true
+  [params.copyright]
+    enable = true
+    content = '<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>'
+    [params.copyright.gitInfo]
+      gitRepo = "https://github.com/librabyte/hugo-theme-cosmos"
+      showCommitMessage = true
 
   [params.markmap]
     enable = true
@@ -100,7 +90,8 @@ MetaDataFormat = "yaml"
     enable = true
     map = true
 
-  [params.publicCDN]
+  [params.katex]
+    # enable/disable KaTeX support
     enable = true
 
   [params.assets]
@@ -108,23 +99,6 @@ MetaDataFormat = "yaml"
     favicon16x16 = "/static/favicon/favicon-16x16.png"
     favicon32x32 = "/static/favicon/favicon-32x32.png"
     apple_touch_icon = "/static/favicon/apple_touch_icon.png"
-
-  [params.reward]
-    enable = true
-    WechatPay = "https://cosmos-1251905798.cos.ap-beijing.myqcloud.com/theme/wechatpay.png"
-    AliPay = "https://cosmos-1251905798.cos.ap-beijing.myqcloud.com/theme/alipay.jpg"
-
-  [params.gitInfo]
-    gitRepo = "https://github.com/librabyte/hugo-theme-cosmos"
-    showCommitMessage = true
-
-  [params.giscuss]
-    enable = true
-    repo = "librabyte/hugo-theme-cosmos"
-    repoId = "R_kgDOIEDNvg"
-    category = "Announcements"
-    categoryId = "DIC_kwDOIEDNvs4CTiKG"
-    theme = "light"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]

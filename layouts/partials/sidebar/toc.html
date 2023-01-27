@@ -1,11 +1,10 @@
-{{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) -}}
+{{ if and .Site.Params.toc (ne .Params.toc false) -}}
 <aside class="post-toc" id="post-toc">
     <div class="post-toc-container">
         <section class="post-toc-title">
             <span>{{ i18n "toc" }}</span>
         </section>
-        {{- $globalAutoCollapseToc := .Site.Params.autoCollapseToc | default true }}
-        <section class="post-toc-content{{ if not (or .Params.autoCollapseToc (and $globalAutoCollapseToc (ne .Params.autoCollapseToc false))) }} always-active{{ end }}">
+        <section class="post-toc-content">
             {{.TableOfContents}}
         </section>
     </div>

@@ -42,6 +42,9 @@
 - id: lastMod
   translation: "LastMod"
 
+- id: publishDate
+  translation: "Publish"
+
 - id: markdown
   translation: "Markdown"
 

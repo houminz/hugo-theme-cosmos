@@ -1,4 +1,3 @@
-{{- if .Site.Params.markmap.enable -}}
 document.addEventListener("DOMContentLoaded", function(event) {
     const markmaps = document.querySelectorAll(".language-markmap");
     markmaps.forEach( function (markmap) {
@@ -8,4 +7,3 @@ document.addEventListener("DOMContentLoaded", function(event) {
         markmap.parentElement.replaceWith(updateElement);
     })
 })
-{{- end -}}

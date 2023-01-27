@@ -1,4 +1,4 @@
-{{ $showLeftSidebar := true }}
+{{ $showLeftSidebar := .Site.Params.toc }}
 {{ $bookSection := default "docs" .Site.Params.bookSection  }}
 {{ if eq $bookSection "*" }} {{/* Backward compatibility */}}
     {{ $bookSection = "/" }}
