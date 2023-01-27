@@ -3,28 +3,26 @@
 
 name = "Cosmos"
 license = "MIT"
-licenselink = "https://github.com/SimpCosm/hugo-theme-cosmos/blob/master/LICENSE"
+licenselink = "https://github.com/librabyte/hugo-theme-cosmos/blob/master/LICENSE"
 description = "A new life style Hugo theme in cosmos"
-homepage = "https://houmin.cc/hugo-theme-cosmos"
-min_version = "0.41.0"
+homepage = "https://hugo-theme-cosmos.netlify.app/docs"
+demosite = "https://hugo-theme-cosmos.netlify.app"
+min_version = "0.93.0"
 
 tags = [
   "blog",
   "minimalist",
+  "clean",
+  "personal"
 ]
 
 features = [
   "blog",
   "favicon",
-  "scroll-to-top"
+  "scroll-to-top",
+  "ToC",
 ]
 
 [author]
-  name = "Houmin Wei"
-  homepage = "https://github.com/SimpCosm"
-
-# If porting an existing theme
-[original]
-  name = "PaperMod"
-  homepage = "https://adityatelange.github.io/hugo-PaperMod"
-  repo = "https://github.com/adityatelange/hugo-PaperMod"
+  name = "Houmin"
+  homepage = "https://github.com/librabyte"
