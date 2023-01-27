@@ -1,6 +1,6 @@
 ---
 title: Level 2
-alwaysCollapse: true
+alwaysCollapse: false
 ---
 
 This is Level 2

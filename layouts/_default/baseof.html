@@ -10,12 +10,12 @@
 {{- print "list" -}}
 {{- end -}}
 ">
-    <div class="page">
+    <div class="container page">
         <input type="checkbox" class="hidden" id="sidebar-control" />
         <input type="checkbox" class="hidden" id="menu-header-control" />
 
         {{- partialCached "header.html" . .Page -}}
-        <main class="container flex justify-center" id="main">
+        <main class="flex justify-center" id="main">
             {{- block "main" . }}{{ end }}
         </main>
         {{ partialCached "footer.html" . .Layout .Kind -}}

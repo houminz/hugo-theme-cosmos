@@ -64,3 +64,7 @@
   translation: "Open Navigation"
 - id: button_nav_close
   translation: "Close Navigation"
+- id: button_documentation
+  translation: "Documentation"
+- id: button_github
+  translation: "GitHub"

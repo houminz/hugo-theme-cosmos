@@ -1,40 +1,57 @@
 <header class="header">
-    <label for="sidebar-control" class="sidebar-control" tabindex="0">
-        <svg class="icon menu">
-            <title>{{ i18n "button_nav_open" }}</title>
-            <use href="#menu"></use>
-        </svg>
-        <svg class="icon arrow-left">
-            <title>{{ i18n "button_nav_close" }}</title>
-            <use href="#arrow-left"></use>
-        </svg>
-    </label>
-    <div class="header__link">
-        <a href="/">
-        <span class="flex align-center">
-          <span class="brand__title">{{ .Site.Title }}</span>
-        </span>
-        </a>
-    </div>
-    <div class="menu-header">
-        <span class="menu-header__items">
-            <span class="menu-header__home">
-              <a href="{{ .Site.BaseURL }}" class="gdoc-header__link">
-                <svg class="icon home">
-                  <title>{{ i18n "button_homepage" }}</title>
-                  <use href="#home"></use>
-                </svg>
-              </a>
+    <div class="container flex align-center justify-between">
+        <label for="sidebar-control" class="sidebar-control" tabindex="0">
+            <svg class="icon menu">
+                <title>{{ i18n "button_nav_open" }}</title>
+                <use href="#menu"></use>
+            </svg>
+            <svg class="icon arrow-left">
+                <title>{{ i18n "button_nav_close" }}</title>
+                <use href="#arrow-left"></use>
+            </svg>
+        </label>
+        <div class="header-link">
+            <div class="flex align-center">
+                <a href="/">
+                    <span class="brand-title">{{ .Site.Title }}</span>
+                </a>
+            </div>
+        </div>
+        <div class="menu-header">
+            <div class="menu-header-items flex align-center">
+            <span class="menu-header-home">
+                <a href="{{ .Site.BaseURL }}">
+                    <svg class="icon home">
+                        <title>{{ i18n "button_homepage" }}</title>
+                        <use href="#home"></use>
+                    </svg>
+                </a>
             </span>
+
+            {{ range .Site.Menus.main }}
+            {{ $name := .Name -}}
+            {{ $title := printf "button_%s" .Title -}}
+            {{ $url := urls.Parse .URL -}}
+            <span class="menu-header-{{- $name -}}">
+                <a href="{{- $url -}}">
+                    <svg class="icon {{ $name -}}">
+                        <title>{{ i18n $title }}</title>
+                        <use href="#{{- $name -}}"></use>
+                    </svg>
+                </a>
+            </span>
+            {{ end }}
+
             <span class="menu-header-control">
-              <label for="menu-header-control">
+                <label for="menu-header-control">
                 <svg class="icon angle-right">
-                  <use href="#angle-right"></use>
-                  <title>{{ i18n "button_menu_close" }}</title>
-                </svg>
-              </label>
+                    <use href="#angle-right"></use>
+                    <title>{{ i18n "button_menu_close" }}</title>
+                    </svg>
+                </label>
             </span>
-        </span>
+            {{ partial "search.html" }}
+        </div>
         <label for="menu-header-control" class="menu-header-control">
             <svg class="icon angle-left">
                 <use href="#angle-left"></use>
@@ -42,6 +59,5 @@
             </svg>
         </label>
     </div>
-
-    {{- partial "search.html" . -}}
 </header>
+

@@ -5,11 +5,15 @@ enableGitInfo = true
 
 [menu]
   [[menu.main]]
-    identifier = "Documentation"
-    name = "Documentation"
-    pre = "<i class='fa fa-heart'></i>"
+    title = "documentation"
+    name = "book"
     url = "/docs/"
-    weight = -20
+    weight = -50
+  [[menu.main]]
+    title = "github"
+    name = "github"
+    url = "https://github.com/librabyte/hugo-theme-cosmos"
+    weight = -30
 
 [markup]
   [markup.highlight]
@@ -42,7 +46,6 @@ enableGitInfo = true
   enableHomeProfile = false
   mainSections = ["posts"]
   bookSection = "docs"
-  meting = true
   photoSwipe = false
 
   # (Optional, default false) Enables search function with fuse.js.
@@ -53,10 +56,8 @@ enableGitInfo = true
   douban = true
   # (Optional, default true) Enable Table of Contents in the right sidebar.
   toc = true
-  # (Optional, default true) Enable copyright info display in the post footer.
-  contentCopyright = true
-
-  alwaysCollapse = false
+  # (Optional, default true) always collapse in the file tree mode.
+  alwaysCollapse = true
 
   # (Optional, default true) Enable giscus as comment plugin.
   [params.comments.giscuss]
@@ -74,6 +75,7 @@ enableGitInfo = true
       alipay = "https://cosmos-1251905798.cos.ap-beijing.myqcloud.com/theme/alipay.jpg"
 
   [params.copyright]
+    # (Optional, default true) Enable copyright info display in the post footer.
     enable = true
     content = '<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>'
     [params.copyright.gitInfo]
@@ -87,18 +89,13 @@ enableGitInfo = true
     enable = true
 
   [params.echarts]
+    # enable/disable ECharts support
     enable = true
     map = true
 
   [params.katex]
     # enable/disable KaTeX support
     enable = true
-
-  [params.assets]
-    favicon = "/static/favicon/favicon.ico"
-    favicon16x16 = "/static/favicon/favicon-16x16.png"
-    favicon32x32 = "/static/favicon/favicon-32x32.png"
-    apple_touch_icon = "/static/favicon/apple_touch_icon.png"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]

@@ -3,11 +3,6 @@
 // ==============================
 
 .header {
-  @import '_header/logo';
-  @import '_header/menu';
-}
-
-.header {
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -23,13 +18,31 @@
     color: $global-font-color;
   }
 
-  &__link:hover {
-    text-decoration: none;
-  }
-
   svg.icon {
     width: $font-size-32;
     height: $font-size-32;
+  }
+
+  .header-link {
+    margin: $site-header-link-margin;
+    padding: $site-header-link-padding;
+  }
+
+  .menu-header {
+    &-items {
+      > span {
+        margin-left: $padding-8;
+      }
+    }
+
+    &-control,
+    &-home {
+      display: none;
+
+      svg.icon {
+        cursor: pointer;
+      }
+    }
   }
 
   .sidebar-control {
@@ -77,12 +90,12 @@
   }
 
   .menu-header {
-    &__items {
+    &-items {
       display: none !important;
     }
 
     &-control,
-    &__home {
+    &-home {
       display: flex !important;
     }
   }
@@ -118,12 +131,12 @@
   }
 
   #menu-header-control:checked ~ .header {
-    .header__link {
+    .header-link {
       display: none;
     }
 
     .menu-header {
-      &__items {
+      &-items {
         display: flex !important;
       }
 

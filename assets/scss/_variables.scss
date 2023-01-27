@@ -107,6 +107,7 @@ $padding-96:  6rem !default;
 $padding-128: 8rem !default;
 
 $body-min-width:        20rem !default;
+$container-max-width:   100rem !default;
 $post-sidebar-width:    18rem !default;
 $post-toc-width:        18rem !default;
 $sm-breakpoint:         $post-sidebar-width + $body-min-width * 1.2 +  $post-toc-width !default;
@@ -126,6 +127,8 @@ $terms-count-font-size:     $font-size-14 !default;
 $site-header-bg-color:      $theme-bg-color !default;
 $site-header-height:        $padding-96 !default;
 $site-header-padding:       $padding-16 0 !default;
+$site-header-link-margin:   0 !default;
+$site-header-link-padding:  0 !default;
 $site-header-font-size:     $font-size-48 !default;
 $site-header-font-size-sm:  $font-size-40 !default;
 $site-header-font-family:   'Chancery', cursive, LiSu, sans-serif !default;
@@ -210,7 +213,7 @@ $post-toc-title-font-size:          $font-size-20 !default;
 $post-toc-content-font-size:        $font-size-16 !default;
 $post-toc-title-margin-top:         $padding-96 + $padding-32 !default;
 $post-toc-margin:                   $post-toc-title-margin-top $padding-16 !default;
-$post-toc-padding:                  $padding-32 0 !default;
+$post-toc-padding:                  $padding-16 0 !default;
 $post-toc-content-ul-padding-left:  $padding-16 !default;
 // ============================= End of TOC ===================================
 
