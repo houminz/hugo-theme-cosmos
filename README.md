@@ -2,7 +2,7 @@
 
 [![Hugo](https://img.shields.io/badge/hugo-0.109.0-blue.svg)](https://gohugo.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](LICENSE)
-![Build with Github Action](https://github.com/librabyte/hugo-theme-cosmos/workflows/Deploy%Hugo%Cosmos/badge.svg)
+![Build with Github Action](https://github.com/librabyte/hugo-theme-cosmos/workflows/Deploy%20Hugo%20Cosmos/badge.svg)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7a7fcebe-4b37-4a8b-aab7-a0f9aa62d23b/deploy-status)](https://app.netlify.com/sites/hugo-theme-cosmos/deploys)
 
 [Hugo](https://gohugo.io/) [**Cosmos**](https://github.com/SimpCosm/hugo-theme-cosmos) is a theme that represents a lifestyle for [librabyte](https://github.com/librabyte). It's inspired by a lot of themes in hugo community and is being continuously improved.
