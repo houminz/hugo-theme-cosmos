@@ -1,4 +1,4 @@
-name: Deploy Hugo Cosmos Demo
+name: Deploy Hugo Cosmos
 
 on:
   push:

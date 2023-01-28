@@ -13,11 +13,16 @@ enableGitInfo = true
 
 [menu]
   [[menu.main]]
-    identifier = "Documentation"
-    name = "Documentation"
-    pre = "<i class='fa fa-heart'></i>"
+    title = "documentation"
+    name = "book"
     url = "/docs/"
-    weight = -20
+    weight = -50
+  [[menu.main]]
+    title = "github"
+    name = "github"
+    url = "https://github.com/librabyte/hugo-theme-cosmos"
+    weight = -30
+
 
 [markup]
   [markup.highlight]
