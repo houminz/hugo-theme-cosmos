@@ -4,19 +4,22 @@ author: Houmin
 date: "2023-01-01"
 ---
 
-[Hugo](https://gohugo.io/) [**Cosmos**](https://github.com/SimpCosm/hugo-theme-cosmos) is a theme that represents a lifestyle for [librabyte](https://github.com/librabyte). It's inspired by a lot of themes in hugo community and is being continuously improved.
+# hugo-theme-cosmos
 
-## Features
+[![Hugo](https://img.shields.io/badge/hugo-0.109.0-blue.svg)](https://gohugo.io)
+[![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](LICENSE)
+![Build with Github Action](https://github.com/librabyte/hugo-theme-cosmos/workflows/Deploy%20Hugo%20Cosmos/badge.svg)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7a7fcebe-4b37-4a8b-aab7-a0f9aa62d23b/deploy-status)](https://app.netlify.com/sites/hugo-theme-cosmos/deploys)
 
-{{< notice >}}
-See [What's New](./) within the latest update.
-{{< /notice >}}
+[Hugo](https://gohugo.io/) [**Cosmos**](https://github.com/librabyte/hugo-theme-cosmos) is a theme that represents a lifestyle for [librabyte](https://github.com/librabyte). It's inspired by a lot of themes in hugo community and is being continuously improved.
+
+## Key Features
 
 - [x] Pure html/js/css, no external dependencies like jQuery/Bootstrap
 - [x] Custom css, Custom js, Custom head support
 - [x] Table of Contents
 - [x] Unrestricted menu configuration relating to amount of items and level of nesting
-- [x] [Rich short codes](./shortcodes)
+- [x] [Rich short codes](https://github.com/librabyte/hugo-theme-cosmos/exampleSite/content/docs/shortcodes)
 - [x] Math formulae using the KaTeX library
 - [x] Responsive and mobile friendly
 - [x] Code syntax highlighting
@@ -32,7 +35,7 @@ To get support, feel free to open a new [discussion topic](https://github.com/li
 
 ## Contributing
 
-You are most welcome to contribute bugfixes or even new features to the source code by making pull requests to the [official repository](https://github.com/librabyte/hugo-theme-cosmos) via GitHub. 
+You are most welcome to contribute bugfixes or even new features to the source code by making pull requests to the [official repository](https://github.com/librabyte/hugo-theme-cosmos) via GitHub.
 - submitting pull requests
 - reporting issues
 - providing new translations
