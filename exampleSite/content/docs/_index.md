@@ -24,6 +24,7 @@ date: "2023-01-01"
 - [x] Responsive and mobile friendly
 - [x] Code syntax highlighting
 - [x] search for the sites
+- [x] Wikilink and Backlinks
 - [ ] Multilingual Mode support
 - [ ] Social network linking
 - [ ] SEO Friendly

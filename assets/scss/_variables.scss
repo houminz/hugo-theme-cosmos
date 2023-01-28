@@ -305,10 +305,22 @@ $notice-icon-baseline-top:    $padding-2 !default;
 // ============================ End of Notice =================================
 
 
+// =============================== Backlink ==================================
+$backlink-background:           $light-cyan !default;
+$backlink-margin:               $padding-16 0 !default;
+$backlink-box-shadow:           $padding-2 $padding-2 $padding-4 rgba(0,0,0,0.125);
+$backlink-border-inline-start:  $padding-4 solid $theme-color;
+$backlink-border-left:          $padding-4 solid rgba($theme-color, 0.3) !default;
+
+// ============================ End of Copyright ==============================
+
 // =============================== Copyright ==================================
-$copyright-background:        $light-cyan !default;
-$copyright-border:            $light-cyan !default;
-$copyright-margin:            $padding-16 0 !default;
+$copyright-background:            $light-cyan !default;
+$copyright-margin:                $padding-16 0 !default;
+$copyright-box-shadow:            $padding-2 $padding-2 $padding-4 rgba(0,0,0,0.125);
+$copyright-border-inline-start:   $padding-4 solid $theme-color;
+$copyright-border-left:           $padding-4 solid rgba($theme-color, 0.3) !default;
+
 // ============================ End of Copyright ==============================
 
 

@@ -59,6 +59,8 @@ theme = "hugo-theme-cosmos"
   toc = true
   # (Optional, default true) always collapse in the file tree mode.
   alwaysCollapse = true
+  # (Optional, default false) enable wikilink feature.
+  wikilink = true
 
   # (Optional, default true) Enable giscus as comment plugin.
   [params.comments.giscuss]

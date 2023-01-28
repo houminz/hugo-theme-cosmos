@@ -1,0 +1,14 @@
+.backlinks {
+  margin: $padding-16 $padding-8;
+  padding: $padding-16 $padding-8;
+  border-left: $backlink-border-left;
+  border-inline-start: $backlink-border-inline-start;
+  box-shadow: $backlink-box-shadow;
+  background-color: $backlink-background;
+
+  .backlinks-title {
+    margin: 0 0 $padding-16 0;
+    padding: 0;
+    font-size: $font-size-20;
+  }
+}
