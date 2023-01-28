@@ -1,13 +1,13 @@
 .post-copyright {
-    padding: 10px;
+    margin: $padding-16 $padding-8;
+    padding: $padding-16 $padding-8;
     background-color: $copyright-background;
-    border: 1px solid $copyright-border;
-    border-radius: 0.2rem;
-    margin-top: 3em
+    border-left: $copyright-border-left;
+    border-inline-start: $padding-4 solid $theme-color;
 }
 
 .post-copyright .copyright-item {
-    margin: 5px 0;
+    margin: $padding-8 0;
 }
 
 .post-copyright .copyright-item .item-title {

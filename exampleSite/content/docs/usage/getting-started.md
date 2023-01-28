@@ -72,7 +72,9 @@ To prepare your new site environment just a few steps are required:
 
 ## Markdown your thoughts
 
-You can write your thoughts using any text editors as you like. Hugo Cosmos recommends some stands out of them:
+You can write your thoughts using any text editors as you like. All you need to do is to spend few minutes to learn [[markdown-syntax]] which is simple enough. 
+
+Hugo Cosmos recommends some stands out of them:
 - [Typora](https://typora.io): An excellent markdown editor/render with seamless live preview.
 - [Visual Studio Code](https://code.visualstudio.com): A lightweight but powerful source code editor, open source, fantastic plugins and even more.
 - [Obsidian](https://obsidian.md/): A powerful and extensible knowledge base that works on top of your local folder of plain text files.
