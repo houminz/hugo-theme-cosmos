@@ -14,34 +14,12 @@
 
 
     <div class="post-content" itemprop="articleBody">
-        {{ if .Site.Params.wikilink }}
-            {{ partial "wikilink.html" . }}
-        {{ else }}
-            {{ .Content }}
-        {{ end }}
+        {{ .Content }}
     </div>
-
-    {{ if .Site.Params.wikilink }}
-        {{ $backlinks := partial "backlinks.html" . }}
-        {{ $mentions := len $backlinks }}
-        {{ if gt $mentions 0 }}
-
-        <div class="backlinks">
-            <div class="backlinks-title">
-                <span>Linked Mentions </span>
-                <span>{{ $mentions }}</span>
-            </div>
-            {{ range $backlink := $backlinks }}
-                {{ range $key, $value := $backlink }}
-                <li><a href="{{- $key -}}">{{- $value -}}</a></li>
-                {{ end }}
-            {{ end }}
-        </div>
-        {{ end }}
-    {{ end }}
 
     {{- partial "post/copyright.html" . }}
     {{- partial "post/reward.html" . }}
+    {{- partial "backlinks.html" . }}
 
     <footer class="post-footer">
         {{- partial "post/tags.html" .}}

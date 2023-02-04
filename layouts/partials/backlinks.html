@@ -1,25 +1,31 @@
-<!--
-Search for [[wikilink]] instead of "wikilink" when finding backlinks to prevent false positives: Otherwise, for a note whose filename/title is "now", every note containing the word "now" would be appended as a backlink)
-Regex not working for notes with colons on filename because hugo .File.BaseFileName returns a string with colons removed.
--->
+{{ if and .Site.Params.wikilink }}
+<div class="post-backlink">
+    <div class="post-backlink-title">
+        <span>{{ i18n "backlinks" }}</span>
+    </div>
+    <ul class="post-backlink-items">
+        {{ $url := urls.Parse .Site.BaseURL }}
+        {{ $host := strings.TrimRight "/" $url.Path }}
+        {{ $curPage := strings.TrimPrefix "/nice" (strings.TrimRight "/" .Page.RelPermalink)}}
+        {{ $linkIndex := getJSON "/data/linkIndex.json"}}
+        {{ $inbound := index $linkIndex.index.backlinks $curPage}}
+        {{ $contentTable := getJSON "/data/contentIndex.json"}}
 
-{{ $firstBracket := "\\[\\[" }}
-{{ $lastBracket := "\\]\\]" }}
-{{ $filename := .File.BaseFileName }}
-{{ $wikilink :=  printf "%s%s%s" $firstBracket $filename $lastBracket }}
-
-{{ printf "%v" .Site.RegularPages }}
-{{ printf "----------------------" }}
-
-{{- $.Scratch.Add "backlinks" slice -}}
-{{- range .Site.RegularPages -}}
-    {{ printf "%v" .Content }}
-
-    {{ if (findRE $wikilink .Content) }}
-        {{ printf "----------------------" }}
-        {{ $.Scratch.Add "backlinks" (dict .Permalink .Title) }}
-    {{ end }}
-{{- end -}}
-
-{{- $backlinks := $.Scratch.Get "backlinks" -}}
-{{ return $backlinks }}
+        {{ if $inbound }}
+            {{ $backlinks := dict "SENTINEL" "SENTINEL"}}
+            {{ range $k, $v := $inbound}}
+                {{ $source := index $v "source" }}
+                {{ with (index $contentTable $source)}}
+                <li>
+                    <a href="{{$source}}" class="internal-link">{{index (index . "title")}}</a>
+                </li>
+                {{ end }}
+            {{ end }}
+        {{ else }}
+            <span>
+                {{ i18n "no_backlinks" }}
+            </span>
+        {{- end -}}
+    </ul>
+</div>
+{{ end }}

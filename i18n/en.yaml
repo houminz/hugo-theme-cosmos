@@ -68,3 +68,8 @@
   translation: "Documentation"
 - id: button_github
   translation: "GitHub"
+
+- id: backlinks
+  translation: "Linked Mentions"
+- id: no_backlinks
+  translation: "No backlinks found."
