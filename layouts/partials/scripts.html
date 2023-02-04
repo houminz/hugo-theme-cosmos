@@ -68,6 +68,10 @@
     {{- partial "helper/external" (dict "Context" . "Namespace" "FuseJS") -}}
 {{ end }}
 
+{{ if and .Site.Params.wikilink.enableWikilink .Site.Params.wikilink.enableLinkPreview }}
+    {{- partial "helper/external" (dict "Context" . "Namespace" "FloatingUI") -}}
+{{ end }}
+
 <!-- custom js -->
 {{ range .Site.Params.customJS -}}
 <script src="{{ "/js/" | relURL }}{{ . }}"></script>

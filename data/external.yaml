@@ -78,3 +78,11 @@ FuseJS:
   - src: https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js
     type: script
     defer: true
+
+FloatingUI:
+  - src: https://cdn.jsdelivr.net/npm/@floating-ui/core@1.1.1
+    type: script
+    defer: true
+  - src: https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.1.1
+    type: script
+    defer: true
