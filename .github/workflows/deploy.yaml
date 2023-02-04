@@ -52,7 +52,7 @@ jobs:
         with:
           ref: master
       - name: Build link index
-        uses: librabyte/hugo-obsidian@v0.0.1
+        uses: librabyte/hugo-obsidian@v0.0.2
         with:
           input: exampleSite/content # input folder
           output: exampleSite/data   # output folder
