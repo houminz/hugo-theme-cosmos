@@ -7,7 +7,7 @@ date: "2023-01-01"
 # hugo-theme-cosmos
 
 [![Hugo](https://img.shields.io/badge/hugo-0.109.0-blue.svg)](https://gohugo.io)
-[![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://en.wikipedia.org/wiki/MIT_License)
 ![Build with Github Action](https://github.com/librabyte/hugo-theme-cosmos/workflows/Deploy%20Hugo%20Cosmos/badge.svg)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7a7fcebe-4b37-4a8b-aab7-a0f9aa62d23b/deploy-status)](https://app.netlify.com/sites/hugo-theme-cosmos/deploys)
 

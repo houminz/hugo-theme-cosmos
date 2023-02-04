@@ -209,12 +209,12 @@ $$
 ```markdown
 在这段文字后添加一个脚注[^footnote]。
 
-[^footnote]: 这里是脚注的内容。
+[^footnote]: this is footnote。
 ```
 
 在这段文字后添加一个脚注[^footnote]。
 
-[^footnote]: 这里是脚注的内容。
+[^footnote]: this is footnote。
 
 > footnote 可以是任意英文字符；
 > 脚注的内容可以放在文章的任意位置（一般放最后）。
