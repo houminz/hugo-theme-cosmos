@@ -46,7 +46,7 @@
 
         {{ if gt (len $reference) 1 }}
             {{ $anchor := index $reference 1 }}
-            {{ $displayText = (printf "%s > %s" $title $anchor) }}
+            {{ $displayText = (printf "%s > %s" $displayText $anchor) }}
         {{ end }}
 
         <!-- $display is hyperlink display text -->
