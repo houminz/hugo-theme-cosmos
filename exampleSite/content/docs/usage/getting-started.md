@@ -39,7 +39,7 @@ To prepare your new site environment just a few steps are required:
    git submodule add https://github.com/librabyte/hugo-theme-cosmos.git themes/cosmos
    git submodule init themes/cosmos
    ```
-4. Create the minimal required Hugo configuration `config.toml`. For all configuration options take a look at the [configuration](/docs/usage/configuration/) page.
+4. Create the minimal required Hugo configuration `config.toml`. For all configuration options take a look at the [configuration](/docs/usage/configuration) page.
 
    ```toml
    title = "Hugo Cosmos"

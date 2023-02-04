@@ -293,7 +293,7 @@ If you want to gain more control of your code block you can enclose your code by
 
 In GFM (GitHub Flavored Markdown) you can also add a language specifier directly after the opening fence, ` ```js `, and syntax highlighting will automatically be applied according to the selected language in the rendered HTML.
 
-See [Syntax Highlighting](../syntax-highlighting) for additional documentation.
+See [[syntax-highlighting|Syntax Highlighting]] for additional documentation.
 
 ````markdown
 ```js
