@@ -14,7 +14,11 @@
 
 
     <div class="post-content" itemprop="articleBody">
-        {{ .Content }}
+        {{ if .Site.Params.wikilink.enableWikilink }}
+            {{ partial "wikilink.html" . }}
+        {{ else }}
+            {{ .Content }}
+        {{ end }}
     </div>
 
     {{- partial "post/copyright.html" . }}
