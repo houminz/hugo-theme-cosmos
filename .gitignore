@@ -3,4 +3,5 @@
 
 exampleSite/public/
 exampleSite/resources/
+exampleSite/date/*.json
 exampleSite/.hugo_build.lock
