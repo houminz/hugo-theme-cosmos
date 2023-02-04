@@ -72,7 +72,7 @@ To prepare your new site environment just a few steps are required:
 
 ## Markdown your thoughts
 
-You can write your thoughts using any text editors as you like. All you need to do is to spend few minutes to learn [[markdown-syntax]] which is simple enough. 
+You can write your thoughts using any text editors as you like. All you need to do is to spend few minutes to learn [[posts/markdown-syntax | Markdown Syntax]] which is simple enough. 
 
 Hugo Cosmos recommends some stands out of them:
 - [Typora](https://typora.io): An excellent markdown editor/render with seamless live preview.
