@@ -4,12 +4,13 @@
 
 {{/* Wikilinks */}}
 {{ $wikilinks := $content | findRE "!?\\[\\[\\S[^\\[\\]\\|]*(?:\\|[^\\[\\]]*)?\\S\\]\\]" }}
-{{$codefences := $raw | findRE "\\x60[^\\x60\\n]+\\x60"}}
-{{$codeblocks := $raw | findRE "\\x60{3}[^\\x60]+\\x60{3}"}}
-{{$code := union $codefences $codeblocks}}
+{{ $codefences := $raw | findRE "\\x60[^\\x60\\n]+\\x60"}}
+{{ $codeblocks := $raw | findRE "\\x60{3}[^\\x60]+\\x60{3}"}}
+{{ $code := union $codefences $codeblocks }}
+{{ $contentTable := getJSON "/data/contentIndex.json"}}
 
 {{ range $wikilinks }}
-    {{ $cur := .}}
+    {{ $cur := . }}
     {{ $incode := false }}
     {{ range $code }}
         {{ if (in . $cur) }}
@@ -17,7 +18,7 @@
         {{ end }}
     {{ end }}
 
-    {{if not $incode}}
+    {{if not $incode }}
         <!-- remove link delimiters -->
         {{ $inner := . | strings.TrimPrefix "!" | strings.TrimPrefix "[[" | strings.TrimSuffix "]]" }}
         <!-- split from alias -->
@@ -27,7 +28,22 @@
         {{ $reference := split $path "#" }}
         <!-- path with heading link removed -->
         {{ $title := index $reference 0 }}
+
         {{ $displayText := $title }}
+        {{ $indexPath := $title }}
+
+        {{ $isSameDirectory := eq (len (split $title "/")) 1 }}
+        {{ if $isSameDirectory }}
+            {{ $curPagePath := strings.TrimLeft "/" (strings.TrimRight "/" $page.RelPermalink) }}
+            {{ $curDirFile := path.Split $curPagePath }}
+            {{ $indexPath = printf "%s%s" $curDirFile.Dir $indexPath }}
+        {{ end }}
+
+        {{ $indexKey := printf "/%v" $indexPath }}
+        {{ with (index $contentTable $indexKey) }}
+            {{ $displayText = index (index . "title") }}
+        {{ end }}
+
         {{ if gt (len $reference) 1 }}
             {{ $anchor := index $reference 1 }}
             {{ $displayText = (printf "%s > %s" $title $anchor) }}

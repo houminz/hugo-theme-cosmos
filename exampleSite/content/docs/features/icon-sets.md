@@ -47,7 +47,7 @@ my_projcet/
 │   ├── ...
 ```
 
-That's it! The theme will auto-load all available SVG sprites provided in the assets folder. An example would be `douban` {{< icon "douban" >}}. There is also a [shortcode](/docs/shortcodes/icon/) available.
+That's it! The theme will auto-load all available SVG sprites provided in the assets folder. An example would be `douban` {{< icon "douban" >}}. There is also a [shortcode](/docs/shortcodes/icon) available.
 
 ## FontAwesome icon sets
 

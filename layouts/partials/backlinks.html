@@ -6,7 +6,7 @@
     <ul class="post-backlink-items">
         {{ $url := urls.Parse .Site.BaseURL }}
         {{ $host := strings.TrimRight "/" $url.Path }}
-        {{ $curPage := strings.TrimPrefix "/nice" (strings.TrimRight "/" .Page.RelPermalink)}}
+        {{ $curPage := strings.TrimPrefix $host (strings.TrimRight "/" .Page.RelPermalink)}}
         {{ $linkIndex := getJSON "/data/linkIndex.json"}}
         {{ $inbound := index $linkIndex.index.backlinks $curPage}}
         {{ $contentTable := getJSON "/data/contentIndex.json"}}
