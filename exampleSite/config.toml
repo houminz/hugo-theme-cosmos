@@ -64,7 +64,7 @@ theme = "hugo-theme-cosmos"
   [params.wikilink]
     enableWikilink = true
     enableBacklinks = true
-    enableLinkPreview = true
+    enableLinkPreview = false
 
   # (Optional, default true) Enable giscus as comment plugin.
   [params.comments.giscuss]
