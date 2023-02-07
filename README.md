@@ -35,7 +35,7 @@ You are most welcome to contribute bugfixes or even new features to the source c
 - providing new translations
 - creating suggestions
 
-## Specail Thanks
+## Special Thanks
 
 - [KaTeX](https://katex.org)
 - [PrismJS](https://prismjs.com)

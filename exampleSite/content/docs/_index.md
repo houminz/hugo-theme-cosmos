@@ -4,7 +4,6 @@ author: Houmin
 date: "2023-01-01"
 ---
 
-# hugo-theme-cosmos
 
 [![Hugo](https://img.shields.io/badge/hugo-0.109.0-blue.svg)](https://gohugo.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://en.wikipedia.org/wiki/MIT_License)
@@ -42,7 +41,7 @@ You are most welcome to contribute bugfixes or even new features to the source c
 - providing new translations
 - creating suggestions
 
-## Specail Thanks
+## Special Thanks
 
 - [KaTeX](https://katex.org)
 - [PrismJS](https://prismjs.com)
