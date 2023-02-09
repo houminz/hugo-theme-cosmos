@@ -3,6 +3,7 @@ author: "Houmin"
 title: "Markmap"
 date: "2023-01-07"
 markmap: true
+type: book
 tags: ["mindmap", "markdown", "short code", "hugo"]
 ---
 

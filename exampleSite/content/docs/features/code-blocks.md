@@ -2,6 +2,7 @@
 title: "Code Blocks"
 author: "Houmin"
 date: "2023-01-26"
+type: book
 tags: ["code", "gist", "github", "hugo", "highlight"]
 ---
 

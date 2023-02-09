@@ -1,5 +1,6 @@
 ---
 title: Configuration
+type: book
 weight: -10
 ---
 

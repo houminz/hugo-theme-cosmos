@@ -3,6 +3,7 @@ title: "Columns"
 author: "Houmin"
 date: "2022-12-04"
 tags: ["columns", "short code", "hugo"]
+type: book
 ---
 
 Columns help organize shorter pieces of content horizontally for readability.

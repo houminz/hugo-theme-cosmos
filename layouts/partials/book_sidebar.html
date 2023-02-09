@@ -1,13 +1,5 @@
-{{ $showLeftSidebar := .Site.Params.toc }}
-{{ $bookSection := default "docs" .Site.Params.bookSection  }}
-{{ if eq $bookSection "*" }} {{/* Backward compatibility */}}
-    {{ $bookSection = "/" }}
-    {{ $showLeftSidebar = true }}
-{{ else }}
-    {{ $showLeftSidebar = eq $bookSection .Section }}
-{{ end }}
+{{ $bookSection := default "book" .Site.Params.bookSection  }}
 
-{{ if $showLeftSidebar }}
 <aside class="sidebar">
     <nav>
         <section class="sidebar-title">
@@ -25,7 +17,6 @@
         </section>
     </nav>
 </aside>
-{{- end }}
 
 {{ define "book-section-children" }}{{/* (dict "Section" .Section "CurrentPage" .CurrentPage) */}}
     {{ range (where .Section.Pages "Params.bookhidden" "ne" true) }}
@@ -35,7 +26,7 @@
         {{ $id := substr (sha1 .Permalink) 0 8 }}
         {{ $numberOfPages := (add (len .Pages) (len .Sections)) }}
         {{ $isParent := ne $numberOfPages 0 }}
-        {{ $doCollapse := and $isParent (or (default true .Params.alwaysCollapse) (default true .Site.Params.alwaysCollapse)) }}
+        {{ $doCollapse := and $isParent (or (default true .Params.alwaysCollapse) (default true .Site.Params.alwaysCollapse )) }}
 
         {{- if eq .Section "about" -}}
         {{- else -}}
@@ -60,7 +51,7 @@
                           {{- printf " is-active" }}
                         {{- end }}"
                 >
-                    {{- partial "sidebar/title" .Page -}}
+                    {{- partial "title.html" .Page -}}
                 </a>
             </label>
             {{ if $isParent }}

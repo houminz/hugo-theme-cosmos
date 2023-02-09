@@ -2,6 +2,7 @@
 title: Search
 author: Houmin
 date: 2023-01-24
+type: book
 ---
 
 ## Build Index

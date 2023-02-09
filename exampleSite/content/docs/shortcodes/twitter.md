@@ -2,6 +2,7 @@
 author: "Houmin"
 title: "Twitter"
 date: "2022-12-04"
+type: book
 tags: ["twitter", "short code", "hugo"]
 ---
 

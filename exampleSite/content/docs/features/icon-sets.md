@@ -3,6 +3,7 @@ title: Icon Sets
 author: "Houmin"
 date: "2023-01-23"
 tags: ["icon", "fontawesome", "svg", "hugo"]
+type: book
 ---
 
 ## Built-in icon sets

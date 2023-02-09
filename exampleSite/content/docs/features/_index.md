@@ -2,6 +2,7 @@
 title: Features
 author: Houmin
 weight: -80
+type: book
 ---
 
 Hugo Cosmos support lots of features:

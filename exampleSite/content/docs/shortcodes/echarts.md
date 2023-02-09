@@ -2,6 +2,7 @@
 author: "Houmin"
 title: "ECharts"
 date: "2023-01-07"
+type: book
 echarts: true
 echartsMap: true
 tags: ["echarts", "short code", "hugo"]

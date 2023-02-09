@@ -4,6 +4,7 @@ title: "Douban"
 date: "2022-12-04"
 tags: ["douban", "short code", "hugo"]
 toc: true
+type: book
 ---
 
 ## Format

@@ -2,6 +2,7 @@
 title: "Include"
 author: "Houmin"
 date: "2023-01-20"
+type: book
 tags: ["include", "short code", "hugo"]
 ---
 

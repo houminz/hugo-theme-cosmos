@@ -2,6 +2,7 @@
 title: "Icon"
 author: "Houmin"
 date: "2022-12-04"
+type: book
 tags: ["icon", "short code", "hugo"]
 ---
 

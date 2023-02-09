@@ -1,6 +1,7 @@
 ---
 title: "Getting Started"
 author: "Houmin"
+type: book
 date: "2023-01-26"
 tags: ["hugo", "netlify", "cosmos"]
 weight: -100

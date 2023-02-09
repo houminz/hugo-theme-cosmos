@@ -2,6 +2,7 @@
 title: "Github Code"
 author: "Houmin"
 date: "2022-12-05"
+type: book
 tags: ["github", "short code", "hugo"]
 ---
 
