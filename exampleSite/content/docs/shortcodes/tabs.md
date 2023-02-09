@@ -2,6 +2,7 @@
 title: "Tabs"
 author: "Houmin"
 date: "2022-12-04"
+type: book
 tags: ["tabs", "short code", "hugo"]
 ---
 

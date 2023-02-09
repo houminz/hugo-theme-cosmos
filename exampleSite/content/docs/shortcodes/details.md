@@ -3,6 +3,7 @@ title: "Details"
 author: "Houmin"
 date: "2022-12-04"
 tags: ["details", "short code", "hugo"]
+type: book
 ---
 
 Details shortcode is a helper for details html5 element[^1].

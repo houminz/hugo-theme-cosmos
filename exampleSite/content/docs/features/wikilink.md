@@ -3,6 +3,7 @@ title: WikiLink
 author: Houmin
 date: "2023-01-27"
 weight: 10
+type: book
 ---
 
 Hugo Cosmos supports [WikiLinks](https://en.wikipedia.org/wiki/Help:Link) feature so that you can realize internal link in your knowledge base.

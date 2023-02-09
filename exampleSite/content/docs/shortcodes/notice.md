@@ -2,6 +2,7 @@
 author: "Houmin"
 title: "Notice"
 date: "2023-01-03"
+type: book
 tags: ["notice", "short code", "hugo"]
 ---
 
