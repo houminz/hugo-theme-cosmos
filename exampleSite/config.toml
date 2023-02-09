@@ -11,10 +11,16 @@ theme = "hugo-theme-cosmos"
     url = "/docs/"
     weight = -50
   [[menu.main]]
+    title = "garden"
+    name = "brain"
+    url = "/garden/"
+    weight = -40
+  [[menu.main]]
     title = "github"
     name = "github"
     url = "https://github.com/librabyte/hugo-theme-cosmos"
     weight = -30
+
 
 [markup]
   [markup.highlight]
