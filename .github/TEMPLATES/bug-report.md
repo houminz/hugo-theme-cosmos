@@ -14,8 +14,8 @@ assignees: ''
 Please fill the template below
 - **DO NOT** ask for instructions.
 - Use Discussions section if you need help
-- See project wiki https://github.com/SimpCosm/hugo-theme-cosmos/wiki
-- Read FAQs section https://github.com/SimpCosm/hugo-theme-cosmos/wiki/FAQs
+- See project wiki https://github.com/librabyte/hugo-theme-cosmos/wiki
+- Read FAQs section https://github.com/librabyte/hugo-theme-cosmos/wiki/FAQs
 - Search for previous issues/ pull requests
 
 -->
