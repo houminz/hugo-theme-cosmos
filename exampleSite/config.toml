@@ -3,6 +3,7 @@ MetaDataFormat = "yaml"
 title = 'Hugo Cosmos'
 enableGitInfo = true
 theme = "hugo-theme-cosmos"
+baseURL = "https://hugo-theme-cosmos.netlify.app/"
 
 [menu]
   [[menu.main]]
@@ -20,6 +21,11 @@ theme = "hugo-theme-cosmos"
     name = "github"
     url = "https://github.com/librabyte/hugo-theme-cosmos"
     weight = -30
+  [[menu.main]]
+    title = "rss"
+    name = "rss"
+    url = "/index.xml"
+    weight = -20
 
 
 [markup]

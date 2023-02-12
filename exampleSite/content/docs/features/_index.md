@@ -3,6 +3,7 @@ title: Features
 author: Houmin
 weight: -80
 type: book
+date: "2023-02-11"
 ---
 
 Hugo Cosmos support lots of features:
