@@ -1,18 +1,18 @@
 ---
-title: Book Layout
+title: Garden Layout
 author: Houmin
 type: book
-date: "2023-02-09"
-weight: -50
+date: "2023-02-12"
+weight: -40
 ---
 
-The book feature is designed for knowledge sharing. It can be used to create multi-page content such as online courses, software documentation, knowledge bases, books, notebooks, and tutorials.
+The `garden` feature is designed for second brain. It can be used to create multi-page content such as online courses, software documentation, knowledge bases, books, notebooks, and tutorials.
 
 <!--more-->
 
 ## Organization
 
-The `book` feature can be used to create courses, tutorials, and documentation in the following file structure:
+The `garden` feature can be used to create courses, tutorials, and documentation in the following file structure:
 
 ```shell
 content/course
@@ -60,6 +60,4 @@ type: book
 You can order your book menus using `weight: 10` in the front matter of pages, where the number defines the order.
 
 users recommend using weights that are increments of 10 so that it’s easy to reorder a page in the future without needing to change the weight of all the other pages
-
-
 

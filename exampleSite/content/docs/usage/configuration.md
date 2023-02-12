@@ -1,6 +1,7 @@
 ---
 title: Configuration
 type: book
+date: "2023-01-12"
 weight: -10
 ---
 
