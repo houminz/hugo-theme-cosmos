@@ -2,6 +2,7 @@ languageCode = 'en-us'
 MetaDataFormat = "yaml"
 title = 'Hugo Cosmos'
 enableGitInfo = true
+enableRobotsTXT = true
 theme = "hugo-theme-cosmos"
 baseURL = "https://hugo-theme-cosmos.netlify.app/"
 
@@ -118,3 +119,8 @@ baseURL = "https://hugo-theme-cosmos.netlify.app/"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
+
+[sitemap]
+  changefreq = 'monthly'
+  filename = 'sitemap.xml'
+  priority = 0.5
