@@ -68,6 +68,10 @@
     {{- partial "helper/external" (dict "Context" . "Namespace" "FuseJS") -}}
 {{ end }}
 
+{{ if .Site.Params.googleAnalytics }}
+{{ template "_internal/google_analytics.html" . }}
+{{ end }}
+
 {{ if and .Site.Params.wikilink.enableWikilink .Site.Params.wikilink.enableLinkPreview }}
     {{- partial "helper/external" (dict "Context" . "Namespace" "FloatingUI") -}}
 {{ end }}

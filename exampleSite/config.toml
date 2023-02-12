@@ -5,6 +5,7 @@ enableGitInfo = true
 enableRobotsTXT = true
 theme = "hugo-theme-cosmos"
 baseURL = "https://hugo-theme-cosmos.netlify.app/"
+googleAnalytics = 'G-ST7MVBC6EK'
 
 [menu]
   [[menu.main]]
@@ -62,6 +63,8 @@ baseURL = "https://hugo-theme-cosmos.netlify.app/"
   bookSection = "docs"
   photoSwipe = false
 
+  # (Optional, default false) Enables SEO with google analytics.
+  googleAnalytics = true
   # (Optional, default false) Enables search function with fuse.js.
   search = true
   # (Optional, default true) Display a "Back to top" link in the site footer.
