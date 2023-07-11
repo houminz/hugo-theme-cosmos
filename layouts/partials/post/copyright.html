@@ -32,8 +32,11 @@
     <p class="copyright-item">
         <span class="item-title">{{ i18n "license" }}</span>
         <span class="item-content">
-            {{ .Site.Params.copyright.content | safeHTML }}
+            本作品采用 {{ .Site.Params.copyright.content | safeHTML }} 许可协议进行许可，转载时请注明原文链接
         </span>
+    </p>
+    <p>
+        如果你在浏览博客的过程中发现了任何问题，欢迎在对应文章下评论。如果你有其他事情想要咨询，可以通过邮件联系我。
     </p>
 </div>
 {{- end }}
