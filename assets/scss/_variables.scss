@@ -224,6 +224,15 @@ $post-toc-padding:                  $padding-16 0 !default;
 $post-toc-content-ul-padding-left:  $padding-16 !default;
 // ============================= End of TOC ===================================
 
+// =============================== Sidenotes ==================================
+// Margin footnotes (Tufte / Thinking-Machines-blog style). On wide screens the
+// footnote body floats into the right gutter next to its reference; on narrow
+// screens the reader falls back to the standard footnote list at the bottom.
+$sidenote-width:       13rem !default;
+$sidenote-gutter:      15rem !default;
+$sidenote-breakpoint:  75rem !default;
+// ============================ End of Sidenotes ==============================
+
 // =============================== Back2Top ===================================
 $back2top-width:          $padding-48 !default;
 $back2top-height:         $padding-48 !default;

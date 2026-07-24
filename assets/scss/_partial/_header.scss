@@ -73,6 +73,9 @@
   }
 
   .menu-header {
+    display: flex;
+    align-items: center;
+
     &-items {
       > span {
         margin-left: $padding-8;
@@ -117,6 +120,8 @@
   .header {
     font-size: $site-header-font-size-sm;
     justify-content: space-between;
+    padding-left: $padding-8;
+    padding-right: $padding-8;
 
     .sidebar-control {
       display: inline-block !important;
@@ -125,7 +130,25 @@
     svg.icon {
       width: $font-size-40;
       height: $font-size-40;
-      margin: 0 $padding-16;
+      margin: 0 $padding-8;
+    }
+
+    // Keep the dark-mode toggle prominent and always tappable on mobile,
+    // even while the collapsed menu (.menu-header-items) is hidden.
+    .theme-toggle {
+      width: $font-size-40;
+      height: $font-size-40;
+      margin-left: 0;
+      margin-right: $padding-8;
+      border: 1px solid var(--c-header-border);
+      background-color: var(--c-surface);
+      color: $global-font-color;
+
+      svg.icon {
+        width: $font-size-24;
+        height: $font-size-24;
+        margin: 0;
+      }
     }
   }
 

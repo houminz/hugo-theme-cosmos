@@ -7,6 +7,9 @@
   font-family: $global-serif-font-family;
   word-wrap: break-word;
   box-sizing: border-box;
+  // On desktop the ToC sits in the left margin (like the reference blog), which
+  // frees the whole right margin for sidenotes. Article stays first in the DOM.
+  order: -1;
 
   div.post-toc-container {
     @include fixed;
@@ -71,6 +74,8 @@
 
 @media screen and (max-width: $sm-breakpoint) {
   .post-toc {
+    // Restore natural (DOM) order on mobile; the ToC becomes a fixed left drawer.
+    order: 0;
     margin-right: -$post-toc-width !important;
   }
 

@@ -1,0 +1,88 @@
+// ==============================
+// Sidenotes (margin footnotes, Tufte / Thinking-Machines-blog style)
+// ==============================
+//
+// Hugo renders footnotes as a list at the end of the article. Cosmos.sidenotes
+// (cosmos.js) clones each footnote body next to its in-text reference as a
+// <span class="sidenote"> and marks the container with .has-sidenotes. On wide
+// screens those spans float into the right gutter; on narrow screens they are
+// hidden and the standard footnote list at the bottom is used instead.
+
+// In-text reference marker.
+.post-content sup[id^="fnref"] a.footnote-ref {
+  color: var(--c-accent);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0 0.15em;
+}
+
+// Injected margin notes are hidden until there is room for them.
+.post-content .sidenote {
+  display: none;
+}
+
+// Bottom footnote list (fallback): give the otherwise-unstyled list some polish.
+.post-content .footnotes {
+  margin-top: $padding-32;
+  padding-top: $padding-16;
+  border-top: 1px solid var(--c-border);
+  font-size: $font-size-14;
+  color: var(--c-text-muted);
+
+  ol {
+    margin-left: $padding-16;
+  }
+
+  p {
+    margin: $padding-4 0;
+  }
+}
+
+@media screen and (min-width: $sidenote-breakpoint) {
+  // Reserve a right gutter on the text column for the notes to sit in.
+  // The selector must out-specify `.post .post-content` from _post/_content.
+  .post .post-content.has-sidenotes {
+    position: relative;
+    padding-right: $sidenote-gutter;
+  }
+
+  // Notes are positioned absolutely (their `top` is set by Cosmos.layoutSidenotes)
+  // so references inside tables, blockquotes or lists never break the layout.
+  .post-content.has-sidenotes .sidenote {
+    display: block;
+    position: absolute;
+    right: 0;
+    width: $sidenote-width;
+    font-size: $font-size-14;
+    line-height: 1.5;
+    color: var(--c-text-muted);
+    text-align: left;
+
+    a {
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+
+    p {
+      margin: 0 0 $padding-8;
+    }
+  }
+
+  // A run of adjacent citations is forced to stack; a hairline rule keeps them
+  // from reading as one dense block (set by Cosmos.layoutSidenotes).
+  .post-content.has-sidenotes .sidenote.is-stacked {
+    border-top: 1px solid var(--c-border);
+    padding-top: $padding-8;
+  }
+
+  .post-content.has-sidenotes .sidenote-num {
+    color: var(--c-accent);
+    font-weight: 600;
+    margin-right: 0.35em;
+  }
+
+  // With margin notes shown, the bottom list is redundant.
+  .post-content.has-sidenotes .footnotes {
+    display: none;
+  }
+}
