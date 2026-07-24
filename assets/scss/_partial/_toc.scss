@@ -10,6 +10,7 @@
 
   div.post-toc-container {
     @include fixed;
+    z-index: 45;
     margin: $post-toc-margin;
     padding: $post-toc-padding;
     width: $post-toc-width;
@@ -51,8 +52,16 @@
       }
     }
 
+    .toc-link {
+      color: var(--c-text-muted);
+      transition: color 0.15s ease;
+
+      &:hover { color: var(--c-text); text-decoration: none; }
+    }
+
     .toc-link.active {
       color: $theme-color;
+      font-weight: 600;
     }
   }
 }

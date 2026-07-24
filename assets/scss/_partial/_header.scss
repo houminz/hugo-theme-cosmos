@@ -8,6 +8,13 @@
   align-items: center;
   justify-content: center;
   background-color: $site-header-bg-color;
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--c-header-border);
+
+  position: sticky;
+  top: 0;
+  z-index: 50;
 
   font-family: $site-header-font-family;
   font-size: $site-header-font-size;
@@ -16,11 +23,48 @@
 
   a {
     color: $global-font-color;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .brand-title {
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 
   svg.icon {
+    width: $font-size-24;
+    height: $font-size-24;
+  }
+
+  // Dark-mode toggle button
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: $font-size-32;
     height: $font-size-32;
+    margin-left: $padding-8;
+    padding: 0;
+    border-radius: 50%;
+    color: $global-font-color;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+
+    &:hover {
+      background-color: var(--c-surface);
+      color: var(--c-accent);
+    }
+
+    svg.icon {
+      width: $font-size-20;
+      height: $font-size-20;
+    }
+
+    .icon-sun { display: none; }
+    .icon-moon { display: inline-block; }
   }
 
   .header-link {
@@ -62,6 +106,11 @@
       display: none;
     }
   }
+}
+
+:root[data-theme="dark"] .header .theme-toggle {
+  .icon-sun { display: inline-block; }
+  .icon-moon { display: none; }
 }
 
 @media screen and (max-width: $sm-breakpoint) {

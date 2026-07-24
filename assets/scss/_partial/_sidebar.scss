@@ -7,6 +7,7 @@
     transition: 0.2s ease-in-out;
     transition-property: transform, margin-left, opacity;
     will-change: transform, margin-left;
+    z-index: 45;
 
     @include fixed;
 
@@ -49,10 +50,19 @@
       margin-right: $padding-4;
     }
 
+    a {
+      display: inline-block;
+      padding: $padding-2 $padding-8;
+      border-radius: $padding-4;
+      color: var(--c-text);
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
     a:hover, a:focus {
       outline: 0;
-      background-color: $dark-gray;
-      color: $white;
+      background-color: var(--c-hover-bg);
+      color: var(--c-hover-text);
+      text-decoration: none;
     }
   }
 

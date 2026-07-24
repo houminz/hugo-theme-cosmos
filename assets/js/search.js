@@ -1,153 +1,163 @@
-var fuse; // holds our search engine
-var fuseIndex;
-var searchVisible = false;
-var firstRun = true; // allow us to delay loading json data unless search activated
-var list = document.getElementById('searchResults'); // targets the <ul>
-//var first = list.firstChild; // first child of search list
-//var last = list.lastChild; // last child of search list
-var maininput = document.getElementById('search-input'); // input box for search
-var resultsAvailable = false; // Did we get any search results?
+'use strict';
 
-// ==========================================
-// The main keyboard event listener running the show
-//
+// ---------------------------------------------------------------------------
+// Client-side search powered by Fuse.js.
+// Index is loaded lazily on first interaction to keep the initial payload small.
+// ---------------------------------------------------------------------------
+(function () {
+    const input = document.getElementById('search-input');
+    const results = document.getElementById('searchResults');
+    const container = document.getElementById('fastSearch');
+    if (!input || !results || !container) return;
 
-document.addEventListener('keydown', function(event) {
-    // CMD-/ to show / hide Search
-    if (event.altKey && event.which === 191) {
-        // Load json search index if first time invoking search
-        // Means we don't load json unless searches are going to happen; keep user payload small unless needed
-        doSearch(event)
+    const RESULT_LIMIT = 8;
+    const SNIPPET_LEN = 90;
+
+    let fuse = null;
+    let loading = false;
+    let pendingQuery = null;
+
+    function escapeHTML(str) {
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;');
     }
 
-    // Allow ESC to close search box
-    if (event.code === "Escape") {
-        if (searchVisible) {
-            document.getElementById("fastSearch").style.visibility = "hidden";
-            document.activeElement.blur();
-            searchVisible = false;
+    function escapeRegExp(str) {
+        return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    // Highlight the query terms inside an (already HTML-escaped) string.
+    function highlight(text, terms) {
+        let out = escapeHTML(text);
+        terms.forEach(function (term) {
+            if (term.length < 2) return;
+            const re = new RegExp('(' + escapeRegExp(escapeHTML(term)) + ')', 'gi');
+            out = out.replace(re, '<mark>$1</mark>');
+        });
+        return out;
+    }
+
+    function buildSnippet(contents, terms) {
+        if (!contents) return '';
+        let idx = -1;
+        for (let i = 0; i < terms.length; i++) {
+            idx = contents.toLowerCase().indexOf(terms[i].toLowerCase());
+            if (idx !== -1) break;
         }
+        let start = idx > 20 ? idx - 20 : 0;
+        let snippet = contents.substr(start, SNIPPET_LEN);
+        if (start > 0) snippet = '…' + snippet;
+        if (start + SNIPPET_LEN < contents.length) snippet += '…';
+        return snippet;
     }
 
-    if (event.code === "ArrowDown") {
-        if (searchVisible && resultsAvailable) {
-            event.preventDefault(); // stop window from scrolling
-            if ( document.activeElement == maininput) { first.focus(); } // if the currently focused element is the main input --> focus the first <li>
-            else if ( document.activeElement == last ) { last.focus(); } // if we're at the bottom, stay there
-            else { document.activeElement.parentElement.nextSibling.firstElementChild.focus(); } // otherwise select the next search result
+    function render(items, terms) {
+        if (!items.length) {
+            results.innerHTML = '<li class="search-empty">No results</li>';
+            return;
         }
-    }
-
-    if (event.code === "ArrowDown") {
-        if (searchVisible && resultsAvailable) {
-            event.preventDefault(); // stop window from scrolling
-            if ( document.activeElement == maininput) { maininput.focus(); } // If we're in the input box, do nothing
-            else if ( document.activeElement == first) { maininput.focus(); } // If we're at the first item, go to input box
-            else { document.activeElement.parentElement.previousSibling.firstElementChild.focus(); } // Otherwise, select the search result above the current active one
+        const seen = {};
+        let html = '';
+        for (let i = 0; i < items.length && Object.keys(seen).length < RESULT_LIMIT; i++) {
+            const item = items[i].item;
+            if (seen[item.permalink]) continue;
+            seen[item.permalink] = true;
+            const title = highlight(item.title || '(untitled)', terms);
+            const snippet = highlight(buildSnippet(item.contents, terms), terms);
+            html += '<li><a href="' + item.permalink + '" tabindex="0">'
+                + '<span class="title">' + title + '</span>'
+                + (snippet ? '<span class="search-snippet">' + snippet + '</span>' : '')
+                + '</a></li>';
         }
+        results.innerHTML = html;
     }
-});
 
-
-// ==========================================
-// execute search as each character is typed
-//
-
-document.addEventListener("DOMContentLoaded", function() {
-    var searchInput = document.getElementById("search-input");
-    searchInput.addEventListener("keyup", function() {
-        executeSearch(this.value);
-    })
-
-    searchInput.addEventListener("keydown", function(event) {
-        doSearch(event);
-    })
-})
-
-function doSearch(e) {
-    e.stopPropagation();
-    if (firstRun) {
-        loadSearch() // loads our json data and builds fuse.js search index
-        firstRun = false // let's never do this again
-    }
-}
-
-// ==========================================
-// fetch some json without jquery
-//
-function fetchJSONFile(path, callback) {
-    var httpRequest = new XMLHttpRequest();
-    httpRequest.onreadystatechange = function() {
-        if (httpRequest.readyState === 4) {
-            if (httpRequest.status === 200) {
-                var data = JSON.parse(httpRequest.responseText);
-                if (callback) callback(data);
-            }
+    function runQuery(term) {
+        const q = term.trim();
+        if (!q) { results.innerHTML = ''; return; }
+        if (!fuse) {
+            pendingQuery = q;
+            results.innerHTML = '<li class="search-empty">Loading…</li>';
+            loadIndex();
+            return;
         }
-    };
-    httpRequest.open('GET', path);
-    httpRequest.send();
-}
+        const terms = q.split(/\s+/).filter(Boolean);
+        render(fuse.search(q), terms);
+    }
 
+    function loadIndex() {
+        if (loading || fuse) return;
+        loading = true;
+        fetch('/index.json')
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+                const options = {
+                    shouldSort: true,
+                    ignoreLocation: true,
+                    threshold: 0.35,
+                    minMatchCharLength: 2,
+                    keys: [
+                        { name: 'title', weight: 0.6 },
+                        { name: 'tags', weight: 0.2 },
+                        { name: 'contents', weight: 0.2 }
+                    ]
+                };
+                fuse = new Fuse(data, options);
+                loading = false;
+                if (pendingQuery !== null) {
+                    const q = pendingQuery;
+                    pendingQuery = null;
+                    runQuery(q);
+                }
+            })
+            .catch(function () {
+                loading = false;
+                results.innerHTML = '<li class="search-empty">Search unavailable</li>';
+            });
+    }
 
-// ==========================================
-// load our search index, only executed once
-// on first call of search box (CMD-/)
-//
-function loadSearch() {
-    fetchJSONFile('/index.json', function(data){
-        var options = { // fuse.js options; check fuse.js website for details
-            shouldSort: true,
-            location: 0,
-            distance: 100,
-            threshold: 0.4,
-            minMatchCharLength: 2,
-            keys: [
-                'permalink',
-                'title',
-                'tags',
-                'contents'
-            ]
-        };
-        // Create the Fuse index
-        fuseIndex = Fuse.createIndex(options.keys, data)
-        fuse = new Fuse(data, options, fuseIndex); // build the index from the json file
+    // Debounce input to avoid searching on every keystroke.
+    let debounceTimer = null;
+    input.addEventListener('input', function () {
+        const value = this.value;
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(function () { runQuery(value); }, 120);
     });
-}
 
+    // Preload the index as soon as the user focuses the box.
+    input.addEventListener('focus', loadIndex);
 
-// ==========================================
-// using the index we loaded on CMD-/, run
-// a search query (for "term") every time a letter is typed
-// in the search box
-//
-function executeSearch(term) {
-    let results = fuse.search(term); // the actual query being run using fuse.js
-    let searchitems = ''; // our results bucket
+    // Keyboard navigation across input + result links.
+    container.addEventListener('keydown', function (e) {
+        const links = Array.prototype.slice.call(results.querySelectorAll('a'));
 
-    if (results.length === 0) { // no results based on what was typed into the input box
-        resultsAvailable = false;
-        searchitems = '';
-    } else { // build our html
-        let permalinks = [];
-        let numLimit = 5;
-        for (let item in results) { // only show first 5 results
-            if (item > numLimit) {
-                break;
-            }
-            if (permalinks.includes(results[item].item.permalink)) {
-                continue;
-            }
-            //   console.log('item: %d, title: %s', item, results[item].item.title)
-            searchitems = searchitems + '<li><a href="' + results[item].item.permalink + '" tabindex="0">' + '<span class="title">' + results[item].item.title + '</span></a></li>';
-            permalinks.push(results[item].item.permalink);
+        if (e.key === 'Escape') {
+            input.value = '';
+            results.innerHTML = '';
+            input.blur();
+            return;
         }
-        resultsAvailable = true;
-    }
 
-    document.getElementById("searchResults").innerHTML = searchitems;
-    if (results.length > 0) {
-    //    first = list.firstChild.firstElementChild; // first result container — used for checking against keyboard up/down location
-    //    last = list.lastChild.firstElementChild; // last result container — used for checking against keyboard up/down location
-    }
-}
+        if (!links.length) return;
+        const active = document.activeElement;
+        const currentIndex = links.indexOf(active);
+
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            const next = currentIndex < 0 ? 0 : Math.min(currentIndex + 1, links.length - 1);
+            links[next].focus();
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (currentIndex <= 0) {
+                input.focus();
+            } else {
+                links[currentIndex - 1].focus();
+            }
+        } else if (e.key === 'Enter' && currentIndex >= 0) {
+            links[currentIndex].click();
+        }
+    });
+})();

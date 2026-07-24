@@ -1,13 +1,15 @@
 code:not(.hljs) {
   font-size: 85%;
-  background: $inline-code-color;
+  font-family: $code-font-family;
+  color: var(--c-code-inline-text);
+  background: var(--c-code-inline-bg);
   padding: $inline-code-padding;
   margin: $inline-code-margin;
   border-radius: $inline-code-border-radius;
 }
 
 pre:not(.hljs) {
-  background: $inline-code-color;
+  background: var(--c-code-inline-bg);
 }
 .highlight {
   margin: $code-margin;

@@ -53,9 +53,12 @@ $light-green:   tint-color($green, 80%) !default;
 $light-teal:    tint-color($teal, 80%) !default;
 $light-cyan:    tint-color($cyan, 80%) !default;
 
-$theme-color:             $cyan !default;
-$theme-bg-color:          tint-color($yellow, 65%) !default;
-$deputy-color:            $light-cyan !default;
+// Themeable colors are driven by CSS custom properties (see _base.scss :root),
+// so light/dark mode can switch at runtime. Do NOT apply SCSS color math
+// (rgba/darken/lighten) to these — use the dedicated tokens below instead.
+$theme-color:             var(--c-accent) !default;
+$theme-bg-color:          var(--c-bg) !default;
+$deputy-color:            var(--c-accent) !default;
 // ============================== End of Color ================================
 
 
@@ -74,12 +77,16 @@ $font-size-64:      4rem !default;
 $font-size-96:      6rem !default;
 $font-size-128:     8rem !default;
 
-$global-font-color:         $black !default;
+$font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter",
+  Roboto, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB",
+  "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", sans-serif !default;
+
+$global-font-color:         var(--c-text) !default;
 $global-font-size:          $font-size-16 !default;
-$global-lineheight:         $font-size-24 !default;
-$global-head-lineheight:    $font-size-64 !default;
-$global-font-family:        monospace !default;
-$global-serif-font-family:  monospace !default;
+$global-lineheight:         1.7 !default;
+$global-head-lineheight:    1.3 !default;
+$global-font-family:        $font-family-sans !default;
+$global-serif-font-family:  $font-family-sans !default;
 
 // Headings font size of the site.
 $global-headings: (
@@ -118,20 +125,20 @@ $term-tags-margin:          $padding-4 $padding-8 !default;
 $term-tags-padding:         $padding-4 $padding-8 !default;
 $term-border-radius:        $padding-8 !default;
 $term-color:                $global-font-color !default;
-$term-bg-color:             $theme-bg-color !default;
+$term-bg-color:             var(--c-surface) !default;
 $terms-count-font-size:     $font-size-14 !default;
 // =========================== End of Terms ==================================
 
 
 // =============================== Header =====================================
-$site-header-bg-color:      $theme-bg-color !default;
-$site-header-height:        $padding-96 !default;
-$site-header-padding:       $padding-16 0 !default;
+$site-header-bg-color:      var(--c-header-bg) !default;
+$site-header-height:        $padding-64 !default;
+$site-header-padding:       $padding-8 0 !default;
 $site-header-link-margin:   0 !default;
 $site-header-link-padding:  0 !default;
-$site-header-font-size:     $font-size-48 !default;
-$site-header-font-size-sm:  $font-size-40 !default;
-$site-header-font-family:   'Chancery', cursive, LiSu, sans-serif !default;
+$site-header-font-size:     $font-size-28 !default;
+$site-header-font-size-sm:  $font-size-24 !default;
+$site-header-font-family:   $font-family-sans !default;
 // =============================== End of Header ==============================
 
 
@@ -160,12 +167,12 @@ $post-title-font-size:      $font-size-40 !default;
 $post-title-font-weight:    500 !default;
 $post-title-margin-bottom:  $padding-32 !default;
 $post-footer-margin-top:    $padding-32 !default;
-$post-footer-border-top:    $padding-1 solid $light-gray !default;
+$post-footer-border-top:    $padding-1 solid var(--c-border) !default;
 $post-tags-padding:         $padding-16 !default;
 $post-tags-margin:          $padding-8 !default;
 $post-tags-icon-width:      $font-size-20 !important;
 $post-tags-icon-height:     $font-size-20 !important;
-$post-tags-background:      $theme-bg-color !default;
+$post-tags-background:      var(--c-surface) !default;
 $post-nav-font-size:        $font-size-20 !default;
 $post-nav-font-weight:      500 !default;
 $post-nav-line-height:      $padding-32 !default;
@@ -181,23 +188,23 @@ $content-margin:          $padding-8 $padding-16 !default;
 $content-padding-sm:      $padding-8 $padding-2 !default;
 $content-margin-sm:       $padding-8 $padding-2 !default;
 
-$content-blockquote-backgroud:    rgba($theme-color, 0.1) !default;
-$content-blockquote-border-left:  $padding-4 solid rgba($theme-color, 0.3) !default;
+$content-blockquote-backgroud:    var(--c-accent-soft) !default;
+$content-blockquote-border-left:  $padding-4 solid var(--c-accent-border) !default;
 $content-blockquote-margin:       $padding-16 0 !default;
 $content-blockquote-padding:      $padding-16 $padding-32 !default;
-$content-blockquote-box-shadow:   $padding-2 $padding-2 $padding-4 rgba(0,0,0,0.125);
-$content-blockquote-border-inline-start: $padding-4 solid $theme-color;
+$content-blockquote-box-shadow:   none;
+$content-blockquote-border-inline-start: $padding-4 solid var(--c-accent);
 
 $content-hr-margin:               $padding-16 0 !default;
 $content-hr-border-top:           $padding-2 dashed $theme-color !default;
 
 $content-tabs-border-radius:      $padding-4 !default;
-$content-tabs-border:             $padding-2 solid $light-gray;
+$content-tabs-border:             $padding-2 solid var(--c-border);
 $content-tabs-margin:             $padding-16 0 !default;
 $content-tabs-padding:            $padding-16 !default;
 $content-tabs-label-padding:      $padding-8 $padding-16 !default;
 $content-tabs-border-bottom:      $padding-2 solid $theme-color;
-$content-tabs-border-top:         $padding-2 solid $light-gray;
+$content-tabs-border-top:         $padding-2 solid var(--c-border);
 // ============================= End of Content ===============================
 
 // =============================== Sidebar ====================================
@@ -224,8 +231,8 @@ $back2top-border-radius:  50% !default;
 $back2top-padding:        $padding-8 !default;
 $back2top-bottom:         $padding-64 !default;
 $back2top-right:          $padding-64 !default;
-$back2top-color:          $dark-gray !default;
-$back2top-bg-color:       $light-gray !default;
+$back2top-color:          var(--c-text) !default;
+$back2top-bg-color:       var(--c-surface) !default;
 // ============================ End of Back2Top ===============================
 
 // =============================== Search ======================================
@@ -306,20 +313,20 @@ $notice-icon-baseline-top:    $padding-2 !default;
 
 
 // =============================== Backlink ==================================
-$backlink-background:           $light-cyan !default;
+$backlink-background:           var(--c-surface) !default;
 $backlink-margin:               $padding-16 0 !default;
-$backlink-box-shadow:           $padding-2 $padding-2 $padding-4 rgba(0,0,0,0.125);
-$backlink-border-inline-start:  $padding-4 solid $theme-color;
-$backlink-border-left:          $padding-4 solid rgba($theme-color, 0.3) !default;
+$backlink-box-shadow:           none;
+$backlink-border-inline-start:  $padding-4 solid var(--c-accent);
+$backlink-border-left:          $padding-4 solid var(--c-accent-border) !default;
 
 // ============================ End of Copyright ==============================
 
 // =============================== Copyright ==================================
-$copyright-background:            $light-cyan !default;
+$copyright-background:            var(--c-surface) !default;
 $copyright-margin:                $padding-16 0 !default;
-$copyright-box-shadow:            $padding-2 $padding-2 $padding-4 rgba(0,0,0,0.125);
-$copyright-border-inline-start:   $padding-4 solid $theme-color;
-$copyright-border-left:           $padding-4 solid rgba($theme-color, 0.3) !default;
+$copyright-box-shadow:            none;
+$copyright-border-inline-start:   $padding-4 solid var(--c-accent);
+$copyright-border-left:           $padding-4 solid var(--c-accent-border) !default;
 
 // ============================ End of Copyright ==============================
 
@@ -337,7 +344,7 @@ $reward-font-size:            $font-size-16 !default;
 
 
 // =============================== Table ======================================
-$table-background:        $light-cyan !default;
-$table-border-color:      darken($table-background, 40%) !default;
-$table-background-dark:   darken($table-background, 20%) !default;
+$table-background:        var(--c-surface) !default;
+$table-border-color:      var(--c-border-strong) !default;
+$table-background-dark:   var(--c-surface-2) !default;
 // ============================ End of Table ==================================

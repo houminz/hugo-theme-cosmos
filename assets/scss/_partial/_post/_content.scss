@@ -25,11 +25,12 @@
     position: relative;
     margin: $content-blockquote-margin;
     padding: $content-blockquote-padding;
-    color: $black;
+    color: var(--c-text);
     background-color: $content-blockquote-backgroud;
     border-left: $content-blockquote-border-left;
     box-shadow: $content-blockquote-box-shadow;
     border-inline-start: $padding-4 solid $theme-color;
+    border-radius: 0 $padding-4 $padding-4 0;
 
     p {
       margin: 0;

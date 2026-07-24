@@ -18,55 +18,94 @@
     input {
       width: 85%;
       padding: $padding-8;
-      color: $black;
-      font-weight: bold;
-      background-color: $light-gray;
-      border-radius: $padding-4;
+      color: var(--c-text);
+      background-color: var(--c-input-bg);
+      border: 1px solid var(--c-border);
+      border-radius: $padding-8;
       text-align: left;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+      &::placeholder { color: var(--c-text-muted); }
+
+      &:focus {
+        border-color: var(--c-accent);
+        box-shadow: 0 0 0 3px var(--c-accent-soft);
+      }
     }
 
     svg {
       width: 15%;
+      color: var(--c-text-muted);
     }
   }
 
   .search-result {
     visibility: inherit;
-    display: inline-block;
+    display: block;
     position: absolute;
     margin: $search-result-margin;
     width: $search-result-width;
-    overflow: hidden;
+    max-height: 60vh;
+    overflow-y: auto;
+    background-color: var(--c-bg);
+    border: 1px solid var(--c-border);
+    border-radius: $padding-8;
+    box-shadow: var(--c-shadow);
+    z-index: 55;
+
+    &:empty { display: none; }
+
+    ul { padding: 0; margin: 0; }
 
     a {
       text-decoration: none !important;
-      padding: $padding-8;
-      display: inline-block;
+      padding: $padding-8 $padding-16;
+      display: block;
       width: 100%;
+      color: var(--c-text);
     }
 
     a:hover, a:focus {
       outline: 0;
-      background-color: $dark-gray;
-      color: $white;
+      background-color: var(--c-hover-bg);
+      color: var(--c-hover-text);
+
+      .search-snippet, mark { color: inherit; }
     }
 
     li {
       list-style: none;
       margin: 0;
-      background-color: $white;
-      border-bottom: $padding-1 dotted $black;
+
+      & + li { border-top: 1px solid var(--c-border); }
 
       .title {
         font-size: $font-size-16;
-        display: inline-block;
+        font-weight: 600;
+        display: block;
+      }
+
+      .search-snippet {
+        display: block;
+        font-size: $font-size-14;
+        color: var(--c-text-muted);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      mark {
+        background: var(--c-accent-soft);
+        color: var(--c-accent);
+        border-radius: 2px;
+        padding: 0 1px;
       }
     }
-  }
-}
 
-@media screen and (max-width: $sm-breakpoint) {
-  #fastSearch {
-    display: none;
+    .search-empty {
+      padding: $padding-8 $padding-16;
+      color: var(--c-text-muted);
+      font-size: $font-size-14;
+    }
   }
 }
