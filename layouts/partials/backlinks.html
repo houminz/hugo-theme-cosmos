@@ -1,31 +1,44 @@
-{{ if .Site.Params.wikilink.enableBacklinks }}
+{{ if and .Site.Params.wikilink.enableBacklinks (not .IsHome) }}
+{{ $url := urls.Parse .Site.BaseURL }}
+{{ $host := strings.TrimRight "/" $url.Path }}
+{{ $curPage := strings.TrimPrefix $host (strings.TrimRight "/" .Page.RelPermalink) }}
+{{/* Skip the root/"" bucket, which collects dangling wikilinks. */}}
+{{ if $curPage }}
+{{ $linkIndex := getJSON "/data/linkIndex.json" }}
+{{ $inbound := index $linkIndex.index.backlinks $curPage }}
+{{ $contentTable := getJSON "/data/contentIndex.json" }}
+
+{{/* De-duplicate sources and drop entries without a title. */}}
+{{ $items := slice }}
+{{ $seen := slice }}
+{{ range $k, $v := $inbound }}
+    {{ $source := index $v "source" }}
+    {{ if not (in $seen $source) }}
+        {{ $seen = $seen | append $source }}
+        {{ with (index $contentTable $source) }}
+            {{ $title := index . "title" }}
+            {{ if $title }}
+                {{ $items = $items | append (dict "url" $source "title" $title) }}
+            {{ end }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+
 <div class="post-backlink">
     <div class="post-backlink-title">
         <span>{{ i18n "backlinks" }}</span>
     </div>
     <ul class="post-backlink-items">
-        {{ $url := urls.Parse .Site.BaseURL }}
-        {{ $host := strings.TrimRight "/" $url.Path }}
-        {{ $curPage := strings.TrimPrefix $host (strings.TrimRight "/" .Page.RelPermalink)}}
-        {{ $linkIndex := getJSON "/data/linkIndex.json"}}
-        {{ $inbound := index $linkIndex.index.backlinks $curPage}}
-        {{ $contentTable := getJSON "/data/contentIndex.json"}}
-
-        {{ if $inbound }}
-            {{ $backlinks := dict "SENTINEL" "SENTINEL"}}
-            {{ range $k, $v := $inbound}}
-                {{ $source := index $v "source" }}
-                {{ with (index $contentTable $source)}}
+        {{ if $items }}
+            {{ range $items }}
                 <li>
-                    <a href="{{$source}}" class="internal-link">{{index (index . "title")}}</a>
+                    <a href="{{ .url }}" class="internal-link">{{ .title }}</a>
                 </li>
-                {{ end }}
             {{ end }}
         {{ else }}
-            <span>
-                {{ i18n "no_backlinks" }}
-            </span>
-        {{- end -}}
+            <span>{{ i18n "no_backlinks" }}</span>
+        {{ end }}
     </ul>
 </div>
+{{ end }}
 {{ end }}
