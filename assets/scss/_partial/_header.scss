@@ -169,16 +169,6 @@
     }
   }
 
-  #menu-header-control:checked ~ main {
-    .post-toc, .post {
-      transform: translateX(-$post-toc-width);
-    }
-
-    .post {
-      opacity: 0.25;
-    }
-  }
-
   #menu-header-control:checked ~ .header {
     .header-link {
       display: none;

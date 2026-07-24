@@ -93,8 +93,8 @@ Cosmos.navControls = function () {
         if (e.key === 'Escape' && anyOpen()) closeAll();
     });
 
-    // Close the drawer after navigating from the sidebar.
-    document.querySelectorAll('.sidebar a').forEach(function (link) {
+    // Close the drawer after navigating from the sidebar or the TOC.
+    document.querySelectorAll('.sidebar a, .post-toc a').forEach(function (link) {
         link.addEventListener('click', closeAll);
     });
 };

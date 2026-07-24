@@ -11,10 +11,13 @@
   div.post-toc-container {
     @include fixed;
     z-index: 45;
-    margin: $post-toc-margin;
+    // `fixed` pins top:0/bottom:0 and enables vertical scroll; the top margin
+    // offsets the panel below the header. Do NOT force height:100% here or the
+    // box grows past the viewport and the last items become unreachable.
+    margin: $post-toc-title-margin-top $padding-16 $padding-16;
     padding: $post-toc-padding;
     width: $post-toc-width;
-    height: 100%;
+    max-height: calc(100vh - #{$post-toc-title-margin-top} - #{$padding-16});
 
     > :first-child,
     > :first-child > :first-child {
@@ -71,13 +74,38 @@
     margin-right: -$post-toc-width !important;
   }
 
-  #menu-header-control:checked ~ main {
-    .post-toc, .post {
-      transform: translateX(-$post-toc-width);
+  // Post pages have no left sidebar, so the top-left control (#sidebar-control)
+  // opens the Table of Contents as a left drawer. The scrim / click-outside /
+  // ESC / scroll-lock behaviour is provided by Cosmos.navControls in cosmos.js.
+  body:not(.list) {
+    .post-toc .post-toc-container {
+      top: $site-header-height;
+      bottom: 0;
+      left: 0;
+      right: auto;
+      width: $post-toc-width;
+      max-width: 82vw;
+      max-height: none;
+      margin: 0;
+      padding: $padding-16 $padding-24;
+      background: var(--c-bg);
+      border-right: 1px solid var(--c-border);
+      box-shadow: var(--c-shadow);
+      transform: translateX(-100%);
+      transition: transform 0.25s ease;
+      z-index: 46;
     }
 
-    .post {
-      opacity: 0.25;
+    #sidebar-control:checked ~ main {
+      .post-toc .post-toc-container {
+        transform: translateX(0);
+      }
+
+      // Dim the article, but don't shove it sideways (override sidebar rule).
+      .post {
+        transform: none;
+        opacity: 0.25;
+      }
     }
   }
 }

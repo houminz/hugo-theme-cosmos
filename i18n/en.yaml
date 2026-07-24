@@ -14,6 +14,9 @@
     one : "word"
     other: "{{ .Count }} words"
 
+- id: search
+  translation: "Search"
+
 - id: toc
   translation: "Table of Contents"
 

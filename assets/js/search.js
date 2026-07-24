@@ -5,6 +5,7 @@
 // Index is loaded lazily on first interaction to keep the initial payload small.
 // ---------------------------------------------------------------------------
 (function () {
+function init() {
     const input = document.getElementById('search-input');
     const results = document.getElementById('searchResults');
     const container = document.getElementById('fastSearch');
@@ -160,4 +161,13 @@
             links[currentIndex].click();
         }
     });
+}
+
+// The bundle is loaded in <head> without defer, so the search DOM may not
+// exist yet. Defer init until the document is ready (matches cosmos.js/toc.js).
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}
 })();
