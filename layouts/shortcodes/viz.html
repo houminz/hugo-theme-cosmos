@@ -1,0 +1,103 @@
+{{- /*
+  viz —— 在正文里嵌入一个可交互的 HTML 可视化页面。
+
+  用法：
+    {{< viz src="/viz/moe-flow.html" >}}
+    {{< viz src="/viz/moe-flow.html" height="1240" title="MoE 计算流程" caption="四段计算流程" >}}
+
+  参数：
+    src         必填。站点根开始的路径，或完整 URL。
+    height      初始高度，同时也是自动高度不可用时的回退值。默认 640；纯数字按 px 处理。
+    title       iframe 的无障碍标题，默认取 src 的文件名。
+    caption     图注，留空则不显示。
+    link        "false" 时隐藏右下角的「单独打开」链接。
+    autoheight  "false" 时忽略子页面上报的高度，始终用 height。
+    theme       "false" 时不把宿主页的明暗主题同步给子页面。
+
+  子页面只要引一行 <script src="/viz/embed.js"></script>（该文件随主题分发），
+  就会自动上报高度、跟随宿主页主题，不必自己实现 postMessage 协议。
+  不引也能用，只是高度固定为 height、也不会跟随明暗主题。
+*/ -}}
+
+{{- $src := or (.Get "src") (.Get "file") -}}
+{{- with $src | not -}}
+  {{- errorf "viz: 缺少 src 参数，位置 %s" $.Position -}}
+{{- end -}}
+
+{{- $h := .Get "height" | default "640" -}}
+{{- if findRE `^[0-9.]+$` $h -}}{{- $h = printf "%spx" $h -}}{{- end -}}
+
+{{- $title := .Get "title" | default (path.BaseName $src) | default "可视化" -}}
+{{- $caption := .Get "caption" -}}
+{{- $autoheight := ne (.Get "autoheight") "false" -}}
+{{- $theme := ne (.Get "theme") "false" -}}
+{{- $link := ne (.Get "link") "false" -}}
+
+{{- if not ($.Page.Scratch.Get "vizEmbedInit") -}}
+{{- $.Page.Scratch.Set "vizEmbedInit" true -}}
+<style>
+.viz-embed{margin:1.6rem 0}
+.viz-embed .viz-frame{display:block;width:100%;border:1px solid var(--c-border,#e6e6e9);
+  border-radius:10px;background:var(--c-bg,#fff)}
+.viz-embed figcaption{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;
+  gap:.3rem 1.2rem;margin-top:.5rem;font-size:.82rem;line-height:1.6;color:var(--c-text-muted,#57606a)}
+.viz-embed figcaption a{color:var(--c-accent,#2f6f4f);text-decoration:none;white-space:nowrap}
+.viz-embed figcaption a:hover{text-decoration:underline}
+</style>
+<script>
+(function () {
+  if (window.__vizEmbed) return;
+  window.__vizEmbed = true;
+
+  function frames() {
+    return Array.prototype.slice.call(document.querySelectorAll('iframe.viz-frame'));
+  }
+  function sendTheme(f) {
+    if (!f || !f.contentWindow || f.dataset.vizTheme === 'off') return;
+    f.contentWindow.postMessage({
+      type: 'viz:theme',
+      theme: document.documentElement.getAttribute('data-theme') || 'light'
+    }, '*');
+  }
+  function sendThemeAll() { frames().forEach(sendTheme); }
+
+  addEventListener('message', function (e) {
+    if (!e.data || typeof e.data.type !== 'string') return;
+    var f = frames().filter(function (x) { return x.contentWindow === e.source; })[0];
+    if (!f) return;
+    if (e.data.type === 'viz:ready') sendTheme(f);
+    if (e.data.type === 'viz:height' && f.dataset.vizAutoheight !== 'off') {
+      var h = parseInt(e.data.height, 10);
+      if (h > 0) f.style.height = h + 'px';
+    }
+  });
+
+  /* 子页面引了 embed.js 就靠 viz:ready 同步；没引的走 load 事件兜底 */
+  function wire() {
+    frames().forEach(function (f) {
+      f.addEventListener('load', function () { sendTheme(f); });
+    });
+    sendThemeAll();
+  }
+  if (document.readyState === 'loading') addEventListener('DOMContentLoaded', wire);
+  else wire();
+
+  new MutationObserver(sendThemeAll).observe(document.documentElement, {
+    attributes: true, attributeFilter: ['data-theme']
+  });
+})();
+</script>
+{{- end -}}
+
+<figure class="viz-embed">
+  <iframe class="viz-frame" src="{{ $src | relURL }}" title="{{ $title }}" loading="lazy"
+          allow="fullscreen" allowfullscreen style="height:{{ $h }}"
+          data-viz-autoheight="{{ if $autoheight }}on{{ else }}off{{ end }}"
+          data-viz-theme="{{ if $theme }}on{{ else }}off{{ end }}"></iframe>
+  {{- if or $caption $link }}
+  <figcaption>
+    <span>{{ with $caption }}{{ . | $.Page.RenderString }}{{ end }}</span>
+    {{- if $link }}<a href="{{ $src | relURL }}" target="_blank" rel="noopener">单独打开 ↗</a>{{ end }}
+  </figcaption>
+  {{- end }}
+</figure>
