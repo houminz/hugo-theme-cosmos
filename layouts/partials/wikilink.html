@@ -3,7 +3,11 @@
 {{ $page := .Page }}
 
 {{/* Wikilinks */}}
-{{ $wikilinks := $content | findRE "!?\\[\\[\\S[^\\[\\]\\|]*(?:\\|[^\\[\\]]*)?\\S\\]\\]" }}
+{{/* 先摘掉渲染后的代码区。下面那套 $code 检查拿的是 raw markdown，比对的却是渲染后的
+     候选串：代码一旦被高亮加了 <span>、或者引号被转义成 &#39;，`in` 就永远不成立，
+     于是 TOML 的 [[neighbors]]、pandas 的 df[['a','b']] 会被当成 wikilink 替换掉。 */}}
+{{ $scannable := $content | replaceRE "(?s)<pre.*?</pre>" "" | replaceRE "(?s)<code.*?</code>" "" }}
+{{ $wikilinks := $scannable | findRE "!?\\[\\[\\S[^\\[\\]\\|]*(?:\\|[^\\[\\]]*)?\\S\\]\\]" }}
 {{ $codefences := $raw | findRE "\\x60[^\\x60\\n]+\\x60"}}
 {{ $codeblocks := $raw | findRE "\\x60{3}[^\\x60]+\\x60{3}"}}
 {{ $code := union $codefences $codeblocks }}
