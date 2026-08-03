@@ -25,6 +25,10 @@ pre:not(.hljs) {
 
   code {
     background: $monakai-background-color;
+    /* Chroma 只给有颜色的 token 套 span，其余（标识符、参数、标点）靠继承。它把底色
+       写在 <pre> 上，但上面那条行内代码的规则同样命中块里的 <code>，把这些字重新刷成
+       行内代码的品红 —— 在 #272822 上只有 2.5:1，正好是块里最常见的那部分字。 */
+    color: $monakai-text-color;
     padding: 0;
     margin: 0;
     /* 整块必须共用一个字号。行号和代码是 <table> 的两个 <td>：行号列走普通内联流，
