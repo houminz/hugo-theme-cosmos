@@ -27,7 +27,7 @@ Add this snippet to your config file to [instruct Hugo to create the index file 
 ```
 
 The index.json looks like this, its data structure is defined by `layouts/_default/index.json`:
-![](https://cosmos-1251905798.cos.ap-beijing.myqcloud.com/blog/2023-01-25_hugo-search-index.png)
+![](https://img.houmin.site/2023-01-25_hugo-search-index.png)
 
 ## Load Fuse.JS
 
@@ -97,7 +97,7 @@ function executeSearch(term) {
 
 ## Execute Search
 
-![](https://cosmos-1251905798.cos.ap-beijing.myqcloud.com/blog/2023-01-25_hugo-execute-search.png)
+![](https://img.houmin.site/2023-01-25_hugo-execute-search.png)
 
 ## Reference
 

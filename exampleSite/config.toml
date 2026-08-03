@@ -94,8 +94,8 @@ googleAnalytics = 'G-ST7MVBC6EK'
   [params.reward]
     enable = true
     [params.reward.items]
-      wechat = "https://cosmos-1251905798.cos.ap-beijing.myqcloud.com/theme/wechatpay.png"
-      alipay = "https://cosmos-1251905798.cos.ap-beijing.myqcloud.com/theme/alipay.jpg"
+      wechat = "/reward/wechatpay.png"
+      alipay = "/reward/alipay.jpg"
 
   [params.copyright]
     # (Optional, default true) Enable copyright info display in the post footer.
