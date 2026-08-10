@@ -1,0 +1,112 @@
+// ==============================
+// Grouped taxonomies (companies / models / topics / people)
+// Only rendered on pages that declare them — daily issues, in practice.
+// ==============================
+
+.post-taxonomies {
+  margin: $padding-16 0 $padding-24;
+  padding: $padding-16;
+  border: 1px solid var(--c-border);
+  border-radius: 8px;
+  background: var(--c-surface);
+  font-size: $font-size-14;
+
+  > summary {
+    cursor: pointer;
+    // `display: block` is what actually drops the disclosure triangle —
+    // summary defaults to `display: list-item`, and `list-style: none` alone
+    // still leaves a ::marker box in Chrome.
+    display: block;
+    list-style: none;
+    text-align: right;
+    color: var(--c-text-secondary, var(--c-text));
+    opacity: .65;
+    font-size: $font-size-12;
+    // _details.scss decorates every summary under .post with a ▶️/🔽 emoji and
+    // an oversized hit area, for the {{< details >}} shortcode. Neither suits a
+    // tag strip, and the emoji drops to tofu without a colour emoji font.
+    padding: 0;
+    margin: 0;
+
+    &::before {
+      content: none;
+    }
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    // Triangle points at the state the click will produce. U+25B8/25BE are used
+    // instead of the prettier chevrons at U+2303/2304, which fall back to tofu
+    // in the body font.
+    > span::before {
+      content: "\25B8";
+      display: inline-block;
+      margin-inline-end: $padding-4;
+    }
+  }
+
+  &[open] > summary > span::before {
+    content: "\25BE";
+  }
+
+  // _details.scss swaps the emoji on `details[open]`, and that attribute makes
+  // its selector outrank the plain override above — it has to be cancelled at
+  // matching specificity too.
+  &[open] > summary::before {
+    content: none;
+  }
+
+  .post-taxonomies-body {
+    margin-top: $padding-8;
+  }
+}
+
+.taxonomy-group {
+  margin-bottom: $padding-8;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.taxonomy-label {
+  margin-bottom: $padding-4;
+  font-size: $font-size-12;
+  letter-spacing: .06em;
+  opacity: .5;
+}
+
+.taxonomy-terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $padding-4;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  > li {
+    margin: 0;
+
+    > a {
+      display: inline-block;
+      padding: 2px $padding-8;
+      border: 1px solid var(--c-border);
+      border-radius: 6px;
+      color: inherit;
+      text-decoration: none;
+      white-space: nowrap;
+
+      &:hover {
+        border-color: var(--c-primary, currentColor);
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $sm-breakpoint) {
+  .post-taxonomies {
+    padding: $padding-8;
+  }
+}

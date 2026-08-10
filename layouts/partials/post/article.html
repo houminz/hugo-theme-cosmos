@@ -14,6 +14,7 @@
         {{- end }}
     </header>
 
+    {{- partial "post/taxonomies.html" . }}
 
     <div class="post-content" itemprop="articleBody"{{ if $sidenote }} data-sidenote="true"{{ end }}>
         {{ if .Site.Params.wikilink.enableWikilink }}

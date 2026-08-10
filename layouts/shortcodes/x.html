@@ -1,0 +1,106 @@
+{{- /*
+  Embed an X (Twitter) post.
+
+      {{< x user="joelniklaus" id="2085725862142623875" >}}
+      {{< x joelniklaus 2085725862142623875 >}}
+      {{< x 2085725862142623875 >}}
+      {{< x user="ClaudeDevs" id="2085794862608318627" simple="true" >}}
+
+  The named form matches Hugo's built-in `x` shortcode (added in v0.141.0), so
+  content written against the official docs keeps working after a Hugo upgrade.
+  This copy exists because the built-in is unavailable before v0.141.0, and
+  because the built-in aborts the whole build when oEmbed fails.
+
+  Renders the full X widget by default. oEmbed hands back only the post text
+  plus a `pic.twitter.com` link — attached photos, videos, quoted posts and link
+  cards exist solely inside the widget, so images require widgets.js. The script
+  is injected once per page, not once per post.
+
+  `simple="true"` renders the text-only blockquote instead: no JavaScript, no
+  iframe, no attached media. Set `params.xSimple = true` in the site config to
+  make that the default and opt back in per post with `simple="false"`.
+
+  Either way the blockquote is real markup, so a reader whose browser blocks
+  platform.x.com still sees the post text and a link rather than a blank gap.
+
+  A post that cannot be fetched — deleted, rate limited, or an offline build —
+  degrades to a plain permalink and a warning, never a failed build.
+*/ -}}
+
+{{- $user := .Get "user" | default "" -}}
+{{- $id := .Get "id" | default "" -}}
+
+{{- /* Hugo types a bare numeric positional arg as int, so normalise to string. */ -}}
+{{- if not $id -}}
+  {{- with .Params -}}
+    {{- if reflect.IsSlice . -}}
+      {{- if ge (len .) 2 -}}
+        {{- $user = printf "%v" (index . 0) -}}
+        {{- $id = printf "%v" (index . 1) -}}
+      {{- else if eq (len .) 1 -}}
+        {{- $id = printf "%v" (index . 0) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $user = printf "%v" $user -}}
+{{- $id = printf "%v" $id -}}
+
+{{- if not (findRE `^[0-9]+$` $id) -}}
+  {{- errorf "shortcode x: want a numeric post id, got %q — called from %s" $id .Position -}}
+{{- end -}}
+
+{{- /* x.com resolves /i/status/<id> for any post, so `user` is optional. */ -}}
+{{- $permalink := printf "https://x.com/%s/status/%s" (or $user "i") $id -}}
+
+{{- $simple := site.Params.xSimple | default false -}}
+{{- with .Get "simple" -}}
+  {{- $simple = ne . "false" -}}
+{{- end -}}
+
+{{- $embed := "" -}}
+{{- /* Always omit oEmbed's own script tag so widgets.js can be emitted once per page. */ -}}
+{{- $endpoint := printf "https://publish.twitter.com/oembed?url=%s&dnt=true&hide_thread=true&omit_script=true" (urlquery $permalink) -}}
+{{- with resources.GetRemote $endpoint -}}
+  {{- with .Err -}}
+    {{- warnf "shortcode x: oEmbed failed for %s (%s) — falling back to a link" $permalink . -}}
+  {{- else -}}
+    {{- $embed = (unmarshal .Content).html -}}
+  {{- end -}}
+{{- else -}}
+  {{- warnf "shortcode x: no oEmbed response for %s — falling back to a link" $permalink -}}
+{{- end -}}
+
+{{- if not (.Page.Scratch.Get "x-shortcode-css") -}}
+  {{- .Page.Scratch.Set "x-shortcode-css" true -}}
+<style>
+.x-post { margin: 1rem 0; }
+.x-post blockquote.twitter-tweet {
+  margin: 0;
+  padding: 0.7em 1em;
+  border: 1px solid rgba(128, 128, 128, 0.28);
+  border-left: 3px solid #1d9bf0;
+  border-radius: 6px;
+  background: rgba(128, 128, 128, 0.05);
+  font-size: 0.95em;
+  line-height: 1.65;
+}
+.x-post blockquote.twitter-tweet p { margin: 0 0 0.4em; }
+.x-post blockquote.twitter-tweet a { text-decoration: none; }
+.x-post blockquote.twitter-tweet a:hover { text-decoration: underline; }
+.x-post--fallback { font-size: 0.95em; opacity: 0.85; }
+</style>
+{{- end -}}
+
+{{- if $embed -}}
+<div class="x-post">{{ $embed | safeHTML }}</div>
+  {{- if and (not $simple) (not (.Page.Scratch.Get "x-shortcode-widgets")) -}}
+    {{- .Page.Scratch.Set "x-shortcode-widgets" true -}}
+{{- /* platform.x.com 302s here; link the target directly to save a round trip. */ -}}
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  {{- end -}}
+{{- else -}}
+<div class="x-post x-post--fallback">
+  <a href="{{ $permalink }}" rel="nofollow noopener" target="_blank">{{ with $user }}@{{ . }} 在 X 上的帖子{{ else }}X 上的帖子{{ end }} · {{ $id }}</a>
+</div>
+{{- end -}}

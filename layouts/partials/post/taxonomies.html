@@ -1,0 +1,39 @@
+{{/*
+    Grouped taxonomy block for pages that carry the daily-report taxonomies
+    (companies / models / topics / people). Renders nothing at all when a page
+    has none of them, so ordinary posts are untouched.
+
+    The whole thing is a <details> so the list can be folded away without JS —
+    an issue can carry 40+ terms and that is a lot of chrome above the article.
+*/}}
+{{- $groups := slice
+    (dict "taxonomy" "companies" "label" "COMPANIES")
+    (dict "taxonomy" "models"    "label" "MODELS")
+    (dict "taxonomy" "topics"    "label" "TOPICS")
+    (dict "taxonomy" "people"    "label" "PEOPLE")
+-}}
+{{- $present := slice -}}
+{{- range $groups -}}
+    {{- $label := .label -}}
+    {{- with $.GetTerms .taxonomy -}}
+        {{- $present = $present | append (dict "label" $label "terms" .) -}}
+    {{- end -}}
+{{- end -}}
+
+{{- with $present }}
+<details class="post-taxonomies" open>
+    <summary><span>show/hide tags</span></summary>
+    <div class="post-taxonomies-body">
+        {{- range . }}
+        <div class="taxonomy-group">
+            <div class="taxonomy-label">{{ .label }}</div>
+            <ul class="taxonomy-terms">
+                {{- range .terms }}
+                <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+                {{- end }}
+            </ul>
+        </div>
+        {{- end }}
+    </div>
+</details>
+{{- end }}

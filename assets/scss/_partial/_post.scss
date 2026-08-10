@@ -9,6 +9,7 @@
   margin: $post-margin;
 
   @import '_post/header';
+  @import '_post/taxonomies';
   @import '_post/content';
   @import '_post/copyright';
   @import '_post/footer';
